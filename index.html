@@ -152,6 +152,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yilia" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/yxk17668/2019/06/06/yilia/">yilia主题</a>
+    </h1>
+  
+
+        
+        <a href="/yxk17668/2019/06/06/yilia/" class="archive-article-date">
+  	<time datetime="2019-06-06T09:08:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <p>##Hexo添加文章目录</p>
+<p>###文件配置</p>
+<blockquote>
+<p>我们需要编辑文章显示页面的模版，如下文件</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/landscape/layout/_partial/article.ejs</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在文件中找到对应的关键代码</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">post.content</span> %&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>并在这一行之前加入如下代码：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Table of Contents --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (!<span class="attr">index</span> &amp;&amp; <span class="attr">post.toc</span>)&#123; %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"toc"</span> <span class="attr">class</span>=<span class="string">"toc-article"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">"toc-title"</span>&gt;</span>文章目录<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">toc</span>(<span class="attr">post.content</span>) %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>文章开头的front-matter中添加一句toc: true属性</p>
+</blockquote>
+<p>###CSS样式添加</p>
+<blockquote>
+<p>指定文件目录修改样式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/landscape/source/css/_partial/article.styl</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>代码如下：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*toc*/</span><br><span class="line">.toc-article</span><br><span class="line">    background #eee</span><br><span class="line">    border 1px solid #bbb</span><br><span class="line">    border-radius 10px</span><br><span class="line">    margin 1.5em 0 0.3em 1.5em</span><br><span class="line">    padding 1.2em 1em 0 1em</span><br><span class="line">    max-width 28%</span><br><span class="line"></span><br><span class="line">.toc-title</span><br><span class="line">    font-size 120%</span><br><span class="line"></span><br><span class="line">#toc</span><br><span class="line">    line-height 1em</span><br><span class="line">    font-size 0.9em</span><br><span class="line">    float right</span><br><span class="line">.toc</span><br><span class="line">    padding 0</span><br><span class="line">    margin 1em</span><br><span class="line">    line-height 1.8em</span><br><span class="line">    li</span><br><span class="line">    list-style-type none</span><br><span class="line"></span><br><span class="line">.toc-child </span><br><span class="line">    margin-left 1em</span><br></pre></td></tr></table></figure>
+<p>###注意</p>
+<blockquote>
+<p>由于Hexo使用的是stylus预处理器，所以CSS代码要注意缩进，不然就报错了</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yilia文章目录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/yxk17668/2019/06/06/yilia/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Markdown语法(三)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -668,6 +779,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">马克飞象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yilia文章目录</a>
               </li>
             
             <div class="clearfix"></div>
