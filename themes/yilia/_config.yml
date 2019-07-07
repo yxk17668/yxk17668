@@ -6,10 +6,10 @@ menu:
 
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
-  zhihu: "#"
+  github: "https://github.com/yxk17668"
+  douban: "https://www.douban.com/people/125778937/"
+  twitter: "http://mrincognito.lofter.com/"
+  facebook: "https://500px.com/yxk17668"
   #qq: "#"
   #weixin: "#"
   #jianshu: "#"
@@ -37,7 +37,7 @@ excerpt_link: more
 # 文章卡片右下角常驻链接，不需要请设置为false
 show_all_link: '展开全文'
 # 数学公式
-mathjax: false
+mathjax: true
 # 是否在新窗口打开链接
 open_in_new: false
 
@@ -65,10 +65,10 @@ top: true
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
-favicon: /favicon.png
+favicon: /assets/img/icon.jpeg
 
 #你的头像url
-avatar:
+avatar: /assets/img/icon.jpeg
 
 #是否开启分享
 share_jia: true
@@ -91,11 +91,11 @@ changyan_conf: false
 disqus: false
 
 #5、Gitment
-gitment_owner: false      #你的 GitHub ID
-gitment_repo: ''          #存储评论的 repo
+gitment_owner: yxk17668      #你的 GitHub ID
+gitment_repo: 'yxk17668'          #存储评论的 repo
 gitment_oauth:
-  client_id: ''           #client ID
-  client_secret: ''       #client secret
+  client_id: '2bf5a0de6d9309fe61aa'           #client ID
+  client_secret: 'f2cd2672847950319423eedc67aa18f18bb943b9'       #client secret
 
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
@@ -120,11 +120,12 @@ smart_menu:
   aboutme: '关于我'
 
 friends:
-  友情链接1: http://localhost:4000/
-  友情链接2: http://localhost:4000/
-  友情链接3: http://localhost:4000/
-  友情链接4: http://localhost:4000/
-  友情链接5: http://localhost:4000/
-  友情链接6: http://localhost:4000/
+  廖雪峰: https://www.liaoxuefeng.com/
+  解道JDON: https://www.jdon.com/
+  chepoo: http://www.chepoo.com/
+  并发编程网: http://ifeve.com/
+  算法: http://top.jobbole.com/tag/algorithm/
+  前端工程: https://github.com/fouber/blog/issues/10
+  掘金: https://juejin.im/
 
-aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+aboutme: 你知道<br><br>我不知道的<br>就是这样
