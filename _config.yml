@@ -76,7 +76,7 @@ menu:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: Alex
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -105,7 +105,7 @@ jsonContent:
     tags: true
 
 live2d:
-  enable: true
+  enable: false
   scriptFrom: local
   pluginRootPath: live2dw/
   pluginJsPath: lib/

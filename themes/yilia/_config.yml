@@ -65,10 +65,10 @@ top: true
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
-favicon: /asset/img/icon.jpeg
+favicon: /yxk17668/asset/img/icon.jpeg
 
 #你的头像url
-avatar: /asset/img/icon.jpeg
+avatar: /yxk17668/asset/img/icon.jpeg
 
 #是否开启分享
 share_jia: true
