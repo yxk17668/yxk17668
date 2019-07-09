@@ -1438,6 +1438,9 @@ pre .javascript .function {
 .widget-wrap {
   margin: 50px 0;
 }
+.widget-title {
+  margin-left: 0;
+}
 .widget {
   color: #535353;
   padding: 15px 0px;
