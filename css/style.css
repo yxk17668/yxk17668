@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #fff;
-  font: 30px 'Open Sans', "Microsoft Yahei";
+  font: 14px 'Open Sans', "Microsoft Yahei";
   font-weight: 300;
   -webkit-text-size-adjust: 100%;
 }
@@ -414,8 +414,8 @@ body {
   font-family: FontAwesome;
   text-align: center;
   font-size: 30px;
-  width: 30px;
-  height: 30px;
+  width: 14px;
+  height: 14px;
   padding: 5px 7px;
   position: relative;
   cursor: pointer;
@@ -631,7 +631,7 @@ a.article-title:hover {
   margin: 28px 20px;
 }
 .article-entry blockquote footer {
-  font-size: 30px;
+  font-size: 14px;
   margin: 20px 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
