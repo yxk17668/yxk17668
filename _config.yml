@@ -105,7 +105,7 @@ jsonContent:
     tags: true
 
 live2d:
-  enable: false
+  enable: true
   scriptFrom: local
   pluginRootPath: live2dw/
   pluginJsPath: lib/
@@ -115,7 +115,7 @@ live2d:
   model:
     use: live2d-widget-model-hibiki
   display:
-    position: left
+    position: right
     width: 150
     height: 300
   mobile:
