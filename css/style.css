@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #fff;
-  font: 14px 'Open Sans', "Microsoft Yahei";
+  font: 30px 'Open Sans', "Microsoft Yahei";
   font-weight: 300;
   -webkit-text-size-adjust: 100%;
 }
@@ -364,7 +364,7 @@ body {
 #header {
   height: 0px;
   position: relative;
-  background: #3a3f41;
+  background: #2d67a0;
   margin-bottom: 50px;
   padding: 0px 20px;
   -webkit-transition: height 0.2s ease-in;
@@ -413,9 +413,9 @@ body {
 .nav-icon {
   font-family: FontAwesome;
   text-align: center;
-  font-size: 14px;
-  width: 14px;
-  height: 14px;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
   padding: 5px 7px;
   position: relative;
   cursor: pointer;
@@ -631,7 +631,7 @@ a.article-title:hover {
   margin: 28px 20px;
 }
 .article-entry blockquote footer {
-  font-size: 14px;
+  font-size: 30px;
   margin: 20px 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -1113,7 +1113,7 @@ a.article-title:hover {
   color: #ddd;
 }
 #footer {
-  background: #3a3f41;
+  background: #2d67a0;
   padding: 50px 20px;
   border-top: 1px solid #ddd;
   color: #999;
