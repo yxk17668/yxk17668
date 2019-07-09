@@ -3,12 +3,15 @@ menu:
   首页: /
   归档: /archives
   关于: /about/index.html
-  RSS: 
+rss: 
 github: https://yxk17668.github.io/yxk17668/
 
 # Content
 excerpt_link: Read More
 fancybox: true
+
+# 数学公式
+mathjax: true
 
 # Sidebar
 sidebar: left
