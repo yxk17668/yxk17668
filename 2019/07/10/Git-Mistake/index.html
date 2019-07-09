@@ -3,15 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Tag: Markdown | yxk17668</title>
+  <title>Git --changes not staged for commit | yxk17668</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="yxk17668">
-<meta property="og:url" content="https://yxk17668.github.io/yxk17668/tags/Markdown/index.html">
+  <meta name="description" content="出现的操作 正常 git add . ，然后git commit   后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的  解决方案 先强行删除clone来的目录下的 .git 文件夹    删除方式：在该目录下打开命令行工具，执行 rd/s/q .git命令 删除成功后执行ls .git命令提示：No such file or directo">
+<meta name="keywords" content="Git,Git mistake">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git --changes not staged for commit">
+<meta property="og:url" content="https://yxk17668.github.io/yxk17668/2019/07/10/Git-Mistake/index.html">
 <meta property="og:site_name" content="yxk17668">
+<meta property="og:description" content="出现的操作 正常 git add . ，然后git commit   后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的  解决方案 先强行删除clone来的目录下的 .git 文件夹    删除方式：在该目录下打开命令行工具，执行 rd/s/q .git命令 删除成功后执行ls .git命令提示：No such file or directo">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-09T17:13:36.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yxk17668">
+<meta name="twitter:title" content="Git --changes not staged for commit">
+<meta name="twitter:description" content="出现的操作 正常 git add . ，然后git commit   后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的  解决方案 先强行删除clone来的目录下的 .git 文件夹    删除方式：在该目录下打开命令行工具，执行 rd/s/q .git命令 删除成功后执行ls .git命令提示：No such file or directo">
   
   
     <link rel="icon" href="/favicon.png">
@@ -147,39 +152,88 @@
   
 </aside>
         
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/yxk17668/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/yxk17668/2019/06/06/Markdown/" class="archive-article-date">
-  <time datetime="2019-06-06T07:52:32.000Z" itemprop="datePublished">6月 6</time>
+        <section id="main"><article id="post-Git-Mistake" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/yxk17668/2019/07/10/Git-Mistake/" class="article-date">
+  <time datetime="2019-07-09T16:55:53.000Z" itemprop="datePublished">2019-07-10</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/yxk17668/2019/06/06/Markdown/">Markdown语法</a>
+    <h1 class="article-title" itemprop="name">
+      Git --changes not staged for commit
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="出现的操作"><a href="#出现的操作" class="headerlink" title="出现的操作"></a>出现的操作</h3><blockquote>
+<p>正常 <strong>git add .</strong> ，然后<strong>git commit</strong></p>
+</blockquote>
+<blockquote>
+<p>后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的</p>
+</blockquote>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li><strong>先强行删除clone来的目录下的 .git 文件夹</strong></li>
+</ol>
+<blockquote>
+<p> 删除方式：在该目录下打开命令行工具，执行 <strong>rd/s/q .git</strong>命令</p>
+<p>删除成功后执行<strong>ls .git</strong>命令提示：No such file or directory</p>
+</blockquote>
+<ol start="2">
+<li><strong>回到仓库根目录删除仓库中的空文件夹</strong></li>
+</ol>
+<blockquote>
+<p>​    <strong>1）git rm -r –cached “themes/materail”</strong></p>
+<p>​    <strong>2）git commit -m “remove empty folder”</strong></p>
+<p>​    <strong>3）git push origin master</strong></p>
+</blockquote>
+<ol start="3">
+<li><strong>在仓库根目录重新提交代码</strong></li>
+</ol>
+<blockquote>
+<p>​    <strong>1）git add .</strong></p>
+<p>​    <strong>2）git commit -m “repush”</strong></p>
+<p>​    <strong>3）git push origin master</strong></p>
+</blockquote>
+<blockquote>
+<p>这样就能保证不会报上面的错，并且删除了空文件夹，重新把clone下来的目录</p>
+</blockquote>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><blockquote>
+<p>clone 下来的文件夹也是一个 git 仓库，因此正常的 <strong>git add .</strong> 是无法提交该文件夹下的文件的，所以我们要做的就是删除文件夹下的 .git 文件夹，这样就可以通过  <strong>git add .</strong> 命令来提交内容</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yxk17668.github.io/yxk17668/2019/07/10/Git-Mistake/" data-id="cjxw2riu20003w91q4djq8l5s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/yxk17668/2019/07/10/Git实用篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git实用篇</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
       </div>
