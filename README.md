@@ -10,6 +10,11 @@
     <br />
     🌱 If you want to know more about me, please visit my <a href="https://yxk17668.github.io/yxk17668/">blog</a>
     <br />
+    <br/>
+    <p align="center"> 
+      Visitor count<br>
+      <img src="https://profile-counter.glitch.me/yxk17668/count.svg" />
+    </p>
   </samp>
 
 | <a> <img align="center" src="https://github-readme-stats.vercel.app/api?username=yxk17668&show_icons=true&include_all_commits=true&theme=buefy&hide_border=true" alt="yxk17668's github stats" /> </a> | <a> <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=yxk17668&layout=compact&theme=buefy&hide_border=true" /> </a> | 
