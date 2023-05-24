@@ -2,9 +2,9 @@
 title: helper-live2d
 date: 2019-06-06 23:39:19
 tags:
-  - hexo
-	- helper-live2d
-	- yilia
+    - hexo
+    - helper-live2d
+    - yilia
 toc: true
 ---
 

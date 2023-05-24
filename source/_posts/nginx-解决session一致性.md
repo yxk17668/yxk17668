@@ -2,11 +2,11 @@
 title: nginx 解决session一致性
 date: 2019-08-09 17:13:54
 tags: 
-	- nginx
-	- session
-	- spring-session
-	- springboot
-	- springMVC
+    - nginx
+    - session
+    - spring-session
+    - springboot
+    - springMVC
 toc: true 
 ---
 

@@ -2,8 +2,8 @@
 title: Git --changes not staged for commit
 date: 2019-07-10 00:55:53
 tags:
-	- Git
-	- Git mistake
+    - Git
+    - Git mistake
 toc: true
 ---
 
