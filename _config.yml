@@ -115,8 +115,8 @@ live2d:
   model:
     use: live2d-widget-model-hibiki
   display:
-    position: right
+    position: left
     width: 150
-    height: 500
+    height: 300
   mobile:
-    show: true
+    show: false
