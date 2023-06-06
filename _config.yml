@@ -4,7 +4,7 @@
 
 # Site
 title: yxk17668
-subtitle: 不忘初心，方得始终
+subtitle: less is more
 description:
 keywords:
 author: yxk17668
@@ -76,7 +76,8 @@ menu:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: alex
+#theme: bootstrap-blog
+theme: minos
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -105,7 +106,7 @@ jsonContent:
     tags: true
 
 live2d:
-  enable: true
+  enable: false
   scriptFrom: local
   pluginRootPath: live2dw/
   pluginJsPath: lib/
@@ -120,3 +121,9 @@ live2d:
     height: 300
   mobile:
     show: false
+
+archive_generator:
+    per_page: 0
+    yearly: false
+    monthly: false
+    daily: false
