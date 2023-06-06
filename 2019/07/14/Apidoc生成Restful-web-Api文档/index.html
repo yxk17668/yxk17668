@@ -1,20 +1,11 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-<title>Apidoc生成Restful web Api文档 - yxk17668</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
-
-
-
-
-
-
-
-
-    <meta name="description" content="Apidoc&amp;#x751F;&amp;#x6210;Restful web Api&amp;#x6587;&amp;#x6863; &amp;#x5DE5;&amp;#x5177;&amp;#x540D;&amp;#x79F0;&amp;#xFF1A;apiDocGit&amp;#x5730;&amp;#x5740;&amp;#xFF1A;https://github.com/apidoc/apidoc&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;h">
+  <meta charset="utf-8">
+  
+  <title>Apidoc生成Restful web Api文档 | yxk17668</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Apidoc&amp;#x751F;&amp;#x6210;Restful web Api&amp;#x6587;&amp;#x6863; &amp;#x5DE5;&amp;#x5177;&amp;#x540D;&amp;#x79F0;&amp;#xFF1A;apiDocGit&amp;#x5730;&amp;#x5740;&amp;#xFF1A;https://github.com/apidoc/apidoc&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;h">
 <meta name="keywords" content="Apidoc,Api文档">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apidoc生成Restful web Api文档">
@@ -26,229 +17,94 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apidoc生成Restful web Api文档">
 <meta name="twitter:description" content="Apidoc&amp;#x751F;&amp;#x6210;Restful web Api&amp;#x6587;&amp;#x6863; &amp;#x5DE5;&amp;#x5177;&amp;#x540D;&amp;#x79F0;&amp;#xFF1A;apiDocGit&amp;#x5730;&amp;#x5740;&amp;#xFF1A;https://github.com/apidoc/apidoc&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;h">
+  
+    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
-
-
-<link rel="icon" href="/favicon.png">
-
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-
-<link rel="stylesheet" href="/yxk17668/css/style.css">
-
-<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
+  <link rel="stylesheet" href="/yxk17668/css/styles.css">
+  
 
 </head>
+</html>
 <body>
-    
-<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/yxk17668/">
-                
-                <img src="/yxk17668/images/logo.png" alt height="28">
-                
-            </a>
-            <div class="navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="navbar-menu navbar-start">
-            
-            <a class="navbar-item " href="/yxk17668/archives">Archives</a>
-            
-            <a class="navbar-item " href="/yxk17668/categories/LifeStyle">Lifestyle</a>
-            
-            <a class="navbar-item " href="/yxk17668/categories/Music">Music</a>
-            
-            <a class="navbar-item " href="/yxk17668/categories/Technology">Technology</a>
-            
-            <a class="navbar-item " href="/yxk17668/about">About</a>
-            
-        </div>
-        
-        <div class="navbar-menu navbar-end">
-            
-            <a class="navbar-item search" title="Suche" href="javascript:;">
-                <i class="fas fa-search"></i>
-            </a>
-            
-            
-            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
-                <a class="navbar-item" title="Inhaltsverzeichnis">
-                    <i class="fa fa-list"></i>
-                </a>
-                <div class="navbar-dropdown is-right">
-                    
-                    
-                    
-                    
-                    <a class="navbar-item" href="#Apidoc&amp;#x751F;&amp;#x6210;Restful-web-Api&amp;#x6587;&amp;#x6863;">1&nbsp;&nbsp;<b>Apidoc&amp;amp;#x751F;&amp;amp;#x6210;Restful web Api&amp;amp;#x6587;&amp;amp;#x6863;</b></a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E00;&amp;#x3001;&amp;#x5B89;&amp;#x88C5;apidoc&amp;#x6A21;&amp;#x5757;">1.1&nbsp;&nbsp;&amp;amp;#x4E00;&amp;amp;#x3001;&amp;amp;#x5B89;&amp;amp;#x88C5;apidoc&amp;amp;#x6A21;&amp;amp;#x5757;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E8C;&amp;#x3001;&amp;#x5728;&amp;#x4EE3;&amp;#x7801;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x7684;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;apidoc-json&amp;#x6587;&amp;#x4EF6;">1.2&nbsp;&nbsp;&amp;amp;#x4E8C;&amp;amp;#x3001;&amp;amp;#x5728;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x6587;&amp;amp;#x4EF6;&amp;amp;#x5939;&amp;amp;#x7684;&amp;amp;#x6839;&amp;amp;#x76EE;&amp;amp;#x5F55;&amp;amp;#x4E0B;&amp;amp;#xFF0C;&amp;amp;#x521B;&amp;amp;#x5EFA;apidoc.json&amp;amp;#x6587;&amp;amp;#x4EF6;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E09;&amp;#x3001;&amp;#x5728;&amp;#x4EE3;&amp;#x7801;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x7684;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;build-bat">1.3&nbsp;&nbsp;&amp;amp;#x4E09;&amp;amp;#x3001;&amp;amp;#x5728;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x6587;&amp;amp;#x4EF6;&amp;amp;#x5939;&amp;amp;#x7684;&amp;amp;#x6839;&amp;amp;#x76EE;&amp;amp;#x5F55;&amp;amp;#x4E0B;&amp;amp;#xFF0C;&amp;amp;#x521B;&amp;amp;#x5EFA;build.bat</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x56DB;&amp;#x3001;&amp;#x53C2;&amp;#x6570;&amp;#x89E3;&amp;#x91CA;&amp;#x8BF4;&amp;#x660E;">1.4&nbsp;&nbsp;&amp;amp;#x56DB;&amp;amp;#x3001;&amp;amp;#x53C2;&amp;amp;#x6570;&amp;amp;#x89E3;&amp;amp;#x91CA;&amp;amp;#x8BF4;&amp;amp;#x660E;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#api">1.4.1&nbsp;&nbsp;@api</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiDefine">1.4.2&nbsp;&nbsp;@apiDefine</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiDescription">1.4.3&nbsp;&nbsp;@apiDescription</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiError">1.4.4&nbsp;&nbsp;@apiError</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiErrorExample">1.4.5&nbsp;&nbsp;@apiErrorExample</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiExample">1.4.6&nbsp;&nbsp;@apiExample</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiGroup">1.4.7&nbsp;&nbsp;@apiGroup</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiHeader">1.4.8&nbsp;&nbsp;@apiHeader</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiHeaderExample">1.4.9&nbsp;&nbsp;@apiHeaderExample</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiIgnore-hint">1.4.10&nbsp;&nbsp;@apiIgnore [hint]</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiName-name">1.4.11&nbsp;&nbsp;@apiName name</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiParam">1.4.12&nbsp;&nbsp;@apiParam</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiParamExample">1.4.13&nbsp;&nbsp;@apiParamExample</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiPermission">1.4.14&nbsp;&nbsp;@apiPermission</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiSampleRequest">1.4.15&nbsp;&nbsp;@apiSampleRequest</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiSuccess">1.4.16&nbsp;&nbsp;@apiSuccess</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiSuccessExample">1.4.17&nbsp;&nbsp;@apiSuccessExample</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiUse">1.4.18&nbsp;&nbsp;@apiUse</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#apiVersion">1.4.19&nbsp;&nbsp;@apiVersion</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E94;&amp;#x3001;&amp;#x53C2;&amp;#x8003;&amp;#x793A;&amp;#x4F8B;">1.5&nbsp;&nbsp;&amp;amp;#x4E94;&amp;amp;#x3001;&amp;amp;#x53C2;&amp;amp;#x8003;&amp;amp;#x793A;&amp;amp;#x4F8B;</a>
-                    
-                </div>
-            </div>
-            
-            
-            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-               
-            
-        </div>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class href="/yxk17668/index.html">Home</a></li>
+        
+          <li><a class href="/yxk17668/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
-    <section class="section">
-    <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            Apidoc生成Restful web Api文档
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2019-07-14T07:16:50.000Z" itemprop="datePublished">7月 14 2019</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            21 分钟 lesen (Über 3124 Wörter)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">yxk17668</h1>
+  
+    <p class="lead blog-description">less is more</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Apidoc生成Restful-web-Api文档" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
     
+  
+    <h1 class="article-title" itemprop="name">
+      Apidoc生成Restful web Api文档
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/" class="article-date"><time datetime="2019-07-14T07:16:50.000Z" itemprop="datePublished">2019-07-14</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
         <h2 id="Apidoc&#x751F;&#x6210;Restful-web-Api&#x6587;&#x6863;"><a href="#Apidoc&#x751F;&#x6210;Restful-web-Api&#x6587;&#x6863;" class="headerlink" title="Apidoc&#x751F;&#x6210;Restful web Api&#x6587;&#x6863;"></a>Apidoc&#x751F;&#x6210;Restful web Api&#x6587;&#x6863;</h2><blockquote>
 <p>&#x5DE5;&#x5177;&#x540D;&#x79F0;&#xFF1A;apiDoc<br>Git&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/apidoc/apidoc" target="_blank" rel="noopener">https://github.com/apidoc/apidoc</a><br>&#x9879;&#x76EE;&#x5730;&#x5740;&#xFF1A;<a href="http://apidocjs.com/" target="_blank" rel="noopener">http://apidocjs.com/</a><br>&#x6837;&#x4F8B;&#x9879;&#x76EE;&#xFF1A;<a href="http://apidocjs.com/example_basic/" target="_blank" rel="noopener">http://apidocjs.com/example_basic/</a></p>
 </blockquote>
@@ -508,260 +364,142 @@
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@api</span> {post} /rest/user/create &#x65B0;&#x5EFA;&#x7528;&#x6237;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiDescription</span>  &#x65B0;&#x5EFA;&#x7528;&#x6237;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiName</span> create</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiGroup</span> user</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> token_msg</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {formData}  [iconFile]     &#x5934;&#x50CF;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  loginName     &#x767B;&#x5F55;&#x540D;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  pwd     &#x5BC6;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  orgId     &#x673A;&#x6784;id</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [roleId]     &#x89D2;&#x8272;id</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  name    &#x7528;&#x6237;&#x540D;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [jobCode]    &#x804C;&#x52A1; 1:&#x79D1;&#x957F; 2&#xFF1A;&#x4E3B;&#x4EFB; 3&#xFF1A;&#x79D1;&#x5458; 4&#xFF1A;&#x3002;&#x3002;&#x3002;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [jobType]    &#x804C;&#x4E1A;&#x6027;&#x8D28; 1&#xFF1A;&#x5168;&#x804C; 2&#xFF1A;&#x517C;&#x804C;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [sex]    &#x6027;&#x522B; 1&#xFF1A;&#x7537; 2&#xFF1A;&#x5973;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  phone    &#x624B;&#x673A;&#x53F7;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}   idCard   &#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  birthday  &#x51FA;&#x751F;&#x65E5;&#x671F;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [address]    &#x4F4F;&#x5740;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span>  {String} [contactUser] &#x7D27;&#x6025;&#x8054;&#x7CFB;&#x4EBA;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [contactPhone] &#x7D27;&#x6025;&#x8054;&#x7CFB;&#x7535;&#x8BDD;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span>  {String} [sex]    &#x6027;&#x522B;  1:&#x7537;  2&#xFF1A;&#x5973;</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSampleRequest</span> /rest/user/create</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> success_msg</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_NAME</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_LOGIN_NAME</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_PWD</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_ORG</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_ROLE</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> REGISTER_PHONE_EXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> REGISTER_USERNAME_EXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_IDCARD_EXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> REGISTER_ORG_UNEXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> BASE_UPLOAD_FAIL</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> BASE_SAVE_FAIL</span></span><br><span class="line"><span class="hljs-comment">     * */</span></span><br><span class="line">    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/create&quot;</span>)</span><br><span class="line">    <span class="hljs-meta">@ResponseBody</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> RestResponse <span class="hljs-title">create</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">&quot;iconFile&quot;</span>)</span> CommonsMultipartFile[] files</span></span><br><span class="line"><span class="hljs-function">                                ,String loginName,String pwd,String orgId,String roleId,String name,</span></span><br><span class="line"><span class="hljs-function">                               String jobCode,String jobType,String sex,String phone,String idCard,String birthday,String address,String contactUser,String contactPhone)</span>{</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RestResponse(rest);</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
 
 
-    
+      
     </div>
+
     
-    <div class="columns is-variable is-1 is-multiline is-mobile">
+      
+
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/Apidoc/">#Apidoc</a></span>
+
+    <footer class="article-footer">
+      <a data-url="https://yxk17668.github.io/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/" data-id="clik43hml0000rcwjhr9kcji6" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Api文档/">Api文档</a></li></ul>
+
+
+    </footer>
+  </div>
+  
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/Api文档/">#Api文档</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
-            
-        </span>
-    </div>
-    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/yxk17668/2019/07/10/Git-Mistake/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Git --changes not staged for commit</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/yxk17668/2019/08/09/nginx-解决session一致性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">nginx 解决session一致性</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
 </article>
 
 
-<div class="sharebox">
-    
-<div class="notification is-danger">
-    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
-</div>
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 
 </div>
 
 
+  
 
-<div class="comments">
-    <h3 class="title is-4">Kommentare</h3>
-    
-<div id="disqus_thread">
-    
-    <div class="notification is-danger">
-        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
-    </div>
-    
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
 
-    </div>
-</section>
-    <footer class="footer">
-    <div class="container">
-        <div class="columns content">
-            <div class="column is-narrow has-text-centered">
-                &copy; 2023 yxk17668&nbsp;
-                Разработано на базе <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
-            </div>
-            <div class="column is-hidden-mobile"></div>
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Api文档/">Api文档</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git/">Git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Markdown/">Markdown</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/helper-live2d/">helper-live2d</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/hexo/">hexo</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/session/">session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/spring-session/">spring-session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springMVC/">springMVC</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springboot/">springboot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/yilia/">yilia</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/低代码平台/">低代码平台</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/基础进阶/">基础进阶</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/微服务/">微服务</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/架构设计/">架构设计</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/注解/">注解</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计原则/">设计原则</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计模式/">设计模式</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/领域模型/">领域模型</a><span class="sidebar-module-list-count">2</span></li></ul>
+  </div>
 
-            
-            <div class="column is-narrow">
-                <div class="columns is-mobile is-multiline is-centered">
-                
-                    
-                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
-                    
-                    GitHub
-                    
-                </a>
-                
-                </div>
-            </div>
-            
-            
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api文档/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/低代码平台/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/基础进阶/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/架构设计/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/注解/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/设计原则/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/领域模型/" style="font-size: 15px;">领域模型</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/">一种面向后端的微服务低代码平台架构设计</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">Apidoc生成Restful web Api文档</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/07/10/Git实用篇/">Git实用篇</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
         </div>
     </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2023 yxk17668<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
-<!-- test if the browser is outdated -->
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // plugin function, place inside DOM ready function
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        })
-    });
-</script>
+  
 
-<script>
-    window.FontAwesomeConfig = {
-        searchPseudoElements: true
-    }
-    moment.locale("zh-CN");
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script>
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-</script>
-
-    
-    
-    
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            if (typeof($.fn.lightGallery) === 'function') {
-                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof($.fn.justifiedGallery) === 'function') {
-                $('.justified-gallery > p > .gallery-item').unwrap();
-                $('.justified-gallery').justifiedGallery();
-            }
-        });
-    })(jQuery);
-</script>
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <style>
-        .hljs {
-            position: relative;
-        }
-
-        .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
-        }
-
-        .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
-        }
-
-        .hljs:hover > .clipboard-btn {
-            display: inline;
-        }
-
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
-        }
-    </style>
-    <script>
-      $(document).ready(function () {
-        $('figure.hljs').each(function(i, figure) {
-          var codeId = 'code-' + i;
-          var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
-          code.id = codeId;
-          copyButton.addClass('clipboard-btn');
-          copyButton.attr('data-clipboard-target-id', codeId);
-
-          var figcaption = figure.querySelector('figcaption');
-
-          if (figcaption) {
-            figcaption.append(copyButton[0]);
-          } else {
-            figure.prepend(copyButton[0]);
-          }
-        })
-
-        var clipboard = new ClipboardJS('.clipboard-btn', {
-          target: function(trigger) {
-            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-          }
-        });
-        clipboard.on('success', function(e) {
-          e.clearSelection();
-        })
-      })
-    </script>
-
-    
-    
-
-    
 
 
 <script src="/yxk17668/js/script.js"></script>
 
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-mask"></div>
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas...">
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
-                TAGS: 'Tags',
-                UNTITLED: '(제목없음)',
-            },
-            CONTENT_URL: '/yxk17668/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/yxk17668/js/insight.js"></script>
-    
 </body>
 </html>

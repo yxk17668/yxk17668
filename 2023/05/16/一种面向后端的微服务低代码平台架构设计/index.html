@@ -1,20 +1,11 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-<title>一种面向后端的微服务低代码平台架构设计 - yxk17668</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
-
-
-
-
-
-
-
-
-    <meta name="description" content="&amp;#x4F5C;&amp;#x8005;&amp;#xFF1A;&amp;#x4EAC;&amp;#x4E1C;&amp;#x79D1;&amp;#x6280; &amp;#x5E38;&amp;#x59DC;&amp;#x6D32; &amp;#x4E00;&amp;#x3001;&amp;#x80CC;&amp;#x666F;&amp;#x8FD1;&amp;#x671F;&amp;#x53C2;&amp;#x52A0;&amp;#x516C;&amp;#x53F8;&amp;#x7EC4;&amp;#x7EC7;&amp;#x7684;&amp;#x6781;&amp;#x5BA">
+  <meta charset="utf-8">
+  
+  <title>一种面向后端的微服务低代码平台架构设计 | yxk17668</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x4F5C;&amp;#x8005;&amp;#xFF1A;&amp;#x4EAC;&amp;#x4E1C;&amp;#x79D1;&amp;#x6280; &amp;#x5E38;&amp;#x59DC;&amp;#x6D32; &amp;#x4E00;&amp;#x3001;&amp;#x80CC;&amp;#x666F;&amp;#x8FD1;&amp;#x671F;&amp;#x53C2;&amp;#x52A0;&amp;#x516C;&amp;#x53F8;&amp;#x7EC4;&amp;#x7EC7;&amp;#x7684;&amp;#x6781;&amp;#x5BA">
 <meta name="keywords" content="低代码平台,架构设计,微服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一种面向后端的微服务低代码平台架构设计">
@@ -41,233 +32,94 @@
 <meta name="twitter:title" content="一种面向后端的微服务低代码平台架构设计">
 <meta name="twitter:description" content="&amp;#x4F5C;&amp;#x8005;&amp;#xFF1A;&amp;#x4EAC;&amp;#x4E1C;&amp;#x79D1;&amp;#x6280; &amp;#x5E38;&amp;#x59DC;&amp;#x6D32; &amp;#x4E00;&amp;#x3001;&amp;#x80CC;&amp;#x666F;&amp;#x8FD1;&amp;#x671F;&amp;#x53C2;&amp;#x52A0;&amp;#x516C;&amp;#x53F8;&amp;#x7EC4;&amp;#x7EC7;&amp;#x7684;&amp;#x6781;&amp;#x5BA">
 <meta name="twitter:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-519u9hq9yqpDwkkRd.png">
+  
+    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
-
-
-<link rel="icon" href="/favicon.png">
-
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-
-<link rel="stylesheet" href="/yxk17668/css/style.css">
-
-<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
+  <link rel="stylesheet" href="/yxk17668/css/styles.css">
+  
 
 </head>
+</html>
 <body>
-    
-<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/yxk17668/">
-                
-                <img src="/yxk17668/images/logo.png" alt height="28">
-                
-            </a>
-            <div class="navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="navbar-menu navbar-start">
-            
-            <a class="navbar-item " href="/yxk17668/archives">Archives</a>
-            
-            <a class="navbar-item " href="/yxk17668/categories/LifeStyle">Lifestyle</a>
-            
-            <a class="navbar-item " href="/yxk17668/categories/Music">Music</a>
-            
-            <a class="navbar-item " href="/yxk17668/categories/Technology">Technology</a>
-            
-            <a class="navbar-item " href="/yxk17668/about">About</a>
-            
-        </div>
-        
-        <div class="navbar-menu navbar-end">
-            
-            <a class="navbar-item search" title="Suche" href="javascript:;">
-                <i class="fas fa-search"></i>
-            </a>
-            
-            
-            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
-                <a class="navbar-item" title="Inhaltsverzeichnis">
-                    <i class="fa fa-list"></i>
-                </a>
-                <div class="navbar-dropdown is-right">
-                    
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E00;&amp;#x3001;&amp;#x80CC;&amp;#x666F;">1&nbsp;&nbsp;<b>&amp;amp;#x4E00;&amp;amp;#x3001;&amp;amp;#x80CC;&amp;amp;#x666F;</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E8C;&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E73;&amp;#x53F0;&amp;#x6574;&amp;#x4F53;&amp;#x6280;&amp;#x672F;&amp;#x67B6;&amp;#x6784;&amp;#x8BBE;&amp;#x8BA1;">2&nbsp;&nbsp;<b>&amp;amp;#x4E8C;&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E73;&amp;amp;#x53F0;&amp;amp;#x6574;&amp;amp;#x4F53;&amp;amp;#x6280;&amp;amp;#x672F;&amp;amp;#x67B6;&amp;amp;#x6784;&amp;amp;#x8BBE;&amp;amp;#x8BA1;</b></a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#1&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5F00;&amp;#x53D1;&amp;#x4E09;&amp;#x9636;&amp;#x6BB5;">2.1&nbsp;&nbsp;1&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5F00;&amp;amp;#x53D1;&amp;amp;#x4E09;&amp;amp;#x9636;&amp;amp;#x6BB5;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#2&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E73;&amp;#x53F0;&amp;#x529F;&amp;#x80FD;&amp;#x67B6;&amp;#x6784;&amp;#x8BBE;&amp;#x8BA1;">2.2&nbsp;&nbsp;2&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E73;&amp;amp;#x53F0;&amp;amp;#x529F;&amp;amp;#x80FD;&amp;amp;#x67B6;&amp;amp;#x6784;&amp;amp;#x8BBE;&amp;amp;#x8BA1;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#3&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E94;&amp;#x7528;&amp;#x5F00;&amp;#x53D1;&amp;#x6D41;&amp;#x7A0B;">2.3&nbsp;&nbsp;3&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E94;&amp;amp;#x7528;&amp;amp;#x5F00;&amp;amp;#x53D1;&amp;amp;#x6D41;&amp;amp;#x7A0B;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x5E94;&amp;#x7528;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;4&amp;#x9636;&amp;#x6BB5;">2.3.1&nbsp;&nbsp;&amp;amp;#x5E94;&amp;amp;#x7528;&amp;amp;#x751F;&amp;amp;#x547D;&amp;amp;#x5468;&amp;amp;#x671F;4&amp;amp;#x9636;&amp;amp;#x6BB5;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x5E7F;&amp;#x4E49;&amp;#x6D41;&amp;#x7A0B;&amp;#x7F16;&amp;#x6392;">2.3.2&nbsp;&nbsp;&amp;amp;#x5E7F;&amp;amp;#x4E49;&amp;amp;#x6D41;&amp;amp;#x7A0B;&amp;amp;#x7F16;&amp;amp;#x6392;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#4&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E73;&amp;#x53F0;&amp;#x6280;&amp;#x672F;&amp;#x67B6;&amp;#x6784;">2.4&nbsp;&nbsp;4&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E73;&amp;amp;#x53F0;&amp;amp;#x6280;&amp;amp;#x672F;&amp;amp;#x67B6;&amp;amp;#x6784;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#5&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E73;&amp;#x53F0;&amp;#x5E94;&amp;#x7528;&amp;#x90E8;&amp;#x7F72;&amp;#x67B6;&amp;#x6784;">2.5&nbsp;&nbsp;5&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E73;&amp;amp;#x53F0;&amp;amp;#x5E94;&amp;amp;#x7528;&amp;amp;#x90E8;&amp;amp;#x7F72;&amp;amp;#x67B6;&amp;amp;#x6784;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#6&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E73;&amp;#x53F0;&amp;#x5404;&amp;#x89D2;&amp;#x8272;&amp;#x7CFB;&amp;#x7EDF;&amp;#x5DE5;&amp;#x4F5C;&amp;#x673A;&amp;#x5236;">2.6&nbsp;&nbsp;6&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E73;&amp;amp;#x53F0;&amp;amp;#x5404;&amp;amp;#x89D2;&amp;amp;#x8272;&amp;amp;#x7CFB;&amp;amp;#x7EDF;&amp;amp;#x5DE5;&amp;amp;#x4F5C;&amp;amp;#x673A;&amp;amp;#x5236;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#7&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E73;&amp;#x53F0;&amp;#x5355;&amp;#x673A;&amp;#x5E94;&amp;#x7528;&amp;#x67B6;&amp;#x6784;">2.7&nbsp;&nbsp;7&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E73;&amp;amp;#x53F0;&amp;amp;#x5355;&amp;amp;#x673A;&amp;amp;#x5E94;&amp;amp;#x7528;&amp;amp;#x67B6;&amp;amp;#x6784;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x5355;&amp;#x673A;&amp;#x8FD0;&amp;#x884C;&amp;#x73AF;&amp;#x5883;&amp;#x7B80;&amp;#x4ECB;">2.7.1&nbsp;&nbsp;&amp;amp;#x5355;&amp;amp;#x673A;&amp;amp;#x8FD0;&amp;amp;#x884C;&amp;amp;#x73AF;&amp;amp;#x5883;&amp;amp;#x7B80;&amp;amp;#x4ECB;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x5355;&amp;#x673A;&amp;#x5E94;&amp;#x7528;&amp;#x67B6;&amp;#x6784;">2.7.2&nbsp;&nbsp;&amp;amp;#x5355;&amp;amp;#x673A;&amp;amp;#x5E94;&amp;amp;#x7528;&amp;amp;#x67B6;&amp;amp;#x6784;</a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E09;&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E73;&amp;#x53F0;&amp;#x8BE6;&amp;#x7EC6;&amp;#x8BBE;&amp;#x8BA1;">3&nbsp;&nbsp;<b>&amp;amp;#x4E09;&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E73;&amp;amp;#x53F0;&amp;amp;#x8BE6;&amp;amp;#x7EC6;&amp;amp;#x8BBE;&amp;amp;#x8BA1;</b></a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#1&amp;#x3001;&amp;#x8FDE;&amp;#x63A5;&amp;#x5668;&amp;#x7684;&amp;#x8BBE;&amp;#x8BA1;">3.1&nbsp;&nbsp;1&amp;amp;#x3001;&amp;amp;#x8FDE;&amp;amp;#x63A5;&amp;amp;#x5668;&amp;amp;#x7684;&amp;amp;#x8BBE;&amp;amp;#x8BA1;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x8FDE;&amp;#x63A5;&amp;#x5668;&amp;#x5B9A;&amp;#x4E49;">3.1.1&nbsp;&nbsp;&amp;amp;#x8FDE;&amp;amp;#x63A5;&amp;amp;#x5668;&amp;amp;#x5B9A;&amp;amp;#x4E49;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x8FDE;&amp;#x63A5;&amp;#x5668;&amp;#x7684;0&amp;#x4EE3;&amp;#x7801;&amp;#x5F00;&amp;#x53D1;&amp;#x4E0E;&amp;#x90E8;&amp;#x7F72;&amp;#x6D41;&amp;#x7A0B;">3.1.2&nbsp;&nbsp;&amp;amp;#x8FDE;&amp;amp;#x63A5;&amp;amp;#x5668;&amp;amp;#x7684;0&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5F00;&amp;amp;#x53D1;&amp;amp;#x4E0E;&amp;amp;#x90E8;&amp;amp;#x7F72;&amp;amp;#x6D41;&amp;amp;#x7A0B;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#2&amp;#x3001;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;&amp;#x8FDE;&amp;#x63A5;&amp;#x5668;">3.2&nbsp;&nbsp;2&amp;amp;#x3001;&amp;amp;#x81EA;&amp;amp;#x5B9A;&amp;amp;#x4E49;&amp;amp;#x8FDE;&amp;amp;#x63A5;&amp;amp;#x5668;</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#3&amp;#x3001;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;&amp;#x89E6;&amp;#x53D1;&amp;#x5668;">3.3&nbsp;&nbsp;3&amp;amp;#x3001;&amp;amp;#x81EA;&amp;amp;#x5B9A;&amp;amp;#x4E49;&amp;amp;#x89E6;&amp;amp;#x53D1;&amp;amp;#x5668;</a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x56DB;&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E94;&amp;#x7528;&amp;#x6E90;&amp;#x6587;&amp;#x4EF6;">4&nbsp;&nbsp;<b>&amp;amp;#x56DB;&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E94;&amp;amp;#x7528;&amp;amp;#x6E90;&amp;amp;#x6587;&amp;amp;#x4EF6;</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E94;&amp;#x3001;&amp;#x4F4E;&amp;#x4EE3;&amp;#x7801;&amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x6784;&amp;#x5EFA;&amp;#x90E8;&amp;#x7F72;&amp;#x65B9;&amp;#x5F0F;">5&nbsp;&nbsp;<b>&amp;amp;#x4E94;&amp;amp;#x3001;&amp;amp;#x4F4E;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5E94;&amp;amp;#x7528;&amp;amp;#x7684;&amp;amp;#x6784;&amp;amp;#x5EFA;&amp;amp;#x90E8;&amp;amp;#x7F72;&amp;amp;#x65B9;&amp;amp;#x5F0F;</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x516D;&amp;#x3001;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#x7684;&amp;#x601D;&amp;#x8003;&amp;#x4E0E;&amp;#x6536;&amp;#x83B7;">6&nbsp;&nbsp;<b>&amp;amp;#x516D;&amp;amp;#x3001;&amp;amp;#x4E00;&amp;amp;#x4E9B;&amp;amp;#x95EE;&amp;amp;#x9898;&amp;amp;#x7684;&amp;amp;#x601D;&amp;amp;#x8003;&amp;amp;#x4E0E;&amp;amp;#x6536;&amp;amp;#x83B7;</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#&amp;#x4E03;&amp;#x3001;&amp;#x7ED3;&amp;#x8BED;">7&nbsp;&nbsp;<b>&amp;amp;#x4E03;&amp;amp;#x3001;&amp;amp;#x7ED3;&amp;amp;#x8BED;</b></a>
-                    
-                </div>
-            </div>
-            
-            
-            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-               
-            
-        </div>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class href="/yxk17668/index.html">Home</a></li>
+        
+          <li><a class href="/yxk17668/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
-    <section class="section">
-    <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            一种面向后端的微服务低代码平台架构设计
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-05-16T09:16:50.000Z" itemprop="datePublished">5月 16 2023</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            34 分钟 lesen (Über 5128 Wörter)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">yxk17668</h1>
+  
+    <p class="lead blog-description">less is more</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-一种面向后端的微服务低代码平台架构设计" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
     
+  
+    <h1 class="article-title" itemprop="name">
+      一种面向后端的微服务低代码平台架构设计
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/" class="article-date"><time datetime="2023-05-16T09:16:50.000Z" itemprop="datePublished">2023-05-16</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
         <p><strong>&#x4F5C;&#x8005;&#xFF1A;&#x4EAC;&#x4E1C;&#x79D1;&#x6280; &#x5E38;&#x59DC;&#x6D32;</strong></p>
 <h1 id="&#x4E00;&#x3001;&#x80CC;&#x666F;"><a href="#&#x4E00;&#x3001;&#x80CC;&#x666F;" class="headerlink" title="&#x4E00;&#x3001;&#x80CC;&#x666F;"></a>&#x4E00;&#x3001;&#x80CC;&#x666F;</h1><p>&#x8FD1;&#x671F;&#x53C2;&#x52A0;&#x516C;&#x53F8;&#x7EC4;&#x7EC7;&#x7684;&#x6781;&#x5BA2;&#x4E2D;&#x9910;&#x5385;&#x8BAD;&#x7EC3;&#x8425;&#xFF0C;&#x6211;&#x4EEC;&#x6240;&#x5728;&#x7684;&#x5C0F;&#x7EC4;&#x63A5;&#x5230;&#x7684;&#x8BFE;&#x9898;&#x662F;&#x5FAE;&#x670D;&#x52A1;&#x7684;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#x3002;&#x76EE;&#x6807;&#x662F;&#xFF1A;&#x7ED3;&#x5408;&#x4EAC;&#x4E1C;&#x4E1A;&#x52A1;&#x7814;&#x53D1;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#xFF0C;&#x9488;&#x5BF9;&#x540E;&#x7AEF;&#x7814;&#x53D1;&#x4EBA;&#x5458;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x5FAE;&#x670D;&#x52A1;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#xFF0C;&#x52A9;&#x529B;&#x66F4;&#x9AD8;&#x6548;&#x4F4E;&#x4EA4;&#x4ED8;&#x4E1A;&#x52A1;&#x9700;&#x6C42;&#x3002;&#x73B0;&#x5DF2;&#x7ED3;&#x4E1A;&#xFF0C;&#x5C06;&#x6211;&#x5728;&#x672C;&#x6B21;&#x9879;&#x76EE;&#x4E2D;&#x6C89;&#x6DC0;&#x8BBE;&#x8BA1;&#x51FA;&#x7684;&#x8BBE;&#x8BA1;&#x6587;&#x6863;&#x6574;&#x7406;&#x6210;&#x6587;&#xFF0C;&#x671F;&#x5F85;&#x4E0E;&#x5927;&#x5BB6;&#x6709;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x78B0;&#x649E;&#x6C9F;&#x901A;</p>
 <h1 id="&#x4E8C;&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#x6574;&#x4F53;&#x6280;&#x672F;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;"><a href="#&#x4E8C;&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#x6574;&#x4F53;&#x6280;&#x672F;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;" class="headerlink" title="&#x4E8C;&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#x6574;&#x4F53;&#x6280;&#x672F;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;"></a>&#x4E8C;&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#x6574;&#x4F53;&#x6280;&#x672F;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;</h1><h2 id="1&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5F00;&#x53D1;&#x4E09;&#x9636;&#x6BB5;"><a href="#1&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5F00;&#x53D1;&#x4E09;&#x9636;&#x6BB5;" class="headerlink" title="1&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5F00;&#x53D1;&#x4E09;&#x9636;&#x6BB5;"></a>1&#x3001;&#x4F4E;&#x4EE3;&#x7801;&#x5F00;&#x53D1;&#x4E09;&#x9636;&#x6BB5;</h2><p><strong>&#x5E73;&#x53F0;&#x4E3A;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;&#x63D0;&#x4F9B;&#x7684;&#x6838;&#x5FC3;&#x529F;&#x80FD;&#xFF1A;</strong></p>
@@ -456,260 +308,135 @@
 <p>&#x6848;&#x4F8B;2&#xFF1A;&#x5927;&#x4FC3;&#x7684;&#x65F6;&#x7684;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x5927;&#x5C4F;&#x7684;&#x5236;&#x4F5C;&#x76F8;&#x4FE1;&#x5F88;&#x591A;&#x4EBA;&#x90FD;&#x7ECF;&#x5386;&#x8FC7;&#xFF0C;&#x6211;&#x4EEC;&#x6700;&#x8FD1;&#x4E24;&#x6B21;&#x5927;&#x4FC3;&#x91C7;&#x53D6;&#x7684;&#x65B9;&#x6848;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x661F;&#x94FE;&#x5BF9;&#x5DF2;&#x6709;&#x7684;&#x6570;&#x636E;&#x63A5;&#x53E3;&#x548C;&#x65B0;&#x7684;&#x6570;&#x636E;&#x6307;&#x6807;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7F16;&#x6392;&#x52A0;&#x5DE5;&#xFF0C;&#x63D0;&#x4F9B;JSF&#x670D;&#x52A1;&#xFF0C;&#x518D;&#x7ED3;&#x5408;&#x6211;&#x4EEC;&#x5185;&#x90E8;&#x7684;&#x7F51;&#x5173;&#x7CFB;&#x7EDF;&#x5C06;&#x63A5;&#x53E3;&#x534F;&#x8BAE;&#x8F6C;&#x5316;&#x4E3A;HTTP, &#x76F4;&#x63A5;&#x5728;&#x5C55;&#x793A;&#x5E73;&#x53F0;&#xFF08;&#x5982;&#x83AB;&#x5948;&#x5927;&#x5C4F;&#xFF09;&#x4E0A;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x5927;&#x4FC3;&#x8FC7;&#x540E;&#x8D44;&#x6E90;&#x4E5F;&#x53EF;&#x968F;&#x4E4B;&#x91CA;&#x653E;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x4E0E;&#x9AD8;&#x6548;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x964D;&#x4F4E;&#x4E86;&#x7814;&#x53D1;&#x6210;&#x672C;</p>
 <h1 id="&#x4E03;&#x3001;&#x7ED3;&#x8BED;"><a href="#&#x4E03;&#x3001;&#x7ED3;&#x8BED;" class="headerlink" title="&#x4E03;&#x3001;&#x7ED3;&#x8BED;"></a>&#x4E03;&#x3001;&#x7ED3;&#x8BED;</h1><p>&#x6D41;&#x7A0B;&#x9A71;&#x52A8;&#x7684;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#x53EF;&#x4EE5;&#x548C;&#x6570;&#x636E;&#x9A71;&#x52A8;&#x7684;&#x4F4E;&#x4EE3;&#x7801;&#x4EE5;&#x53CA;&#x90E8;&#x5206;0&#x4EE3;&#x7801;&#x5F00;&#x53D1;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5730;&#x6709;&#x673A;&#x6574;&#x5408;&#x6210;&#x7EDF;&#x4E00;&#x7684;&#x4F4E;&#x4EE3;&#x7801;&#x5E73;&#x53F0;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x5347;&#x7814;&#x53D1;&#x6548;&#x7387;</p>
 <!-- 本文转自 [https://www.helloworld.net/p/2315185449](https://www.helloworld.net/p/2315185449)，如有侵权，请联系删除。 -->
-    
+      
     </div>
+
     
-    <div class="columns is-variable is-1 is-multiline is-mobile">
+      
+
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/低代码平台/">#低代码平台</a></span>
+
+    <footer class="article-footer">
+      <a data-url="https://yxk17668.github.io/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/" data-id="clik43hnp0015rcwjnywyzvxu" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/低代码平台/">低代码平台</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/微服务/">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/架构设计/">架构设计</a></li></ul>
+
+
+    </footer>
+  </div>
+  
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/架构设计/">#架构设计</a></span>
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/微服务/">#微服务</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
-            
-        </span>
-    </div>
-    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/yxk17668/2019/08/09/nginx-解决session一致性/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">nginx 解决session一致性</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
 </article>
 
 
-<div class="sharebox">
-    
-<div class="notification is-danger">
-    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
-</div>
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 
 </div>
 
 
+  
 
-<div class="comments">
-    <h3 class="title is-4">Kommentare</h3>
-    
-<div id="disqus_thread">
-    
-    <div class="notification is-danger">
-        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
-    </div>
-    
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
 
-    </div>
-</section>
-    <footer class="footer">
-    <div class="container">
-        <div class="columns content">
-            <div class="column is-narrow has-text-centered">
-                &copy; 2023 yxk17668&nbsp;
-                Разработано на базе <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
-            </div>
-            <div class="column is-hidden-mobile"></div>
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Api文档/">Api文档</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git/">Git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Markdown/">Markdown</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/helper-live2d/">helper-live2d</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/hexo/">hexo</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/session/">session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/spring-session/">spring-session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springMVC/">springMVC</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springboot/">springboot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/yilia/">yilia</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/低代码平台/">低代码平台</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/基础进阶/">基础进阶</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/微服务/">微服务</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/架构设计/">架构设计</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/注解/">注解</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计原则/">设计原则</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计模式/">设计模式</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/领域模型/">领域模型</a><span class="sidebar-module-list-count">2</span></li></ul>
+  </div>
 
-            
-            <div class="column is-narrow">
-                <div class="columns is-mobile is-multiline is-centered">
-                
-                    
-                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
-                    
-                    GitHub
-                    
-                </a>
-                
-                </div>
-            </div>
-            
-            
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api文档/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/低代码平台/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/基础进阶/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/架构设计/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/注解/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/设计原则/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/领域模型/" style="font-size: 15px;">领域模型</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/">一种面向后端的微服务低代码平台架构设计</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">Apidoc生成Restful web Api文档</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
+        </li>
+      
+        <li>
+          <a href="/yxk17668/2019/07/10/Git实用篇/">Git实用篇</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
         </div>
     </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2023 yxk17668<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
-<!-- test if the browser is outdated -->
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // plugin function, place inside DOM ready function
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        })
-    });
-</script>
+  
 
-<script>
-    window.FontAwesomeConfig = {
-        searchPseudoElements: true
-    }
-    moment.locale("zh-CN");
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script>
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-</script>
-
-    
-    
-    
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            if (typeof($.fn.lightGallery) === 'function') {
-                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof($.fn.justifiedGallery) === 'function') {
-                $('.justified-gallery > p > .gallery-item').unwrap();
-                $('.justified-gallery').justifiedGallery();
-            }
-        });
-    })(jQuery);
-</script>
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <style>
-        .hljs {
-            position: relative;
-        }
-
-        .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
-        }
-
-        .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
-        }
-
-        .hljs:hover > .clipboard-btn {
-            display: inline;
-        }
-
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
-        }
-    </style>
-    <script>
-      $(document).ready(function () {
-        $('figure.hljs').each(function(i, figure) {
-          var codeId = 'code-' + i;
-          var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
-          code.id = codeId;
-          copyButton.addClass('clipboard-btn');
-          copyButton.attr('data-clipboard-target-id', codeId);
-
-          var figcaption = figure.querySelector('figcaption');
-
-          if (figcaption) {
-            figcaption.append(copyButton[0]);
-          } else {
-            figure.prepend(copyButton[0]);
-          }
-        })
-
-        var clipboard = new ClipboardJS('.clipboard-btn', {
-          target: function(trigger) {
-            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-          }
-        });
-        clipboard.on('success', function(e) {
-          e.clearSelection();
-        })
-      })
-    </script>
-
-    
-    
-
-    
 
 
 <script src="/yxk17668/js/script.js"></script>
 
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-mask"></div>
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas...">
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
-                TAGS: 'Tags',
-                UNTITLED: '(제목없음)',
-            },
-            CONTENT_URL: '/yxk17668/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/yxk17668/js/insight.js"></script>
-    
 </body>
 </html>
