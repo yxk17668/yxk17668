@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>提升代码质量：领域模型、设计原则、设计模式 | yxk17668</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="提升代码质量：领域模型、设计原则、设计模式我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难…… 一、影响代码差的根因1.差代码的体现我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难……其中最为影响代码质量的两个表现是命名名不副实、逻辑可扩展性差，当一个新人阅读代码时，有时发现">
+    <meta charset="utf-8">
+<title>提升代码质量：领域模型、设计原则、设计模式 - yxk17668</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+
+
+
+
+    <meta name="description" content="&amp;#x63D0;&amp;#x5347;&amp;#x4EE3;&amp;#x7801;&amp;#x8D28;&amp;#x91CF;&amp;#xFF1A;&amp;#x9886;&amp;#x57DF;&amp;#x6A21;&amp;#x578B;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x539F;&amp;#x5219;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;">
 <meta name="keywords" content="架构设计,基础进阶,领域模型,设计模式,设计原则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="提升代码质量：领域模型、设计原则、设计模式">
 <meta property="og:url" content="https://yxk17668.github.io/yxk17668/2019/05/16/提升代码质量：领域模型、设计原则、设计模式/index.html">
 <meta property="og:site_name" content="yxk17668">
-<meta property="og:description" content="提升代码质量：领域模型、设计原则、设计模式我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难…… 一、影响代码差的根因1.差代码的体现我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难……其中最为影响代码质量的两个表现是命名名不副实、逻辑可扩展性差，当一个新人阅读代码时，有时发现">
+<meta property="og:description" content="&amp;#x63D0;&amp;#x5347;&amp;#x4EE3;&amp;#x7801;&amp;#x8D28;&amp;#x91CF;&amp;#xFF1A;&amp;#x9886;&amp;#x57DF;&amp;#x6A21;&amp;#x578B;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x539F;&amp;#x5219;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s4.51cto.com/oss/202108/19/1d9ac64c182c24e7d8d89b6f0de3e23c.jpg">
 <meta property="og:image" content="https://s5.51cto.com/oss/202108/19/ff1280886766202e257e5742e22cf02d.jpg">
@@ -23,306 +32,538 @@
 <meta property="og:updated_time" content="2023-06-06T05:54:34.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提升代码质量：领域模型、设计原则、设计模式">
-<meta name="twitter:description" content="提升代码质量：领域模型、设计原则、设计模式我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难…… 一、影响代码差的根因1.差代码的体现我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难……其中最为影响代码质量的两个表现是命名名不副实、逻辑可扩展性差，当一个新人阅读代码时，有时发现">
+<meta name="twitter:description" content="&amp;#x63D0;&amp;#x5347;&amp;#x4EE3;&amp;#x7801;&amp;#x8D28;&amp;#x91CF;&amp;#xFF1A;&amp;#x9886;&amp;#x57DF;&amp;#x6A21;&amp;#x578B;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x539F;&amp;#x5219;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;">
 <meta name="twitter:image" content="https://s4.51cto.com/oss/202108/19/1d9ac64c182c24e7d8d89b6f0de3e23c.jpg">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
-  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
-  <link href="//fonts.useso.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
-  <link href="//fonts.useso.com/css?family=Open+Sans:300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/yxk17668/css/style.css">
-  
 
-</head></html>
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/yxk17668/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+</head>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="header-outer" class="outer">
-    <a href="/yxk17668/" class="logo">yxk17668</a>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/yxk17668/">首页</a>
-        
-          <a class="main-nav-link" href="/yxk17668/archives">归档</a>
-        
-          <a class="main-nav-link" href="/yxk17668/about/index.html">关于</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yxk17668.github.io/yxk17668"></form>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/yxk17668/">
+                
+                <img src="/yxk17668/images/logo.png" alt height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
         
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/yxk17668/archives">Archives</a>
+            
+            <a class="navbar-item " href="/yxk17668/categories/LifeStyle">Lifestyle</a>
+            
+            <a class="navbar-item " href="/yxk17668/categories/Music">Music</a>
+            
+            <a class="navbar-item " href="/yxk17668/categories/Technology">Technology</a>
+            
+            <a class="navbar-item " href="/yxk17668/about">About</a>
+            
+        </div>
         
-          <a id="nav-github-link" class="nav-icon" href="https://yxk17668.github.io/yxk17668/" title="Fork me on GitHub"></a>
-        
-      </nav>
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Suche" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="Inhaltsverzeichnis">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#&amp;#x63D0;&amp;#x5347;&amp;#x4EE3;&amp;#x7801;&amp;#x8D28;&amp;#x91CF;&amp;#xFF1A;&amp;#x9886;&amp;#x57DF;&amp;#x6A21;&amp;#x578B;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x539F;&amp;#x5219;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;">1&nbsp;&nbsp;<b>&amp;amp;#x63D0;&amp;amp;#x5347;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x8D28;&amp;amp;#x91CF;&amp;amp;#xFF1A;&amp;amp;#x9886;&amp;amp;#x57DF;&amp;amp;#x6A21;&amp;amp;#x578B;&amp;amp;#x3001;&amp;amp;#x8BBE;&amp;amp;#x8BA1;&amp;amp;#x539F;&amp;amp;#x5219;&amp;amp;#x3001;&amp;amp;#x8BBE;&amp;amp;#x8BA1;&amp;amp;#x6A21;&amp;amp;#x5F0F;</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#&amp;#x4E00;&amp;#x3001;&amp;#x5F71;&amp;#x54CD;&amp;#x4EE3;&amp;#x7801;&amp;#x5DEE;&amp;#x7684;&amp;#x6839;&amp;#x56E0;">1.1&nbsp;&nbsp;&amp;amp;#x4E00;&amp;amp;#x3001;&amp;amp;#x5F71;&amp;amp;#x54CD;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x5DEE;&amp;amp;#x7684;&amp;amp;#x6839;&amp;amp;#x56E0;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#1-&amp;#x5DEE;&amp;#x4EE3;&amp;#x7801;&amp;#x7684;&amp;#x4F53;&amp;#x73B0;">1.1.1&nbsp;&nbsp;1.&amp;amp;#x5DEE;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x7684;&amp;amp;#x4F53;&amp;amp;#x73B0;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#2-&amp;#x95EE;&amp;#x9898;&amp;#x5F52;&amp;#x7EB3;">1.1.2&nbsp;&nbsp;2.&amp;amp;#x95EE;&amp;amp;#x9898;&amp;amp;#x5F52;&amp;amp;#x7EB3;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#3-&amp;#x6839;&amp;#x56E0;&amp;#x5206;&amp;#x6790;">1.1.3&nbsp;&nbsp;3.&amp;amp;#x6839;&amp;amp;#x56E0;&amp;amp;#x5206;&amp;amp;#x6790;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#&amp;#x4E8C;&amp;#x3001;&amp;#x63D0;&amp;#x5347;&amp;#x4EE3;&amp;#x7801;&amp;#x8D28;&amp;#x91CF;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;">1.2&nbsp;&nbsp;&amp;amp;#x4E8C;&amp;amp;#x3001;&amp;amp;#x63D0;&amp;amp;#x5347;&amp;amp;#x4EE3;&amp;amp;#x7801;&amp;amp;#x8D28;&amp;amp;#x91CF;&amp;amp;#x7684;&amp;amp;#x65B9;&amp;amp;#x6CD5;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#&amp;#x4E09;&amp;#x3001;&amp;#x9886;&amp;#x57DF;&amp;#x6A21;&amp;#x578B;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;">1.3&nbsp;&nbsp;&amp;amp;#x4E09;&amp;amp;#x3001;&amp;amp;#x9886;&amp;amp;#x57DF;&amp;amp;#x6A21;&amp;amp;#x578B;&amp;amp;#x7684;&amp;amp;#x4F5C;&amp;amp;#x7528;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#1-&amp;#x7B80;&amp;#x5316;&amp;#x8BA4;&amp;#x8BC6;">1.3.1&nbsp;&nbsp;1.&amp;amp;#x7B80;&amp;amp;#x5316;&amp;amp;#x8BA4;&amp;amp;#x8BC6;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#2-&amp;#x7EDF;&amp;#x4E00;&amp;#x8BA4;&amp;#x8BC6;">1.3.2&nbsp;&nbsp;2.&amp;amp;#x7EDF;&amp;amp;#x4E00;&amp;amp;#x8BA4;&amp;amp;#x8BC6;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#3-&amp;#x6307;&amp;#x5BFC;&amp;#x8BBE;&amp;#x8BA1;">1.3.3&nbsp;&nbsp;3.&amp;amp;#x6307;&amp;amp;#x5BFC;&amp;amp;#x8BBE;&amp;amp;#x8BA1;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#&amp;#x56DB;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x539F;&amp;#x5219;&amp;#x7684;&amp;#x5E95;&amp;#x5C42;&amp;#x903B;&amp;#x8F91;">1.4&nbsp;&nbsp;&amp;amp;#x56DB;&amp;amp;#x3001;&amp;amp;#x8BBE;&amp;amp;#x8BA1;&amp;amp;#x539F;&amp;amp;#x5219;&amp;amp;#x7684;&amp;amp;#x5E95;&amp;amp;#x5C42;&amp;amp;#x903B;&amp;amp;#x8F91;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#1-SOLID">1.4.1&nbsp;&nbsp;1.SOLID</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#2-&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&amp;#x8981;&amp;#x6709;&amp;#x8BBE;&amp;#x8BA1;&amp;#x539F;&amp;#x5219;">1.4.2&nbsp;&nbsp;2.&amp;amp;#x4E3A;&amp;amp;#x4EC0;&amp;amp;#x4E48;&amp;amp;#x8981;&amp;amp;#x6709;&amp;amp;#x8BBE;&amp;amp;#x8BA1;&amp;amp;#x539F;&amp;amp;#x5219;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#3-&amp;#x5982;&amp;#x4F55;&amp;#x843D;&amp;#x5730;&amp;#x5B9E;&amp;#x8DF5;">1.4.3&nbsp;&nbsp;3.&amp;amp;#x5982;&amp;amp;#x4F55;&amp;amp;#x843D;&amp;amp;#x5730;&amp;amp;#x5B9E;&amp;amp;#x8DF5;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#&amp;#x4E94;&amp;#x3001;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x7684;&amp;#x672C;&amp;#x8D28;">1.5&nbsp;&nbsp;&amp;amp;#x4E94;&amp;amp;#x3001;&amp;amp;#x8BBE;&amp;amp;#x8BA1;&amp;amp;#x6A21;&amp;amp;#x5F0F;&amp;amp;#x7684;&amp;amp;#x672C;&amp;amp;#x8D28;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#&amp;#x516D;&amp;#x3001;&amp;#x6848;&amp;#x4F8B;&amp;#x5B9E;&amp;#x8DF5;">1.6&nbsp;&nbsp;&amp;amp;#x516D;&amp;amp;#x3001;&amp;amp;#x6848;&amp;amp;#x4F8B;&amp;amp;#x5B9E;&amp;amp;#x8DF5;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#1-&amp;#x5E97;&amp;#x94FA;&amp;#x54C1;&amp;#x724C;&amp;#x67E5;&amp;#x8BE2;">1.6.1&nbsp;&nbsp;1.&amp;amp;#x5E97;&amp;amp;#x94FA;&amp;amp;#x54C1;&amp;amp;#x724C;&amp;amp;#x67E5;&amp;amp;#x8BE2;</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#2-&amp;#x5E97;&amp;#x94FA;&amp;#x4F18;&amp;#x60E0;&amp;#x5238;&amp;#x67E5;&amp;#x8BE2;">1.6.2&nbsp;&nbsp;2.&amp;amp;#x5E97;&amp;amp;#x94FA;&amp;amp;#x4F18;&amp;amp;#x60E0;&amp;amp;#x5238;&amp;amp;#x67E5;&amp;amp;#x8BE2;</a>
+                    
+                </div>
+            </div>
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
     </div>
-  </div>
-</header>
-      <nav id="mobile-nav" class="off">
-  
-    <a href="/yxk17668/" class="mobile-nav-link">首页</a>
-  
-    <a href="/yxk17668/archives" class="mobile-nav-link">归档</a>
-  
-    <a href="/yxk17668/about/index.html" class="mobile-nav-link">关于</a>
-  
-  <div id="search-form-wrap-mobile">
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yxk17668.github.io/yxk17668"></form>
-  </div>
 </nav>
-      <div class="outer">
-        
-          <aside id="sidebar">
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-          <li>
-            <a href="/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/">一种面向后端的微服务低代码平台架构设计</a>
-          </li>
+            提升代码质量：领域模型、设计原则、设计模式
         
-          <li>
-            <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
-          </li>
-        
-          <li>
-            <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">Apidoc生成Restful web Api文档</a>
-          </li>
-        
-          <li>
-            <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
-          </li>
-        
-          <li>
-            <a href="/yxk17668/2019/07/10/Git实用篇/">Git实用篇</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Api文档/">Api文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/helper-live2d/">helper-live2d</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/session/">session</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/spring-session/">spring-session</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springMVC/">springMVC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springboot/">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/yilia/">yilia</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/低代码平台/">低代码平台</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/基础进阶/">基础进阶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/微服务/">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/架构设计/">架构设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/设计原则/">设计原则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/领域模型/">领域模型</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api文档/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/低代码平台/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/基础进阶/" style="font-size: 10px;">基础进阶</a> <a href="/yxk17668/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/架构设计/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/设计原则/" style="font-size: 10px;">设计原则</a> <a href="/yxk17668/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/yxk17668/tags/领域模型/" style="font-size: 10px;">领域模型</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">links</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="http://hexo.io">Hexo</a>
-          </li>
-        
-          <li>
-            <a href="https://github.com/yxk17668">github</a>
-          </li>
-        
-          <li>
-            <a href="https://500px.com/yxk17668">500px</a>
-          </li>
-        
-          <li>
-            <a href="http://mrincognito.lofter.com">lofter</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-        <section id="main"><article id="post-提升代码质量：领域模型、设计原则、设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/yxk17668/2019/05/16/提升代码质量：领域模型、设计原则、设计模式/" class="article-date">
-  <time datetime="2019-05-16T02:16:50.000Z" itemprop="datePublished">2019-05-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      提升代码质量：领域模型、设计原则、设计模式
     </h1>
-  
-
-      </header>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2019-05-16T02:16:50.000Z" itemprop="datePublished">5月 16 2019</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            32 分钟 lesen (Über 4814 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="提升代码质量：领域模型、设计原则、设计模式"><a href="#提升代码质量：领域模型、设计原则、设计模式" class="headerlink" title="提升代码质量：领域模型、设计原则、设计模式"></a>提升代码质量：领域模型、设计原则、设计模式</h1><p>我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难……</p>
-<h2 id="一、影响代码差的根因"><a href="#一、影响代码差的根因" class="headerlink" title="一、影响代码差的根因"></a><strong>一、影响代码差的根因</strong></h2><h4 id="1-差代码的体现"><a href="#1-差代码的体现" class="headerlink" title="1.差代码的体现"></a>1.差代码的体现</h4><p>我们可以列举出非常多质量差的代码的表现现象，如名字不知所意、超大类、超大方法、重复代码、代码难懂、代码修改困难……其中最为影响代码质量的两个表现是命名名不副实、逻辑可扩展性差，当一个新人阅读代码时，有时发现方法命名与实际逻辑对不上，这就让人感到非常疑惑，这种现象在平时工作并不少见；另一个就是逻辑扩展性差，一个新业务需求提出来后，发现要在多处改动，需要回归的业务逻辑比较多，造成研发效率不高。</p>
-<h4 id="2-问题归纳"><a href="#2-问题归纳" class="headerlink" title="2.问题归纳"></a>2.问题归纳</h4><p>对第1节中提到的现象进行问题归纳整理，大致整理出6类问题，分别展开加以说明。</p>
+        <h1 id="&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#xFF1A;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;"><a href="#&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#xFF1A;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;" class="headerlink" title="&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#xFF1A;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;"></a>&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#xFF1A;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</h1><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5217;&#x4E3E;&#x51FA;&#x975E;&#x5E38;&#x591A;&#x8D28;&#x91CF;&#x5DEE;&#x7684;&#x4EE3;&#x7801;&#x7684;&#x8868;&#x73B0;&#x73B0;&#x8C61;&#xFF0C;&#x5982;&#x540D;&#x5B57;&#x4E0D;&#x77E5;&#x6240;&#x610F;&#x3001;&#x8D85;&#x5927;&#x7C7B;&#x3001;&#x8D85;&#x5927;&#x65B9;&#x6CD5;&#x3001;&#x91CD;&#x590D;&#x4EE3;&#x7801;&#x3001;&#x4EE3;&#x7801;&#x96BE;&#x61C2;&#x3001;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x56F0;&#x96BE;&#x2026;&#x2026;</p>
+<h2 id="&#x4E00;&#x3001;&#x5F71;&#x54CD;&#x4EE3;&#x7801;&#x5DEE;&#x7684;&#x6839;&#x56E0;"><a href="#&#x4E00;&#x3001;&#x5F71;&#x54CD;&#x4EE3;&#x7801;&#x5DEE;&#x7684;&#x6839;&#x56E0;" class="headerlink" title="&#x4E00;&#x3001;&#x5F71;&#x54CD;&#x4EE3;&#x7801;&#x5DEE;&#x7684;&#x6839;&#x56E0;"></a><strong>&#x4E00;&#x3001;&#x5F71;&#x54CD;&#x4EE3;&#x7801;&#x5DEE;&#x7684;&#x6839;&#x56E0;</strong></h2><h4 id="1-&#x5DEE;&#x4EE3;&#x7801;&#x7684;&#x4F53;&#x73B0;"><a href="#1-&#x5DEE;&#x4EE3;&#x7801;&#x7684;&#x4F53;&#x73B0;" class="headerlink" title="1.&#x5DEE;&#x4EE3;&#x7801;&#x7684;&#x4F53;&#x73B0;"></a>1.&#x5DEE;&#x4EE3;&#x7801;&#x7684;&#x4F53;&#x73B0;</h4><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5217;&#x4E3E;&#x51FA;&#x975E;&#x5E38;&#x591A;&#x8D28;&#x91CF;&#x5DEE;&#x7684;&#x4EE3;&#x7801;&#x7684;&#x8868;&#x73B0;&#x73B0;&#x8C61;&#xFF0C;&#x5982;&#x540D;&#x5B57;&#x4E0D;&#x77E5;&#x6240;&#x610F;&#x3001;&#x8D85;&#x5927;&#x7C7B;&#x3001;&#x8D85;&#x5927;&#x65B9;&#x6CD5;&#x3001;&#x91CD;&#x590D;&#x4EE3;&#x7801;&#x3001;&#x4EE3;&#x7801;&#x96BE;&#x61C2;&#x3001;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x56F0;&#x96BE;&#x2026;&#x2026;&#x5176;&#x4E2D;&#x6700;&#x4E3A;&#x5F71;&#x54CD;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x7684;&#x4E24;&#x4E2A;&#x8868;&#x73B0;&#x662F;&#x547D;&#x540D;&#x540D;&#x4E0D;&#x526F;&#x5B9E;&#x3001;&#x903B;&#x8F91;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x5DEE;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x65B0;&#x4EBA;&#x9605;&#x8BFB;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x6709;&#x65F6;&#x53D1;&#x73B0;&#x65B9;&#x6CD5;&#x547D;&#x540D;&#x4E0E;&#x5B9E;&#x9645;&#x903B;&#x8F91;&#x5BF9;&#x4E0D;&#x4E0A;&#xFF0C;&#x8FD9;&#x5C31;&#x8BA9;&#x4EBA;&#x611F;&#x5230;&#x975E;&#x5E38;&#x7591;&#x60D1;&#xFF0C;&#x8FD9;&#x79CD;&#x73B0;&#x8C61;&#x5728;&#x5E73;&#x65F6;&#x5DE5;&#x4F5C;&#x5E76;&#x4E0D;&#x5C11;&#x89C1;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x5C31;&#x662F;&#x903B;&#x8F91;&#x6269;&#x5C55;&#x6027;&#x5DEE;&#xFF0C;&#x4E00;&#x4E2A;&#x65B0;&#x4E1A;&#x52A1;&#x9700;&#x6C42;&#x63D0;&#x51FA;&#x6765;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x8981;&#x5728;&#x591A;&#x5904;&#x6539;&#x52A8;&#xFF0C;&#x9700;&#x8981;&#x56DE;&#x5F52;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x9020;&#x6210;&#x7814;&#x53D1;&#x6548;&#x7387;&#x4E0D;&#x9AD8;&#x3002;</p>
+<h4 id="2-&#x95EE;&#x9898;&#x5F52;&#x7EB3;"><a href="#2-&#x95EE;&#x9898;&#x5F52;&#x7EB3;" class="headerlink" title="2.&#x95EE;&#x9898;&#x5F52;&#x7EB3;"></a>2.&#x95EE;&#x9898;&#x5F52;&#x7EB3;</h4><p>&#x5BF9;&#x7B2C;1&#x8282;&#x4E2D;&#x63D0;&#x5230;&#x7684;&#x73B0;&#x8C61;&#x8FDB;&#x884C;&#x95EE;&#x9898;&#x5F52;&#x7EB3;&#x6574;&#x7406;&#xFF0C;&#x5927;&#x81F4;&#x6574;&#x7406;&#x51FA;6&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x5206;&#x522B;&#x5C55;&#x5F00;&#x52A0;&#x4EE5;&#x8BF4;&#x660E;&#x3002;</p>
 <ul>
-<li>命名问题：命名问题是一件非常头疼的事，想要取一个名副其实又好理解的名字并不那么容易。涉及到变量的命名、方法的命名、类命名，常见的命名问题有两种：一种是不知所云；另一种是名不副实。命名不知所云是一个人初一看，不知道它是什么意思，根本原因就是没有想到一个合适的词汇去抽象问题；命名名不副实是命名和实际逻辑想表达的意思不一样，这样的命名会误导人。</li>
+<li>&#x547D;&#x540D;&#x95EE;&#x9898;&#xFF1A;&#x547D;&#x540D;&#x95EE;&#x9898;&#x662F;&#x4E00;&#x4EF6;&#x975E;&#x5E38;&#x5934;&#x75BC;&#x7684;&#x4E8B;&#xFF0C;&#x60F3;&#x8981;&#x53D6;&#x4E00;&#x4E2A;&#x540D;&#x526F;&#x5176;&#x5B9E;&#x53C8;&#x597D;&#x7406;&#x89E3;&#x7684;&#x540D;&#x5B57;&#x5E76;&#x4E0D;&#x90A3;&#x4E48;&#x5BB9;&#x6613;&#x3002;&#x6D89;&#x53CA;&#x5230;&#x53D8;&#x91CF;&#x7684;&#x547D;&#x540D;&#x3001;&#x65B9;&#x6CD5;&#x7684;&#x547D;&#x540D;&#x3001;&#x7C7B;&#x547D;&#x540D;&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x547D;&#x540D;&#x95EE;&#x9898;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x4E00;&#x79CD;&#x662F;&#x4E0D;&#x77E5;&#x6240;&#x4E91;&#xFF1B;&#x53E6;&#x4E00;&#x79CD;&#x662F;&#x540D;&#x4E0D;&#x526F;&#x5B9E;&#x3002;&#x547D;&#x540D;&#x4E0D;&#x77E5;&#x6240;&#x4E91;&#x662F;&#x4E00;&#x4E2A;&#x4EBA;&#x521D;&#x4E00;&#x770B;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x5B83;&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#xFF0C;&#x6839;&#x672C;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x6CA1;&#x6709;&#x60F3;&#x5230;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x8BCD;&#x6C47;&#x53BB;&#x62BD;&#x8C61;&#x95EE;&#x9898;&#xFF1B;&#x547D;&#x540D;&#x540D;&#x4E0D;&#x526F;&#x5B9E;&#x662F;&#x547D;&#x540D;&#x548C;&#x5B9E;&#x9645;&#x903B;&#x8F91;&#x60F3;&#x8868;&#x8FBE;&#x7684;&#x610F;&#x601D;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x547D;&#x540D;&#x4F1A;&#x8BEF;&#x5BFC;&#x4EBA;&#x3002;</li>
 </ul>
 <ul>
-<li>代码结构问题：当一个人初看工程代码时，当还没有深入看代码逻辑时，从模块划分、类划分、方法划分整体上可以感受得出代码质量，如果一个类有几千行代码，一个方法有几百行，这样的逻辑相信没有多少人愿意去看，复杂度比较高。好的代码层次结构非常清晰，就像看一本优美的书一样有一种赏心悦目的感觉。</li>
+<li>&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x95EE;&#x9898;&#xFF1A;&#x5F53;&#x4E00;&#x4E2A;&#x4EBA;&#x521D;&#x770B;&#x5DE5;&#x7A0B;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x5F53;&#x8FD8;&#x6CA1;&#x6709;&#x6DF1;&#x5165;&#x770B;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x65F6;&#xFF0C;&#x4ECE;&#x6A21;&#x5757;&#x5212;&#x5206;&#x3001;&#x7C7B;&#x5212;&#x5206;&#x3001;&#x65B9;&#x6CD5;&#x5212;&#x5206;&#x6574;&#x4F53;&#x4E0A;&#x53EF;&#x4EE5;&#x611F;&#x53D7;&#x5F97;&#x51FA;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7C7B;&#x6709;&#x51E0;&#x5343;&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x6709;&#x51E0;&#x767E;&#x884C;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x903B;&#x8F91;&#x76F8;&#x4FE1;&#x6CA1;&#x6709;&#x591A;&#x5C11;&#x4EBA;&#x613F;&#x610F;&#x53BB;&#x770B;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x6BD4;&#x8F83;&#x9AD8;&#x3002;&#x597D;&#x7684;&#x4EE3;&#x7801;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x975E;&#x5E38;&#x6E05;&#x6670;&#xFF0C;&#x5C31;&#x50CF;&#x770B;&#x4E00;&#x672C;&#x4F18;&#x7F8E;&#x7684;&#x4E66;&#x4E00;&#x6837;&#x6709;&#x4E00;&#x79CD;&#x8D4F;&#x5FC3;&#x60A6;&#x76EE;&#x7684;&#x611F;&#x89C9;&#x3002;</li>
 </ul>
 <ul>
-<li>编程范式问题：有三种编程范式：表模式、事务脚本模式和领域设计模式，大家用得最多的是事务脚本模式，这种模式最符合人做事的方法，step by step，这种模式最大的问题就是承担了不该自己承担的职责，看起来比较符合逻辑，实际上问题比较多，平时大家喜欢称之为”面条型代码”。</li>
+<li>&#x7F16;&#x7A0B;&#x8303;&#x5F0F;&#x95EE;&#x9898;&#xFF1A;&#x6709;&#x4E09;&#x79CD;&#x7F16;&#x7A0B;&#x8303;&#x5F0F;&#xFF1A;&#x8868;&#x6A21;&#x5F0F;&#x3001;&#x4E8B;&#x52A1;&#x811A;&#x672C;&#x6A21;&#x5F0F;&#x548C;&#x9886;&#x57DF;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x5927;&#x5BB6;&#x7528;&#x5F97;&#x6700;&#x591A;&#x7684;&#x662F;&#x4E8B;&#x52A1;&#x811A;&#x672C;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x6700;&#x7B26;&#x5408;&#x4EBA;&#x505A;&#x4E8B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;step by step&#xFF0C;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x6700;&#x5927;&#x7684;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x627F;&#x62C5;&#x4E86;&#x4E0D;&#x8BE5;&#x81EA;&#x5DF1;&#x627F;&#x62C5;&#x7684;&#x804C;&#x8D23;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x7B26;&#x5408;&#x903B;&#x8F91;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x95EE;&#x9898;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x5E73;&#x65F6;&#x5927;&#x5BB6;&#x559C;&#x6B22;&#x79F0;&#x4E4B;&#x4E3A;&#x201D;&#x9762;&#x6761;&#x578B;&#x4EE3;&#x7801;&#x201D;&#x3002;</li>
 </ul>
 <ul>
-<li>可读性问题：代码除了实现业务功能外，还要具备良好的可读性，有的代码没有任何注释；有的代码格式不统一；有的是为了炫耀技术，大段大段的Lambda表达式（并不是说Lambda表达式不好，关键要控制层次深度），这样的代码看起来简洁，可读性并不太好。</li>
+<li>&#x53EF;&#x8BFB;&#x6027;&#x95EE;&#x9898;&#xFF1A;&#x4EE3;&#x7801;&#x9664;&#x4E86;&#x5B9E;&#x73B0;&#x4E1A;&#x52A1;&#x529F;&#x80FD;&#x5916;&#xFF0C;&#x8FD8;&#x8981;&#x5177;&#x5907;&#x826F;&#x597D;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#xFF0C;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6CE8;&#x91CA;&#xFF1B;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x683C;&#x5F0F;&#x4E0D;&#x7EDF;&#x4E00;&#xFF1B;&#x6709;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x70AB;&#x8000;&#x6280;&#x672F;&#xFF0C;&#x5927;&#x6BB5;&#x5927;&#x6BB5;&#x7684;Lambda&#x8868;&#x8FBE;&#x5F0F;&#xFF08;&#x5E76;&#x4E0D;&#x662F;&#x8BF4;Lambda&#x8868;&#x8FBE;&#x5F0F;&#x4E0D;&#x597D;&#xFF0C;&#x5173;&#x952E;&#x8981;&#x63A7;&#x5236;&#x5C42;&#x6B21;&#x6DF1;&#x5EA6;&#xFF09;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x770B;&#x8D77;&#x6765;&#x7B80;&#x6D01;&#xFF0C;&#x53EF;&#x8BFB;&#x6027;&#x5E76;&#x4E0D;&#x592A;&#x597D;&#x3002;</li>
 </ul>
 <ul>
-<li>扩展性问题：可扩展性问题是一个老生常谈的问题，要实现良好的可扩展性并不那么容易，一般是没有抽象问题，如店铺在店招头展示Tab，面条型的代码就是直接定义一个List，然后往里面加Tab对象，如果需要再加一个Tab怎么办？典型的就是不满足开闭原则。</li>
+<li>&#x6269;&#x5C55;&#x6027;&#x95EE;&#x9898;&#xFF1A;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x95EE;&#x9898;&#x662F;&#x4E00;&#x4E2A;&#x8001;&#x751F;&#x5E38;&#x8C08;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8981;&#x5B9E;&#x73B0;&#x826F;&#x597D;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x5E76;&#x4E0D;&#x90A3;&#x4E48;&#x5BB9;&#x6613;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x6CA1;&#x6709;&#x62BD;&#x8C61;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x5E97;&#x94FA;&#x5728;&#x5E97;&#x62DB;&#x5934;&#x5C55;&#x793A;Tab&#xFF0C;&#x9762;&#x6761;&#x578B;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;List&#xFF0C;&#x7136;&#x540E;&#x5F80;&#x91CC;&#x9762;&#x52A0;Tab&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x518D;&#x52A0;&#x4E00;&#x4E2A;Tab&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x5178;&#x578B;&#x7684;&#x5C31;&#x662F;&#x4E0D;&#x6EE1;&#x8DB3;&#x5F00;&#x95ED;&#x539F;&#x5219;&#x3002;</li>
 </ul>
 <ul>
-<li>无设计问题：整个代码看起来比较平淡，别人看了之后也从中学习不到内容。一般这种问题是没有深入分析问题，仅仅解决了问题，而没有考虑如何更好地解决问题，比如重复处理流程的工作是否可以抽象成一个通用的模板类、不同处理类是否可以通过工厂类去获取具体的策略、异步处理是否可以使用事件模式去处理、对于新增加的能力能否通过自动注册去发现……</li>
+<li>&#x65E0;&#x8BBE;&#x8BA1;&#x95EE;&#x9898;&#xFF1A;&#x6574;&#x4E2A;&#x4EE3;&#x7801;&#x770B;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x5E73;&#x6DE1;&#xFF0C;&#x522B;&#x4EBA;&#x770B;&#x4E86;&#x4E4B;&#x540E;&#x4E5F;&#x4ECE;&#x4E2D;&#x5B66;&#x4E60;&#x4E0D;&#x5230;&#x5185;&#x5BB9;&#x3002;&#x4E00;&#x822C;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#x662F;&#x6CA1;&#x6709;&#x6DF1;&#x5165;&#x5206;&#x6790;&#x95EE;&#x9898;&#xFF0C;&#x4EC5;&#x4EC5;&#x89E3;&#x51B3;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x5982;&#x4F55;&#x66F4;&#x597D;&#x5730;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#x91CD;&#x590D;&#x5904;&#x7406;&#x6D41;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x62BD;&#x8C61;&#x6210;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x6A21;&#x677F;&#x7C7B;&#x3001;&#x4E0D;&#x540C;&#x5904;&#x7406;&#x7C7B;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5DE5;&#x5382;&#x7C7B;&#x53BB;&#x83B7;&#x53D6;&#x5177;&#x4F53;&#x7684;&#x7B56;&#x7565;&#x3001;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E8B;&#x4EF6;&#x6A21;&#x5F0F;&#x53BB;&#x5904;&#x7406;&#x3001;&#x5BF9;&#x4E8E;&#x65B0;&#x589E;&#x52A0;&#x7684;&#x80FD;&#x529B;&#x80FD;&#x5426;&#x901A;&#x8FC7;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x53BB;&#x53D1;&#x73B0;&#x2026;&#x2026;</li>
 </ul>
-<h4 id="3-根因分析"><a href="#3-根因分析" class="headerlink" title="3.根因分析"></a>3.根因分析</h4><p>接下来分析下为什么会产生代码差的原因，这个问题有外部原因，也有内部原因。外部原因主要有：项目排期急，没有多少时间去设计；资源短缺，人手不够，只能怎么快怎么来；紧急问题修复，临时方案快速处理……。内部原因主要有：自身技能低，怎么技能没有掌握到，如Lamda表达式、常用的工具类、框架高级用法等；无极致追求的精神，仅仅完成需求就行，稳定性、可扩展性、性能、数据一致性等没有考虑……</p>
-<p>笔者认为最为关键的是内部自身的问题，根因就两个：自我要求不高；无反馈通道。如果对自已要求不高，仅仅满足完成需求开发就止步了，很难写出高质量的代码，另外如果没有外部反馈，也难以提高自己的技能。笔者之前的主管非常严厉，对大家写的代码review比较仔细，一个变量名、一段逻辑的写法，反复让修改，这其实是提升技能最快的方法。</p>
+<h4 id="3-&#x6839;&#x56E0;&#x5206;&#x6790;"><a href="#3-&#x6839;&#x56E0;&#x5206;&#x6790;" class="headerlink" title="3.&#x6839;&#x56E0;&#x5206;&#x6790;"></a>3.&#x6839;&#x56E0;&#x5206;&#x6790;</h4><p>&#x63A5;&#x4E0B;&#x6765;&#x5206;&#x6790;&#x4E0B;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x4EA7;&#x751F;&#x4EE3;&#x7801;&#x5DEE;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x6709;&#x5916;&#x90E8;&#x539F;&#x56E0;&#xFF0C;&#x4E5F;&#x6709;&#x5185;&#x90E8;&#x539F;&#x56E0;&#x3002;&#x5916;&#x90E8;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#xFF1A;&#x9879;&#x76EE;&#x6392;&#x671F;&#x6025;&#xFF0C;&#x6CA1;&#x6709;&#x591A;&#x5C11;&#x65F6;&#x95F4;&#x53BB;&#x8BBE;&#x8BA1;&#xFF1B;&#x8D44;&#x6E90;&#x77ED;&#x7F3A;&#xFF0C;&#x4EBA;&#x624B;&#x4E0D;&#x591F;&#xFF0C;&#x53EA;&#x80FD;&#x600E;&#x4E48;&#x5FEB;&#x600E;&#x4E48;&#x6765;&#xFF1B;&#x7D27;&#x6025;&#x95EE;&#x9898;&#x4FEE;&#x590D;&#xFF0C;&#x4E34;&#x65F6;&#x65B9;&#x6848;&#x5FEB;&#x901F;&#x5904;&#x7406;&#x2026;&#x2026;&#x3002;&#x5185;&#x90E8;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#xFF1A;&#x81EA;&#x8EAB;&#x6280;&#x80FD;&#x4F4E;&#xFF0C;&#x600E;&#x4E48;&#x6280;&#x80FD;&#x6CA1;&#x6709;&#x638C;&#x63E1;&#x5230;&#xFF0C;&#x5982;Lamda&#x8868;&#x8FBE;&#x5F0F;&#x3001;&#x5E38;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x7C7B;&#x3001;&#x6846;&#x67B6;&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;&#x7B49;&#xFF1B;&#x65E0;&#x6781;&#x81F4;&#x8FFD;&#x6C42;&#x7684;&#x7CBE;&#x795E;&#xFF0C;&#x4EC5;&#x4EC5;&#x5B8C;&#x6210;&#x9700;&#x6C42;&#x5C31;&#x884C;&#xFF0C;&#x7A33;&#x5B9A;&#x6027;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x3001;&#x6027;&#x80FD;&#x3001;&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;&#x7B49;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x2026;&#x2026;</p>
+<p>&#x7B14;&#x8005;&#x8BA4;&#x4E3A;&#x6700;&#x4E3A;&#x5173;&#x952E;&#x7684;&#x662F;&#x5185;&#x90E8;&#x81EA;&#x8EAB;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6839;&#x56E0;&#x5C31;&#x4E24;&#x4E2A;&#xFF1A;&#x81EA;&#x6211;&#x8981;&#x6C42;&#x4E0D;&#x9AD8;&#xFF1B;&#x65E0;&#x53CD;&#x9988;&#x901A;&#x9053;&#x3002;&#x5982;&#x679C;&#x5BF9;&#x81EA;&#x5DF2;&#x8981;&#x6C42;&#x4E0D;&#x9AD8;&#xFF0C;&#x4EC5;&#x4EC5;&#x6EE1;&#x8DB3;&#x5B8C;&#x6210;&#x9700;&#x6C42;&#x5F00;&#x53D1;&#x5C31;&#x6B62;&#x6B65;&#x4E86;&#xFF0C;&#x5F88;&#x96BE;&#x5199;&#x51FA;&#x9AD8;&#x8D28;&#x91CF;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x53E6;&#x5916;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5916;&#x90E8;&#x53CD;&#x9988;&#xFF0C;&#x4E5F;&#x96BE;&#x4EE5;&#x63D0;&#x9AD8;&#x81EA;&#x5DF1;&#x7684;&#x6280;&#x80FD;&#x3002;&#x7B14;&#x8005;&#x4E4B;&#x524D;&#x7684;&#x4E3B;&#x7BA1;&#x975E;&#x5E38;&#x4E25;&#x5389;&#xFF0C;&#x5BF9;&#x5927;&#x5BB6;&#x5199;&#x7684;&#x4EE3;&#x7801;review&#x6BD4;&#x8F83;&#x4ED4;&#x7EC6;&#xFF0C;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x540D;&#x3001;&#x4E00;&#x6BB5;&#x903B;&#x8F91;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x53CD;&#x590D;&#x8BA9;&#x4FEE;&#x6539;&#xFF0C;&#x8FD9;&#x5176;&#x5B9E;&#x662F;&#x63D0;&#x5347;&#x6280;&#x80FD;&#x6700;&#x5FEB;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
 <p><img src="https://s4.51cto.com/oss/202108/19/1d9ac64c182c24e7d8d89b6f0de3e23c.jpg" alt></p>
-<h2 id="二、提升代码质量的方法"><a href="#二、提升代码质量的方法" class="headerlink" title="二、提升代码质量的方法"></a>二、提升代码质量的方法</h2><p>提升代码质量的方法，笔者喜欢用三个方法：领域建模、设计原则、设计模式，主要谈下如何使用。</p>
+<h2 id="&#x4E8C;&#x3001;&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x7684;&#x65B9;&#x6CD5;"><a href="#&#x4E8C;&#x3001;&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E8C;&#x3001;&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x7684;&#x65B9;&#x6CD5;"></a>&#x4E8C;&#x3001;&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x7684;&#x65B9;&#x6CD5;</h2><p>&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x7B14;&#x8005;&#x559C;&#x6B22;&#x7528;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x4E3B;&#x8981;&#x8C08;&#x4E0B;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x3002;</p>
 <ul>
-<li>分析阶段：当拿到一个需求时，先不要着急想着怎么把这个功能实现，这种很容易陷入事务脚本的模式。分析什么呢？需要分析需求的目的是什么、完成该功能需要哪些实体承担，这一步核心是找实体。举个上面进店Tab展示的例子，它有两个关键的实体：导航栏、Tab，其中导航栏里面包含了若干个Tab。</li>
+<li>&#x5206;&#x6790;&#x9636;&#x6BB5;&#xFF1A;&#x5F53;&#x62FF;&#x5230;&#x4E00;&#x4E2A;&#x9700;&#x6C42;&#x65F6;&#xFF0C;&#x5148;&#x4E0D;&#x8981;&#x7740;&#x6025;&#x60F3;&#x7740;&#x600E;&#x4E48;&#x628A;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x79CD;&#x5F88;&#x5BB9;&#x6613;&#x9677;&#x5165;&#x4E8B;&#x52A1;&#x811A;&#x672C;&#x7684;&#x6A21;&#x5F0F;&#x3002;&#x5206;&#x6790;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x9700;&#x8981;&#x5206;&#x6790;&#x9700;&#x6C42;&#x7684;&#x76EE;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#x3001;&#x5B8C;&#x6210;&#x8BE5;&#x529F;&#x80FD;&#x9700;&#x8981;&#x54EA;&#x4E9B;&#x5B9E;&#x4F53;&#x627F;&#x62C5;&#xFF0C;&#x8FD9;&#x4E00;&#x6B65;&#x6838;&#x5FC3;&#x662F;&#x627E;&#x5B9E;&#x4F53;&#x3002;&#x4E3E;&#x4E2A;&#x4E0A;&#x9762;&#x8FDB;&#x5E97;Tab&#x5C55;&#x793A;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5B83;&#x6709;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x7684;&#x5B9E;&#x4F53;&#xFF1A;&#x5BFC;&#x822A;&#x680F;&#x3001;Tab&#xFF0C;&#x5176;&#x4E2D;&#x5BFC;&#x822A;&#x680F;&#x91CC;&#x9762;&#x5305;&#x542B;&#x4E86;&#x82E5;&#x5E72;&#x4E2A;Tab&#x3002;</li>
 </ul>
 <ul>
-<li>设计阶段：分析完了有哪些实体后，再分析职责如何分配到具体的实体上，这就要运用一些设计原则去指导，GRASP中提到一些职责分配的原则，感兴趣的同学可以去详细看看。回到上面的例子上，Tab的职责主要有两个：一个是Tab能否展示，这是它自己的职责，如上新Tab展示的逻辑是店铺30天内有上架新商品；另一个职责就是Tab规格信息的构建，也是它自己要负责的。导航栏的职责有两个：一个是接受Tab注册；另一个是展示。职责分配不适理，也就不满足高内聚、低耦合的特征。</li>
+<li>&#x8BBE;&#x8BA1;&#x9636;&#x6BB5;&#xFF1A;&#x5206;&#x6790;&#x5B8C;&#x4E86;&#x6709;&#x54EA;&#x4E9B;&#x5B9E;&#x4F53;&#x540E;&#xFF0C;&#x518D;&#x5206;&#x6790;&#x804C;&#x8D23;&#x5982;&#x4F55;&#x5206;&#x914D;&#x5230;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x4F53;&#x4E0A;&#xFF0C;&#x8FD9;&#x5C31;&#x8981;&#x8FD0;&#x7528;&#x4E00;&#x4E9B;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x53BB;&#x6307;&#x5BFC;&#xFF0C;GRASP&#x4E2D;&#x63D0;&#x5230;&#x4E00;&#x4E9B;&#x804C;&#x8D23;&#x5206;&#x914D;&#x7684;&#x539F;&#x5219;&#xFF0C;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x53BB;&#x8BE6;&#x7EC6;&#x770B;&#x770B;&#x3002;&#x56DE;&#x5230;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E0A;&#xFF0C;Tab&#x7684;&#x804C;&#x8D23;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;Tab&#x80FD;&#x5426;&#x5C55;&#x793A;&#xFF0C;&#x8FD9;&#x662F;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x804C;&#x8D23;&#xFF0C;&#x5982;&#x4E0A;&#x65B0;Tab&#x5C55;&#x793A;&#x7684;&#x903B;&#x8F91;&#x662F;&#x5E97;&#x94FA;30&#x5929;&#x5185;&#x6709;&#x4E0A;&#x67B6;&#x65B0;&#x5546;&#x54C1;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x804C;&#x8D23;&#x5C31;&#x662F;Tab&#x89C4;&#x683C;&#x4FE1;&#x606F;&#x7684;&#x6784;&#x5EFA;&#xFF0C;&#x4E5F;&#x662F;&#x5B83;&#x81EA;&#x5DF1;&#x8981;&#x8D1F;&#x8D23;&#x7684;&#x3002;&#x5BFC;&#x822A;&#x680F;&#x7684;&#x804C;&#x8D23;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x63A5;&#x53D7;Tab&#x6CE8;&#x518C;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x5C55;&#x793A;&#x3002;&#x804C;&#x8D23;&#x5206;&#x914D;&#x4E0D;&#x9002;&#x7406;&#xFF0C;&#x4E5F;&#x5C31;&#x4E0D;&#x6EE1;&#x8DB3;&#x9AD8;&#x5185;&#x805A;&#x3001;&#x4F4E;&#x8026;&#x5408;&#x7684;&#x7279;&#x5F81;&#x3002;</li>
 </ul>
 <ul>
-<li>打磨阶段：这个阶段选择合适的模式去实现，大家一看到模式都会理解它是做什么的，比如看到模板类，就会知道处理通用的业务流程，具体变化的部分放在子类中处理。上面的这个例子，用到了2个设计模式：一个是订阅者模式，Tab自动注册的过程；另一个是模板模式，先判断Tab能否展示，然后再构建Tab规格信息，流程虽然简单，也可以抽象出来通用的流程出来，子类只用简单地重写2个方法。</li>
+<li>&#x6253;&#x78E8;&#x9636;&#x6BB5;&#xFF1A;&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x6A21;&#x5F0F;&#x53BB;&#x5B9E;&#x73B0;&#xFF0C;&#x5927;&#x5BB6;&#x4E00;&#x770B;&#x5230;&#x6A21;&#x5F0F;&#x90FD;&#x4F1A;&#x7406;&#x89E3;&#x5B83;&#x662F;&#x505A;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x770B;&#x5230;&#x6A21;&#x677F;&#x7C7B;&#xFF0C;&#x5C31;&#x4F1A;&#x77E5;&#x9053;&#x5904;&#x7406;&#x901A;&#x7528;&#x7684;&#x4E1A;&#x52A1;&#x6D41;&#x7A0B;&#xFF0C;&#x5177;&#x4F53;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x653E;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x5904;&#x7406;&#x3002;&#x4E0A;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x7528;&#x5230;&#x4E86;2&#x4E2A;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x8BA2;&#x9605;&#x8005;&#x6A21;&#x5F0F;&#xFF0C;Tab&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x7684;&#x8FC7;&#x7A0B;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x6A21;&#x677F;&#x6A21;&#x5F0F;&#xFF0C;&#x5148;&#x5224;&#x65AD;Tab&#x80FD;&#x5426;&#x5C55;&#x793A;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6784;&#x5EFA;Tab&#x89C4;&#x683C;&#x4FE1;&#x606F;&#xFF0C;&#x6D41;&#x7A0B;&#x867D;&#x7136;&#x7B80;&#x5355;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x62BD;&#x8C61;&#x51FA;&#x6765;&#x901A;&#x7528;&#x7684;&#x6D41;&#x7A0B;&#x51FA;&#x6765;&#xFF0C;&#x5B50;&#x7C7B;&#x53EA;&#x7528;&#x7B80;&#x5355;&#x5730;&#x91CD;&#x5199;2&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</li>
 </ul>
 <p><img src="https://s5.51cto.com/oss/202108/19/ff1280886766202e257e5742e22cf02d.jpg" alt></p>
-<h2 id="三、领域模型的作用"><a href="#三、领域模型的作用" class="headerlink" title="三、领域模型的作用"></a>三、领域模型的作用</h2><p>领域建模的入门门槛比较高，包含了一些难理解的概念。本篇文章中并不会讲述如何进行建模（可以私下交流），笔者发现让大家接受领域建模远比知道如何建模更重要，当你知道了领域建模的作用后，自己会想各种办法去学习。下面通过笔者经历的一些实际案例进行阐述，让大家听起来并不感觉到那么空洞。</p>
-<h4 id="1-简化认识"><a href="#1-简化认识" class="headerlink" title="1.简化认识"></a>1.简化认识</h4><p>笔者工作一年后加入到了一家金融公司，当时对金融一无所知，开始接触到标的、债权、债权转让、融资担保、非融资担保等名词后，一时感到无所适从，每天要学习非常多的新内容。</p>
-<p>两个月后，我的主管给我们做了一次分享，就拿了一张ppt来讲，它里面包含了领域的实体，以及实体之间的关联关系，一下子我就知道了整个业务是怎么玩转的。模型的作用就是简化人对事物的认识，如果一开始我们就陷入到代码细节中，很难看到业务的全貌，而且代码是为了实现业务能力，当你知道了业务之后，再去看代码就会快得多。</p>
-<h4 id="2-统一认识"><a href="#2-统一认识" class="headerlink" title="2.统一认识"></a>2.统一认识</h4><p>在公司里，有研发、产品、运营、测试……，当我们在一起交流的时候，大家默认的语言是不统一的，开发经常讲怎么操作这张数据库表，产品经常讲业务模式……这就导致大家的认识并不统一。</p>
-<p>那是一个晚上，刚和交互同学确认完交互流程后，突然她问了一个问题：把相似的页面让卖家移到同一个文夹中，这个好实现吧？听完后告知不能，交互同学一听说这很合理呀，怎么实现不了？开始给她讲了下现有的系统流程，发现她听得一脸懵逼，马上发现问题了，我是用开发的语言在描述问题，立马换了一种方式，找了一支笔和一张纸，给交互同学画了我们的领域模型是什么，业务实体之间的交互是怎样的，一讲完后，交互同学马上明白了为什么不能实现的原因所在了。</p>
-<h4 id="3-指导设计"><a href="#3-指导设计" class="headerlink" title="3.指导设计"></a>3.指导设计</h4><p>有的同学觉得领域建模偏空洞，比较虚，其实除了能够简化认识和统一认识外，领域建模还可能指导代码设计，比如上面举的店铺导航Tab的例子，笔者就是通过领域建模来设计的，虽然它是一个小的需求，并不妨碍领域建模的运用。在下图中，可以清晰的看到，导航栏包含了若干个Tab，一个Tab包含规格信息和点击操作信息。把这个业务模式画出来之后，对应的代码中也会有上面的概念，现实与代码之间存在映射关系，模型即代码，代码即模型。如果你的模型不能反映现实，模块只能算是一个花架子，范钢老师对此总结了三句话：现实有什么事物，对应有什么对象；现实事物有什么行为，对应对象有什么方法；现实事物有什么联系，对应对象有什么关联。</p>
+<h2 id="&#x4E09;&#x3001;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x7684;&#x4F5C;&#x7528;"><a href="#&#x4E09;&#x3001;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x7684;&#x4F5C;&#x7528;" class="headerlink" title="&#x4E09;&#x3001;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x7684;&#x4F5C;&#x7528;"></a>&#x4E09;&#x3001;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x7684;&#x4F5C;&#x7528;</h2><p>&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x7684;&#x5165;&#x95E8;&#x95E8;&#x69DB;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E9B;&#x96BE;&#x7406;&#x89E3;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x5E76;&#x4E0D;&#x4F1A;&#x8BB2;&#x8FF0;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;&#xFF08;&#x53EF;&#x4EE5;&#x79C1;&#x4E0B;&#x4EA4;&#x6D41;&#xFF09;&#xFF0C;&#x7B14;&#x8005;&#x53D1;&#x73B0;&#x8BA9;&#x5927;&#x5BB6;&#x63A5;&#x53D7;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x8FDC;&#x6BD4;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x5EFA;&#x6A21;&#x66F4;&#x91CD;&#x8981;&#xFF0C;&#x5F53;&#x4F60;&#x77E5;&#x9053;&#x4E86;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x7684;&#x4F5C;&#x7528;&#x540E;&#xFF0C;&#x81EA;&#x5DF1;&#x4F1A;&#x60F3;&#x5404;&#x79CD;&#x529E;&#x6CD5;&#x53BB;&#x5B66;&#x4E60;&#x3002;&#x4E0B;&#x9762;&#x901A;&#x8FC7;&#x7B14;&#x8005;&#x7ECF;&#x5386;&#x7684;&#x4E00;&#x4E9B;&#x5B9E;&#x9645;&#x6848;&#x4F8B;&#x8FDB;&#x884C;&#x9610;&#x8FF0;&#xFF0C;&#x8BA9;&#x5927;&#x5BB6;&#x542C;&#x8D77;&#x6765;&#x5E76;&#x4E0D;&#x611F;&#x89C9;&#x5230;&#x90A3;&#x4E48;&#x7A7A;&#x6D1E;&#x3002;</p>
+<h4 id="1-&#x7B80;&#x5316;&#x8BA4;&#x8BC6;"><a href="#1-&#x7B80;&#x5316;&#x8BA4;&#x8BC6;" class="headerlink" title="1.&#x7B80;&#x5316;&#x8BA4;&#x8BC6;"></a>1.&#x7B80;&#x5316;&#x8BA4;&#x8BC6;</h4><p>&#x7B14;&#x8005;&#x5DE5;&#x4F5C;&#x4E00;&#x5E74;&#x540E;&#x52A0;&#x5165;&#x5230;&#x4E86;&#x4E00;&#x5BB6;&#x91D1;&#x878D;&#x516C;&#x53F8;&#xFF0C;&#x5F53;&#x65F6;&#x5BF9;&#x91D1;&#x878D;&#x4E00;&#x65E0;&#x6240;&#x77E5;&#xFF0C;&#x5F00;&#x59CB;&#x63A5;&#x89E6;&#x5230;&#x6807;&#x7684;&#x3001;&#x503A;&#x6743;&#x3001;&#x503A;&#x6743;&#x8F6C;&#x8BA9;&#x3001;&#x878D;&#x8D44;&#x62C5;&#x4FDD;&#x3001;&#x975E;&#x878D;&#x8D44;&#x62C5;&#x4FDD;&#x7B49;&#x540D;&#x8BCD;&#x540E;&#xFF0C;&#x4E00;&#x65F6;&#x611F;&#x5230;&#x65E0;&#x6240;&#x9002;&#x4ECE;&#xFF0C;&#x6BCF;&#x5929;&#x8981;&#x5B66;&#x4E60;&#x975E;&#x5E38;&#x591A;&#x7684;&#x65B0;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x4E24;&#x4E2A;&#x6708;&#x540E;&#xFF0C;&#x6211;&#x7684;&#x4E3B;&#x7BA1;&#x7ED9;&#x6211;&#x4EEC;&#x505A;&#x4E86;&#x4E00;&#x6B21;&#x5206;&#x4EAB;&#xFF0C;&#x5C31;&#x62FF;&#x4E86;&#x4E00;&#x5F20;ppt&#x6765;&#x8BB2;&#xFF0C;&#x5B83;&#x91CC;&#x9762;&#x5305;&#x542B;&#x4E86;&#x9886;&#x57DF;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9E;&#x4F53;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x8054;&#x5173;&#x7CFB;&#xFF0C;&#x4E00;&#x4E0B;&#x5B50;&#x6211;&#x5C31;&#x77E5;&#x9053;&#x4E86;&#x6574;&#x4E2A;&#x4E1A;&#x52A1;&#x662F;&#x600E;&#x4E48;&#x73A9;&#x8F6C;&#x7684;&#x3002;&#x6A21;&#x578B;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x7B80;&#x5316;&#x4EBA;&#x5BF9;&#x4E8B;&#x7269;&#x7684;&#x8BA4;&#x8BC6;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x5F00;&#x59CB;&#x6211;&#x4EEC;&#x5C31;&#x9677;&#x5165;&#x5230;&#x4EE3;&#x7801;&#x7EC6;&#x8282;&#x4E2D;&#xFF0C;&#x5F88;&#x96BE;&#x770B;&#x5230;&#x4E1A;&#x52A1;&#x7684;&#x5168;&#x8C8C;&#xFF0C;&#x800C;&#x4E14;&#x4EE3;&#x7801;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x4E1A;&#x52A1;&#x80FD;&#x529B;&#xFF0C;&#x5F53;&#x4F60;&#x77E5;&#x9053;&#x4E86;&#x4E1A;&#x52A1;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x53BB;&#x770B;&#x4EE3;&#x7801;&#x5C31;&#x4F1A;&#x5FEB;&#x5F97;&#x591A;&#x3002;</p>
+<h4 id="2-&#x7EDF;&#x4E00;&#x8BA4;&#x8BC6;"><a href="#2-&#x7EDF;&#x4E00;&#x8BA4;&#x8BC6;" class="headerlink" title="2.&#x7EDF;&#x4E00;&#x8BA4;&#x8BC6;"></a>2.&#x7EDF;&#x4E00;&#x8BA4;&#x8BC6;</h4><p>&#x5728;&#x516C;&#x53F8;&#x91CC;&#xFF0C;&#x6709;&#x7814;&#x53D1;&#x3001;&#x4EA7;&#x54C1;&#x3001;&#x8FD0;&#x8425;&#x3001;&#x6D4B;&#x8BD5;&#x2026;&#x2026;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5728;&#x4E00;&#x8D77;&#x4EA4;&#x6D41;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5927;&#x5BB6;&#x9ED8;&#x8BA4;&#x7684;&#x8BED;&#x8A00;&#x662F;&#x4E0D;&#x7EDF;&#x4E00;&#x7684;&#xFF0C;&#x5F00;&#x53D1;&#x7ECF;&#x5E38;&#x8BB2;&#x600E;&#x4E48;&#x64CD;&#x4F5C;&#x8FD9;&#x5F20;&#x6570;&#x636E;&#x5E93;&#x8868;&#xFF0C;&#x4EA7;&#x54C1;&#x7ECF;&#x5E38;&#x8BB2;&#x4E1A;&#x52A1;&#x6A21;&#x5F0F;&#x2026;&#x2026;&#x8FD9;&#x5C31;&#x5BFC;&#x81F4;&#x5927;&#x5BB6;&#x7684;&#x8BA4;&#x8BC6;&#x5E76;&#x4E0D;&#x7EDF;&#x4E00;&#x3002;</p>
+<p>&#x90A3;&#x662F;&#x4E00;&#x4E2A;&#x665A;&#x4E0A;&#xFF0C;&#x521A;&#x548C;&#x4EA4;&#x4E92;&#x540C;&#x5B66;&#x786E;&#x8BA4;&#x5B8C;&#x4EA4;&#x4E92;&#x6D41;&#x7A0B;&#x540E;&#xFF0C;&#x7A81;&#x7136;&#x5979;&#x95EE;&#x4E86;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;&#x628A;&#x76F8;&#x4F3C;&#x7684;&#x9875;&#x9762;&#x8BA9;&#x5356;&#x5BB6;&#x79FB;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x5939;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x597D;&#x5B9E;&#x73B0;&#x5427;&#xFF1F;&#x542C;&#x5B8C;&#x540E;&#x544A;&#x77E5;&#x4E0D;&#x80FD;&#xFF0C;&#x4EA4;&#x4E92;&#x540C;&#x5B66;&#x4E00;&#x542C;&#x8BF4;&#x8FD9;&#x5F88;&#x5408;&#x7406;&#x5440;&#xFF0C;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x4E0D;&#x4E86;&#xFF1F;&#x5F00;&#x59CB;&#x7ED9;&#x5979;&#x8BB2;&#x4E86;&#x4E0B;&#x73B0;&#x6709;&#x7684;&#x7CFB;&#x7EDF;&#x6D41;&#x7A0B;&#xFF0C;&#x53D1;&#x73B0;&#x5979;&#x542C;&#x5F97;&#x4E00;&#x8138;&#x61F5;&#x903C;&#xFF0C;&#x9A6C;&#x4E0A;&#x53D1;&#x73B0;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x6211;&#x662F;&#x7528;&#x5F00;&#x53D1;&#x7684;&#x8BED;&#x8A00;&#x5728;&#x63CF;&#x8FF0;&#x95EE;&#x9898;&#xFF0C;&#x7ACB;&#x9A6C;&#x6362;&#x4E86;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x627E;&#x4E86;&#x4E00;&#x652F;&#x7B14;&#x548C;&#x4E00;&#x5F20;&#x7EB8;&#xFF0C;&#x7ED9;&#x4EA4;&#x4E92;&#x540C;&#x5B66;&#x753B;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x9886;&#x57DF;&#x6A21;&#x578B;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x4E1A;&#x52A1;&#x5B9E;&#x4F53;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x662F;&#x600E;&#x6837;&#x7684;&#xFF0C;&#x4E00;&#x8BB2;&#x5B8C;&#x540E;&#xFF0C;&#x4EA4;&#x4E92;&#x540C;&#x5B66;&#x9A6C;&#x4E0A;&#x660E;&#x767D;&#x4E86;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x7684;&#x539F;&#x56E0;&#x6240;&#x5728;&#x4E86;&#x3002;</p>
+<h4 id="3-&#x6307;&#x5BFC;&#x8BBE;&#x8BA1;"><a href="#3-&#x6307;&#x5BFC;&#x8BBE;&#x8BA1;" class="headerlink" title="3.&#x6307;&#x5BFC;&#x8BBE;&#x8BA1;"></a>3.&#x6307;&#x5BFC;&#x8BBE;&#x8BA1;</h4><p>&#x6709;&#x7684;&#x540C;&#x5B66;&#x89C9;&#x5F97;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x504F;&#x7A7A;&#x6D1E;&#xFF0C;&#x6BD4;&#x8F83;&#x865A;&#xFF0C;&#x5176;&#x5B9E;&#x9664;&#x4E86;&#x80FD;&#x591F;&#x7B80;&#x5316;&#x8BA4;&#x8BC6;&#x548C;&#x7EDF;&#x4E00;&#x8BA4;&#x8BC6;&#x5916;&#xFF0C;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x8FD8;&#x53EF;&#x80FD;&#x6307;&#x5BFC;&#x4EE3;&#x7801;&#x8BBE;&#x8BA1;&#xFF0C;&#x6BD4;&#x5982;&#x4E0A;&#x9762;&#x4E3E;&#x7684;&#x5E97;&#x94FA;&#x5BFC;&#x822A;Tab&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x7B14;&#x8005;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x6765;&#x8BBE;&#x8BA1;&#x7684;&#xFF0C;&#x867D;&#x7136;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5E76;&#x4E0D;&#x59A8;&#x788D;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x7684;&#x8FD0;&#x7528;&#x3002;&#x5728;&#x4E0B;&#x56FE;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x6E05;&#x6670;&#x7684;&#x770B;&#x5230;&#xFF0C;&#x5BFC;&#x822A;&#x680F;&#x5305;&#x542B;&#x4E86;&#x82E5;&#x5E72;&#x4E2A;Tab&#xFF0C;&#x4E00;&#x4E2A;Tab&#x5305;&#x542B;&#x89C4;&#x683C;&#x4FE1;&#x606F;&#x548C;&#x70B9;&#x51FB;&#x64CD;&#x4F5C;&#x4FE1;&#x606F;&#x3002;&#x628A;&#x8FD9;&#x4E2A;&#x4E1A;&#x52A1;&#x6A21;&#x5F0F;&#x753B;&#x51FA;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x4E5F;&#x4F1A;&#x6709;&#x4E0A;&#x9762;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x73B0;&#x5B9E;&#x4E0E;&#x4EE3;&#x7801;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x6A21;&#x578B;&#x5373;&#x4EE3;&#x7801;&#xFF0C;&#x4EE3;&#x7801;&#x5373;&#x6A21;&#x578B;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x6A21;&#x578B;&#x4E0D;&#x80FD;&#x53CD;&#x6620;&#x73B0;&#x5B9E;&#xFF0C;&#x6A21;&#x5757;&#x53EA;&#x80FD;&#x7B97;&#x662F;&#x4E00;&#x4E2A;&#x82B1;&#x67B6;&#x5B50;&#xFF0C;&#x8303;&#x94A2;&#x8001;&#x5E08;&#x5BF9;&#x6B64;&#x603B;&#x7ED3;&#x4E86;&#x4E09;&#x53E5;&#x8BDD;&#xFF1A;&#x73B0;&#x5B9E;&#x6709;&#x4EC0;&#x4E48;&#x4E8B;&#x7269;&#xFF0C;&#x5BF9;&#x5E94;&#x6709;&#x4EC0;&#x4E48;&#x5BF9;&#x8C61;&#xFF1B;&#x73B0;&#x5B9E;&#x4E8B;&#x7269;&#x6709;&#x4EC0;&#x4E48;&#x884C;&#x4E3A;&#xFF0C;&#x5BF9;&#x5E94;&#x5BF9;&#x8C61;&#x6709;&#x4EC0;&#x4E48;&#x65B9;&#x6CD5;&#xFF1B;&#x73B0;&#x5B9E;&#x4E8B;&#x7269;&#x6709;&#x4EC0;&#x4E48;&#x8054;&#x7CFB;&#xFF0C;&#x5BF9;&#x5E94;&#x5BF9;&#x8C61;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x8054;&#x3002;</p>
 <p><img src="https://s5.51cto.com/oss/202108/19/cda69d908efb092af3cbc3b5baec041b.jpg" alt></p>
-<h2 id="四、设计原则的底层逻辑"><a href="#四、设计原则的底层逻辑" class="headerlink" title="四、设计原则的底层逻辑"></a>四、设计原则的底层逻辑</h2><h4 id="1-SOLID"><a href="#1-SOLID" class="headerlink" title="1.SOLID"></a>1.SOLID</h4><p>对于设计原则，一般我们会谈到SOLID，它包含了五个设计原则：</p>
+<h2 id="&#x56DB;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x7684;&#x5E95;&#x5C42;&#x903B;&#x8F91;"><a href="#&#x56DB;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x7684;&#x5E95;&#x5C42;&#x903B;&#x8F91;" class="headerlink" title="&#x56DB;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x7684;&#x5E95;&#x5C42;&#x903B;&#x8F91;"></a>&#x56DB;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x7684;&#x5E95;&#x5C42;&#x903B;&#x8F91;</h2><h4 id="1-SOLID"><a href="#1-SOLID" class="headerlink" title="1.SOLID"></a>1.SOLID</h4><p>&#x5BF9;&#x4E8E;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF0C;&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x4F1A;&#x8C08;&#x5230;SOLID&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E86;&#x4E94;&#x4E2A;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF1A;</p>
 <ul>
-<li>单一职责原则：A class should have one, and only one, reason to change，一个类只能因为一个理由被修改。</li>
+<li>&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;&#xFF1A;A class should have one, and only one, reason to change&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x53EA;&#x80FD;&#x56E0;&#x4E3A;&#x4E00;&#x4E2A;&#x7406;&#x7531;&#x88AB;&#x4FEE;&#x6539;&#x3002;</li>
 </ul>
 <ul>
-<li>开闭原则：Entities should be open for extension, but closed for modification，对扩展开放，对修改关闭。</li>
+<li>&#x5F00;&#x95ED;&#x539F;&#x5219;&#xFF1A;Entities should be open for extension, but closed for modification&#xFF0C;&#x5BF9;&#x6269;&#x5C55;&#x5F00;&#x653E;&#xFF0C;&#x5BF9;&#x4FEE;&#x6539;&#x5173;&#x95ED;&#x3002;</li>
 </ul>
 <ul>
-<li>里氏替换原则：Functions that use pointers of references to base classes must be able to use objects of derived classes without knowing it，子类可以替换父类。</li>
+<li>&#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;&#xFF1A;Functions that use pointers of references to base classes must be able to use objects of derived classes without knowing it&#xFF0C;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x66FF;&#x6362;&#x7236;&#x7C7B;&#x3002;</li>
 </ul>
 <ul>
-<li>接口隔离原则：A client should not be forced to implement an interface that it doesn’t use，不能强制客户端实现它不使用的接口，应该把接口拆的尽可能小。</li>
+<li>&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;&#xFF1A;A client should not be forced to implement an interface that it doesn&#x2019;t use&#xFF0C;&#x4E0D;&#x80FD;&#x5F3A;&#x5236;&#x5BA2;&#x6237;&#x7AEF;&#x5B9E;&#x73B0;&#x5B83;&#x4E0D;&#x4F7F;&#x7528;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5E94;&#x8BE5;&#x628A;&#x63A5;&#x53E3;&#x62C6;&#x7684;&#x5C3D;&#x53EF;&#x80FD;&#x5C0F;&#x3002;</li>
 </ul>
 <ul>
-<li>依赖倒置原则：Abstractions should not depend on details. Details should depend on abstractions，抽象不依赖于细节，而细节依赖于抽象。</li>
+<li>&#x4F9D;&#x8D56;&#x5012;&#x7F6E;&#x539F;&#x5219;&#xFF1A;Abstractions should not depend on details. Details should depend on abstractions&#xFF0C;&#x62BD;&#x8C61;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x7EC6;&#x8282;&#xFF0C;&#x800C;&#x7EC6;&#x8282;&#x4F9D;&#x8D56;&#x4E8E;&#x62BD;&#x8C61;&#x3002;</li>
 </ul>
-<h4 id="2-为什么要有设计原则"><a href="#2-为什么要有设计原则" class="headerlink" title="2.为什么要有设计原则"></a>2.为什么要有设计原则</h4><p>我们对SOLID原则基本上听说过或者了解过，但为什么要有这些设计原则呢？为了回答这个问题，我们从目标往下推导下。软件开发的目标是高内聚、低耦合，这句挂在嘴边的话，发现很难衡量，比如要回答：什么样的叫高内聚？什么样的叫低耦合？高内聚要高到什么程度？低耦合要低到什么程度？这四个问题并不太好回答。</p>
-<p>反过来想想，如果我们的代码不是高内聚和低耦合的会怎样？也即是低内聚和高耦合的场景。如果代码是低内聚和高耦合，则会出现修改一个逻辑，会导致多处代码要修改，这个并不是我们希望看到的，尤其在修改原有的逻辑，很容易出现bug，比如笔者之前修改一个问题，改了另外一处的规则，看起来是没有问题，结果影响到了一个业务方，这也是为什么开闭原则提出对修改关闭的原因，修改原有的逻辑是有风险的。</p>
-<p>理想的情况是修改只限定在某个局部范围内，这样影响的范围有限，因此我们要求逻辑要单一，不要包含多个职责。再往下思考下：为什么我们要修改呢？除了原有逻辑有bug要修复、代码重构外，一个重要的原因是需求发生了变化，是变化导致我们要对原有的逻辑进行修改。如果没有修改的场景，也就没有所谓的高内聚、低耦合之说了。因此设计原则的底层逻辑就是让软件能够较好地应对变化，降本增效。</p>
-<h4 id="3-如何落地实践"><a href="#3-如何落地实践" class="headerlink" title="3.如何落地实践"></a>3.如何落地实践</h4><p>设计原则只是一个指导的方针，离落地实践还有很大的一段距离，就像有些同学说设计原则我懂了，但我依然运用不到。实际上这个问题的本质还是对设计原则的底层逻辑没有理解，没有洞察出变化关注点，怎么解决这个问题呢？设计模式给出的答案：找到变化、封装变化。</p>
+<h4 id="2-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x8BBE;&#x8BA1;&#x539F;&#x5219;"><a href="#2-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x8BBE;&#x8BA1;&#x539F;&#x5219;" class="headerlink" title="2.&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x8BBE;&#x8BA1;&#x539F;&#x5219;"></a>2.&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</h4><p>&#x6211;&#x4EEC;&#x5BF9;SOLID&#x539F;&#x5219;&#x57FA;&#x672C;&#x4E0A;&#x542C;&#x8BF4;&#x8FC7;&#x6216;&#x8005;&#x4E86;&#x89E3;&#x8FC7;&#xFF0C;&#x4F46;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x8FD9;&#x4E9B;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x5462;&#xFF1F;&#x4E3A;&#x4E86;&#x56DE;&#x7B54;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE;&#x76EE;&#x6807;&#x5F80;&#x4E0B;&#x63A8;&#x5BFC;&#x4E0B;&#x3002;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x7684;&#x76EE;&#x6807;&#x662F;&#x9AD8;&#x5185;&#x805A;&#x3001;&#x4F4E;&#x8026;&#x5408;&#xFF0C;&#x8FD9;&#x53E5;&#x6302;&#x5728;&#x5634;&#x8FB9;&#x7684;&#x8BDD;&#xFF0C;&#x53D1;&#x73B0;&#x5F88;&#x96BE;&#x8861;&#x91CF;&#xFF0C;&#x6BD4;&#x5982;&#x8981;&#x56DE;&#x7B54;&#xFF1A;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x53EB;&#x9AD8;&#x5185;&#x805A;&#xFF1F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x53EB;&#x4F4E;&#x8026;&#x5408;&#xFF1F;&#x9AD8;&#x5185;&#x805A;&#x8981;&#x9AD8;&#x5230;&#x4EC0;&#x4E48;&#x7A0B;&#x5EA6;&#xFF1F;&#x4F4E;&#x8026;&#x5408;&#x8981;&#x4F4E;&#x5230;&#x4EC0;&#x4E48;&#x7A0B;&#x5EA6;&#xFF1F;&#x8FD9;&#x56DB;&#x4E2A;&#x95EE;&#x9898;&#x5E76;&#x4E0D;&#x592A;&#x597D;&#x56DE;&#x7B54;&#x3002;</p>
+<p>&#x53CD;&#x8FC7;&#x6765;&#x60F3;&#x60F3;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x662F;&#x9AD8;&#x5185;&#x805A;&#x548C;&#x4F4E;&#x8026;&#x5408;&#x7684;&#x4F1A;&#x600E;&#x6837;&#xFF1F;&#x4E5F;&#x5373;&#x662F;&#x4F4E;&#x5185;&#x805A;&#x548C;&#x9AD8;&#x8026;&#x5408;&#x7684;&#x573A;&#x666F;&#x3002;&#x5982;&#x679C;&#x4EE3;&#x7801;&#x662F;&#x4F4E;&#x5185;&#x805A;&#x548C;&#x9AD8;&#x8026;&#x5408;&#xFF0C;&#x5219;&#x4F1A;&#x51FA;&#x73B0;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x591A;&#x5904;&#x4EE3;&#x7801;&#x8981;&#x4FEE;&#x6539;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E76;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x770B;&#x5230;&#x7684;&#xFF0C;&#x5C24;&#x5176;&#x5728;&#x4FEE;&#x6539;&#x539F;&#x6709;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x51FA;&#x73B0;bug&#xFF0C;&#x6BD4;&#x5982;&#x7B14;&#x8005;&#x4E4B;&#x524D;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6539;&#x4E86;&#x53E6;&#x5916;&#x4E00;&#x5904;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x7ED3;&#x679C;&#x5F71;&#x54CD;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x65B9;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5F00;&#x95ED;&#x539F;&#x5219;&#x63D0;&#x51FA;&#x5BF9;&#x4FEE;&#x6539;&#x5173;&#x95ED;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x4FEE;&#x6539;&#x539F;&#x6709;&#x7684;&#x903B;&#x8F91;&#x662F;&#x6709;&#x98CE;&#x9669;&#x7684;&#x3002;</p>
+<p>&#x7406;&#x60F3;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x4FEE;&#x6539;&#x53EA;&#x9650;&#x5B9A;&#x5728;&#x67D0;&#x4E2A;&#x5C40;&#x90E8;&#x8303;&#x56F4;&#x5185;&#xFF0C;&#x8FD9;&#x6837;&#x5F71;&#x54CD;&#x7684;&#x8303;&#x56F4;&#x6709;&#x9650;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x8981;&#x6C42;&#x903B;&#x8F91;&#x8981;&#x5355;&#x4E00;&#xFF0C;&#x4E0D;&#x8981;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x804C;&#x8D23;&#x3002;&#x518D;&#x5F80;&#x4E0B;&#x601D;&#x8003;&#x4E0B;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x8981;&#x4FEE;&#x6539;&#x5462;&#xFF1F;&#x9664;&#x4E86;&#x539F;&#x6709;&#x903B;&#x8F91;&#x6709;bug&#x8981;&#x4FEE;&#x590D;&#x3001;&#x4EE3;&#x7801;&#x91CD;&#x6784;&#x5916;&#xFF0C;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x539F;&#x56E0;&#x662F;&#x9700;&#x6C42;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#xFF0C;&#x662F;&#x53D8;&#x5316;&#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x8981;&#x5BF9;&#x539F;&#x6709;&#x7684;&#x903B;&#x8F91;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4FEE;&#x6539;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x4E5F;&#x5C31;&#x6CA1;&#x6709;&#x6240;&#x8C13;&#x7684;&#x9AD8;&#x5185;&#x805A;&#x3001;&#x4F4E;&#x8026;&#x5408;&#x4E4B;&#x8BF4;&#x4E86;&#x3002;&#x56E0;&#x6B64;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x7684;&#x5E95;&#x5C42;&#x903B;&#x8F91;&#x5C31;&#x662F;&#x8BA9;&#x8F6F;&#x4EF6;&#x80FD;&#x591F;&#x8F83;&#x597D;&#x5730;&#x5E94;&#x5BF9;&#x53D8;&#x5316;&#xFF0C;&#x964D;&#x672C;&#x589E;&#x6548;&#x3002;</p>
+<h4 id="3-&#x5982;&#x4F55;&#x843D;&#x5730;&#x5B9E;&#x8DF5;"><a href="#3-&#x5982;&#x4F55;&#x843D;&#x5730;&#x5B9E;&#x8DF5;" class="headerlink" title="3.&#x5982;&#x4F55;&#x843D;&#x5730;&#x5B9E;&#x8DF5;"></a>3.&#x5982;&#x4F55;&#x843D;&#x5730;&#x5B9E;&#x8DF5;</h4><p>&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5BFC;&#x7684;&#x65B9;&#x9488;&#xFF0C;&#x79BB;&#x843D;&#x5730;&#x5B9E;&#x8DF5;&#x8FD8;&#x6709;&#x5F88;&#x5927;&#x7684;&#x4E00;&#x6BB5;&#x8DDD;&#x79BB;&#xFF0C;&#x5C31;&#x50CF;&#x6709;&#x4E9B;&#x540C;&#x5B66;&#x8BF4;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x6211;&#x61C2;&#x4E86;&#xFF0C;&#x4F46;&#x6211;&#x4F9D;&#x7136;&#x8FD0;&#x7528;&#x4E0D;&#x5230;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x672C;&#x8D28;&#x8FD8;&#x662F;&#x5BF9;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x7684;&#x5E95;&#x5C42;&#x903B;&#x8F91;&#x6CA1;&#x6709;&#x7406;&#x89E3;&#xFF0C;&#x6CA1;&#x6709;&#x6D1E;&#x5BDF;&#x51FA;&#x53D8;&#x5316;&#x5173;&#x6CE8;&#x70B9;&#xFF0C;&#x600E;&#x4E48;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5462;&#xFF1F;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7ED9;&#x51FA;&#x7684;&#x7B54;&#x6848;&#xFF1A;&#x627E;&#x5230;&#x53D8;&#x5316;&#x3001;&#x5C01;&#x88C5;&#x53D8;&#x5316;&#x3002;</p>
 <p><img src="https://s4.51cto.com/oss/202108/19/bc333aef9bcba4ddf470d3d16736c6bc.jpg" alt></p>
-<h2 id="五、设计模式的本质"><a href="#五、设计模式的本质" class="headerlink" title="五、设计模式的本质"></a>五、设计模式的本质</h2><p><img src="https://s4.51cto.com/oss/202108/19/026a743caa1478fc6e93f5dd4ebf0644.jpg" alt></p>
-<h2 id="六、案例实践"><a href="#六、案例实践" class="headerlink" title="六、案例实践"></a>六、案例实践</h2><p>当调用的接口有不同的实现时（入参、出参、接口都不相同），需要抽象出一层防腐层，怎么去实现呢？接下来分别看2个案例，这2个案例的侧重点不一样，一个是偏行为的抽象，一个是偏结构的抽象。</p>
-<h4 id="1-店铺品牌查询"><a href="#1-店铺品牌查询" class="headerlink" title="1.店铺品牌查询"></a>1.店铺品牌查询</h4><p>店铺需要查询店铺品牌信息，然而Lazada和AE的接口是不一样的，怎么抽象防腐层呢？</p>
-<p>首先最简单的方案很容易想到，就是定义一个接口，然后有两个实现。它的优点是层次简单，大家基本看了就懂。它的缺点也是明显的，在两个实现类中，职责不一单一，承担了两个职责：一个是实现店铺品牌的查询，另一个是数据转换。</p>
-<p>根据方案一提到的缺点，很容易想到使用适配器模式，将之前的类拆成两个类：一个类是调用对应的品牌服务；另一个类做数据适配转换。不过此时的方式还有一个缺点就是在国际化场景下，要考虑多租户之间的隔离，比如Lazada有多个站点，如何实现更细粒度的差异呢？方案三基于这些的思考就产生了。</p>
-<p>方案三是引入了多租户框架，能够支撑多租户场景。</p>
+<h2 id="&#x4E94;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x672C;&#x8D28;"><a href="#&#x4E94;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x672C;&#x8D28;" class="headerlink" title="&#x4E94;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x672C;&#x8D28;"></a>&#x4E94;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x672C;&#x8D28;</h2><p><img src="https://s4.51cto.com/oss/202108/19/026a743caa1478fc6e93f5dd4ebf0644.jpg" alt></p>
+<h2 id="&#x516D;&#x3001;&#x6848;&#x4F8B;&#x5B9E;&#x8DF5;"><a href="#&#x516D;&#x3001;&#x6848;&#x4F8B;&#x5B9E;&#x8DF5;" class="headerlink" title="&#x516D;&#x3001;&#x6848;&#x4F8B;&#x5B9E;&#x8DF5;"></a>&#x516D;&#x3001;&#x6848;&#x4F8B;&#x5B9E;&#x8DF5;</h2><p>&#x5F53;&#x8C03;&#x7528;&#x7684;&#x63A5;&#x53E3;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x65F6;&#xFF08;&#x5165;&#x53C2;&#x3001;&#x51FA;&#x53C2;&#x3001;&#x63A5;&#x53E3;&#x90FD;&#x4E0D;&#x76F8;&#x540C;&#xFF09;&#xFF0C;&#x9700;&#x8981;&#x62BD;&#x8C61;&#x51FA;&#x4E00;&#x5C42;&#x9632;&#x8150;&#x5C42;&#xFF0C;&#x600E;&#x4E48;&#x53BB;&#x5B9E;&#x73B0;&#x5462;&#xFF1F;&#x63A5;&#x4E0B;&#x6765;&#x5206;&#x522B;&#x770B;2&#x4E2A;&#x6848;&#x4F8B;&#xFF0C;&#x8FD9;2&#x4E2A;&#x6848;&#x4F8B;&#x7684;&#x4FA7;&#x91CD;&#x70B9;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x504F;&#x884C;&#x4E3A;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x504F;&#x7ED3;&#x6784;&#x7684;&#x62BD;&#x8C61;&#x3002;</p>
+<h4 id="1-&#x5E97;&#x94FA;&#x54C1;&#x724C;&#x67E5;&#x8BE2;"><a href="#1-&#x5E97;&#x94FA;&#x54C1;&#x724C;&#x67E5;&#x8BE2;" class="headerlink" title="1.&#x5E97;&#x94FA;&#x54C1;&#x724C;&#x67E5;&#x8BE2;"></a>1.&#x5E97;&#x94FA;&#x54C1;&#x724C;&#x67E5;&#x8BE2;</h4><p>&#x5E97;&#x94FA;&#x9700;&#x8981;&#x67E5;&#x8BE2;&#x5E97;&#x94FA;&#x54C1;&#x724C;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x800C;Lazada&#x548C;AE&#x7684;&#x63A5;&#x53E3;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x600E;&#x4E48;&#x62BD;&#x8C61;&#x9632;&#x8150;&#x5C42;&#x5462;&#xFF1F;</p>
+<p>&#x9996;&#x5148;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6848;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#xFF0C;&#x5C31;&#x662F;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x6709;&#x4E24;&#x4E2A;&#x5B9E;&#x73B0;&#x3002;&#x5B83;&#x7684;&#x4F18;&#x70B9;&#x662F;&#x5C42;&#x6B21;&#x7B80;&#x5355;&#xFF0C;&#x5927;&#x5BB6;&#x57FA;&#x672C;&#x770B;&#x4E86;&#x5C31;&#x61C2;&#x3002;&#x5B83;&#x7684;&#x7F3A;&#x70B9;&#x4E5F;&#x662F;&#x660E;&#x663E;&#x7684;&#xFF0C;&#x5728;&#x4E24;&#x4E2A;&#x5B9E;&#x73B0;&#x7C7B;&#x4E2D;&#xFF0C;&#x804C;&#x8D23;&#x4E0D;&#x4E00;&#x5355;&#x4E00;&#xFF0C;&#x627F;&#x62C5;&#x4E86;&#x4E24;&#x4E2A;&#x804C;&#x8D23;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x5B9E;&#x73B0;&#x5E97;&#x94FA;&#x54C1;&#x724C;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x3002;</p>
+<p>&#x6839;&#x636E;&#x65B9;&#x6848;&#x4E00;&#x63D0;&#x5230;&#x7684;&#x7F3A;&#x70B9;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#x4F7F;&#x7528;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;&#xFF0C;&#x5C06;&#x4E4B;&#x524D;&#x7684;&#x7C7B;&#x62C6;&#x6210;&#x4E24;&#x4E2A;&#x7C7B;&#xFF1A;&#x4E00;&#x4E2A;&#x7C7B;&#x662F;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x54C1;&#x724C;&#x670D;&#x52A1;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x505A;&#x6570;&#x636E;&#x9002;&#x914D;&#x8F6C;&#x6362;&#x3002;&#x4E0D;&#x8FC7;&#x6B64;&#x65F6;&#x7684;&#x65B9;&#x5F0F;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7F3A;&#x70B9;&#x5C31;&#x662F;&#x5728;&#x56FD;&#x9645;&#x5316;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x8981;&#x8003;&#x8651;&#x591A;&#x79DF;&#x6237;&#x4E4B;&#x95F4;&#x7684;&#x9694;&#x79BB;&#xFF0C;&#x6BD4;&#x5982;Lazada&#x6709;&#x591A;&#x4E2A;&#x7AD9;&#x70B9;&#xFF0C;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x66F4;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;&#x5DEE;&#x5F02;&#x5462;&#xFF1F;&#x65B9;&#x6848;&#x4E09;&#x57FA;&#x4E8E;&#x8FD9;&#x4E9B;&#x7684;&#x601D;&#x8003;&#x5C31;&#x4EA7;&#x751F;&#x4E86;&#x3002;</p>
+<p>&#x65B9;&#x6848;&#x4E09;&#x662F;&#x5F15;&#x5165;&#x4E86;&#x591A;&#x79DF;&#x6237;&#x6846;&#x67B6;&#xFF0C;&#x80FD;&#x591F;&#x652F;&#x6491;&#x591A;&#x79DF;&#x6237;&#x573A;&#x666F;&#x3002;</p>
 <p><img src="https://s5.51cto.com/oss/202108/19/3e860a809e23a01ab9ab7cb3929eddac.jpg" alt></p>
-<h4 id="2-店铺优惠券查询"><a href="#2-店铺优惠券查询" class="headerlink" title="2.店铺优惠券查询"></a>2.店铺优惠券查询</h4><p>有一种”万金油”式开发模式：组装参数、调用接口、解析响应结果，你会发现这种模式太万能了，适合所有的场景，这样的开发模式也即是”事务脚本模式”或者”面条型代码”。</p>
-<p>优惠券查询的案例，用领域建模的模式，首先思考有哪些实体。优惠券查询的本质：通过xx条件查询返回满足条件的优惠券集合。对于优惠券来讲，有两类信息至关重要。一个是优惠券的规格信息，如优惠券名称、优惠金额、有效期等；另一个是优惠券的限制条件。在查询的时候，是查店铺优惠券，还是查粉丝优惠券，或者是查询商品优惠券……。因此分开两部分抽象优惠券：一个是优惠券查询请求；另一个是优惠券规格实体。</p>
-<p>如果按照这样的设计，有一个缺点是业务方理解复杂度会上升，它是偏底层实现，没有做到使用简单。优惠券偏产品交付而非仅仅功能交付。因此在底层实现之上，再抽象出产品组件，这样业务方使用起来就比较简单。</p>
+<h4 id="2-&#x5E97;&#x94FA;&#x4F18;&#x60E0;&#x5238;&#x67E5;&#x8BE2;"><a href="#2-&#x5E97;&#x94FA;&#x4F18;&#x60E0;&#x5238;&#x67E5;&#x8BE2;" class="headerlink" title="2.&#x5E97;&#x94FA;&#x4F18;&#x60E0;&#x5238;&#x67E5;&#x8BE2;"></a>2.&#x5E97;&#x94FA;&#x4F18;&#x60E0;&#x5238;&#x67E5;&#x8BE2;</h4><p>&#x6709;&#x4E00;&#x79CD;&#x201D;&#x4E07;&#x91D1;&#x6CB9;&#x201D;&#x5F0F;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#xFF1A;&#x7EC4;&#x88C5;&#x53C2;&#x6570;&#x3001;&#x8C03;&#x7528;&#x63A5;&#x53E3;&#x3001;&#x89E3;&#x6790;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x592A;&#x4E07;&#x80FD;&#x4E86;&#xFF0C;&#x9002;&#x5408;&#x6240;&#x6709;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#x4E5F;&#x5373;&#x662F;&#x201D;&#x4E8B;&#x52A1;&#x811A;&#x672C;&#x6A21;&#x5F0F;&#x201D;&#x6216;&#x8005;&#x201D;&#x9762;&#x6761;&#x578B;&#x4EE3;&#x7801;&#x201D;&#x3002;</p>
+<p>&#x4F18;&#x60E0;&#x5238;&#x67E5;&#x8BE2;&#x7684;&#x6848;&#x4F8B;&#xFF0C;&#x7528;&#x9886;&#x57DF;&#x5EFA;&#x6A21;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x9996;&#x5148;&#x601D;&#x8003;&#x6709;&#x54EA;&#x4E9B;&#x5B9E;&#x4F53;&#x3002;&#x4F18;&#x60E0;&#x5238;&#x67E5;&#x8BE2;&#x7684;&#x672C;&#x8D28;&#xFF1A;&#x901A;&#x8FC7;xx&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x4F18;&#x60E0;&#x5238;&#x96C6;&#x5408;&#x3002;&#x5BF9;&#x4E8E;&#x4F18;&#x60E0;&#x5238;&#x6765;&#x8BB2;&#xFF0C;&#x6709;&#x4E24;&#x7C7B;&#x4FE1;&#x606F;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002;&#x4E00;&#x4E2A;&#x662F;&#x4F18;&#x60E0;&#x5238;&#x7684;&#x89C4;&#x683C;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x4F18;&#x60E0;&#x5238;&#x540D;&#x79F0;&#x3001;&#x4F18;&#x60E0;&#x91D1;&#x989D;&#x3001;&#x6709;&#x6548;&#x671F;&#x7B49;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x4F18;&#x60E0;&#x5238;&#x7684;&#x9650;&#x5236;&#x6761;&#x4EF6;&#x3002;&#x5728;&#x67E5;&#x8BE2;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x67E5;&#x5E97;&#x94FA;&#x4F18;&#x60E0;&#x5238;&#xFF0C;&#x8FD8;&#x662F;&#x67E5;&#x7C89;&#x4E1D;&#x4F18;&#x60E0;&#x5238;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x67E5;&#x8BE2;&#x5546;&#x54C1;&#x4F18;&#x60E0;&#x5238;&#x2026;&#x2026;&#x3002;&#x56E0;&#x6B64;&#x5206;&#x5F00;&#x4E24;&#x90E8;&#x5206;&#x62BD;&#x8C61;&#x4F18;&#x60E0;&#x5238;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x4F18;&#x60E0;&#x5238;&#x67E5;&#x8BE2;&#x8BF7;&#x6C42;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x4F18;&#x60E0;&#x5238;&#x89C4;&#x683C;&#x5B9E;&#x4F53;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6309;&#x7167;&#x8FD9;&#x6837;&#x7684;&#x8BBE;&#x8BA1;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x7F3A;&#x70B9;&#x662F;&#x4E1A;&#x52A1;&#x65B9;&#x7406;&#x89E3;&#x590D;&#x6742;&#x5EA6;&#x4F1A;&#x4E0A;&#x5347;&#xFF0C;&#x5B83;&#x662F;&#x504F;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#xFF0C;&#x6CA1;&#x6709;&#x505A;&#x5230;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x3002;&#x4F18;&#x60E0;&#x5238;&#x504F;&#x4EA7;&#x54C1;&#x4EA4;&#x4ED8;&#x800C;&#x975E;&#x4EC5;&#x4EC5;&#x529F;&#x80FD;&#x4EA4;&#x4ED8;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x4E4B;&#x4E0A;&#xFF0C;&#x518D;&#x62BD;&#x8C61;&#x51FA;&#x4EA7;&#x54C1;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#x4E1A;&#x52A1;&#x65B9;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x5C31;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x3002;</p>
 <p><img src="https://s4.51cto.com/oss/202108/19/c8988f8ea19ac3beb7b59fb634024f7d.jpg" alt></p>
 <!-- 本文转自 [https://www.51cto.com/article/678570.html](https://www.51cto.com/article/678570.html)，如有侵权，请联系删除。 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yxk17668.github.io/yxk17668/2019/05/16/提升代码质量：领域模型、设计原则、设计模式/" data-id="clijv2sio0000j0wjqdtad9v6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/基础进阶/">基础进阶</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/架构设计/">架构设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/设计原则/">设计原则</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/设计模式/">设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/领域模型/">领域模型</a></li></ul>
-
-    </footer>
-  </div>
-  
     
-<nav id="article-nav">
-  
-    <a href="/yxk17668/2019/06/06/Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Markdown语法
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/架构设计/">#架构设计</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/基础进阶/">#基础进阶</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/领域模型/">#领域模型</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/设计模式/">#设计模式</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/yxk17668/tags/设计原则/">#设计原则</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/yxk17668/2019/06/06/Markdown/">Markdown语法</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/yxk17668/2018/03/10/命名规范/">Java中的命名规范</a>
+            
+        </span>
+    </div>
+    
 </article>
 
-</section>
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      <a href="/yxk17668/" class="logo">yxk17668</a>
-      &copy; 2023 yxk17668<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Kommentare</h3>
+    
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
     </div>
     
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
 
-<script src="/yxk17668/js/jquery.min.js"></script>
-<script src="/yxk17668/js/jquery.scrollLoading.js"></script>
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 yxk17668&nbsp;
+                Разработано на базе <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
 
 
-  <link rel="stylesheet" href="/yxk17668/fancybox/jquery.fancybox.css">
-  <script src="/yxk17668/fancybox/jquery.fancybox.pack.js"></script>
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
 
 
 <script src="/yxk17668/js/script.js"></script>
 
-  </div>
-<script src="/yxk17668/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/yxk17668/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":500},"mobile":{"show":true},"log":false});</script></body>
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Seiten',
+                CATEGORIES: 'Kategorien',
+                TAGS: 'Tags',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/yxk17668/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/yxk17668/js/insight.js"></script>
+    
+</body>
 </html>
