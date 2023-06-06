@@ -76,8 +76,8 @@ menu:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: bootstrap-blog
-#theme: minos
+#theme: bootstrap-blog
+theme: minos
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
