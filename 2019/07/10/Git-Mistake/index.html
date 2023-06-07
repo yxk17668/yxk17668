@@ -1,282 +1,254 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>Git --changes not staged for commit | yxk17668</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x51FA;&amp;#x73B0;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C; &amp;#x6B63;&amp;#x5E38; git add . &amp;#xFF0C;&amp;#x7136;&amp;#x540E;git commit   &amp;#x540E;&amp;#x4ECD;&amp;#x7136;&amp;#x62A5; changes not staged for commit &amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x5E76;">
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="Git --changes not staged for commit">
+
+
+
+
+  <meta name="keywords" content="Git,Git mistake,">
+
+
+
+
+
+  <link rel="alternate" href="/yxk17668/default" title="yxk17668">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/yxk17668/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="https://yxk17668.github.io/yxk17668/2019/07/10/Git-Mistake/">
+
+
+<meta name="description" content="出现的操作 正常 git add . ，然后git commit   后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的  解决方案 先强行删除clone来的目录下的 .git 文件夹    删除方式：在该目录下打开命令行工具，执行 rd/s/q .git命令 删除成功后执行ls .git命令提示：No such file or directo">
 <meta name="keywords" content="Git,Git mistake">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git --changes not staged for commit">
 <meta property="og:url" content="https://yxk17668.github.io/yxk17668/2019/07/10/Git-Mistake/index.html">
 <meta property="og:site_name" content="yxk17668">
-<meta property="og:description" content="&amp;#x51FA;&amp;#x73B0;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C; &amp;#x6B63;&amp;#x5E38; git add . &amp;#xFF0C;&amp;#x7136;&amp;#x540E;git commit   &amp;#x540E;&amp;#x4ECD;&amp;#x7136;&amp;#x62A5; changes not staged for commit &amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x5E76;">
+<meta property="og:description" content="出现的操作 正常 git add . ，然后git commit   后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的  解决方案 先强行删除clone来的目录下的 .git 文件夹    删除方式：在该目录下打开命令行工具，执行 rd/s/q .git命令 删除成功后执行ls .git命令提示：No such file or directo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2023-05-24T05:33:56.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git --changes not staged for commit">
-<meta name="twitter:description" content="&amp;#x51FA;&amp;#x73B0;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C; &amp;#x6B63;&amp;#x5E38; git add . &amp;#xFF0C;&amp;#x7136;&amp;#x540E;git commit   &amp;#x540E;&amp;#x4ECD;&amp;#x7136;&amp;#x62A5; changes not staged for commit &amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x5E76;">
-  
-    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
-  
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<meta name="twitter:description" content="出现的操作 正常 git add . ，然后git commit   后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的  解决方案 先强行删除clone来的目录下的 .git 文件夹    删除方式：在该目录下打开命令行工具，执行 rd/s/q .git命令 删除成功后执行ls .git命令提示：No such file or directo">
+
+
+<link rel="stylesheet" type="text/css" href="/yxk17668/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
   
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="/yxk17668/css/styles.css">
-  
+    <title> Git --changes not staged for commit - yxk17668 </title>
+  </head>
 
-</head>
-</html>
-<body>
-  <nav class="navbar navbar-inverse">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="main-menu-navbar">
-      <ul class="nav navbar-nav">
-        
-          <li><a class href="/yxk17668/index.html">Home</a></li>
-        
-          <li><a class href="/yxk17668/archives/">Archives</a></li>
-        
-      </ul>
-
-      <!--
-      <ul class="nav navbar-nav navbar-right">
-        
-          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
-        
-      </ul>
-      -->
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-  <div class="container">
-    <div class="blog-header">
-  <h1 class="blog-title">yxk17668</h1>
-  
-    <p class="lead blog-description">less is more</p>
-  
-</div>
-
-    <div class="row">
-        <div class="col-sm-8 blog-main">
-          <article id="post-Git-Mistake" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 class="article-title" itemprop="name">
-      Git --changes not staged for commit
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/yxk17668/." class="logo">yxk17668</a>
     </h1>
-  
 
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/yxk17668/2019/07/10/Git-Mistake/" class="article-date"><time datetime="2019-07-09T16:55:53.000Z" itemprop="datePublished">2019-07-10</time></a>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/yxk17668/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/yxk17668/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
 </div>
 
-    
-    
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Git --changes not staged for commit
+        
+      </h1>
 
-  </div>
-  <div class="article-inner">
+      <time class="post-time">
+          7月 10 2019
+      </time>
+    </header>
 
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="&#x51FA;&#x73B0;&#x7684;&#x64CD;&#x4F5C;"><a href="#&#x51FA;&#x73B0;&#x7684;&#x64CD;&#x4F5C;" class="headerlink" title="&#x51FA;&#x73B0;&#x7684;&#x64CD;&#x4F5C;"></a>&#x51FA;&#x73B0;&#x7684;&#x64CD;&#x4F5C;</h3><blockquote>
-<p>&#x6B63;&#x5E38; <strong>git add .</strong> &#xFF0C;&#x7136;&#x540E;<strong>git commit</strong></p>
+
+
+    
+            <div class="post-content">
+            <h3 id="出现的操作"><a href="#出现的操作" class="headerlink" title="出现的操作"></a>出现的操作</h3><blockquote>
+<p>正常 <strong>git add .</strong> ，然后<strong>git commit</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x540E;&#x4ECD;&#x7136;&#x62A5; changes not staged for commit &#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x4E14;&#x4E0A;&#x4F20;&#x5230;&#x4ED3;&#x5E93;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x662F;&#x7A7A;&#x7684;</p>
+<p>后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的</p>
 </blockquote>
-<h3 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a href="#&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="headerlink" title="&#x89E3;&#x51B3;&#x65B9;&#x6848;"></a>&#x89E3;&#x51B3;&#x65B9;&#x6848;</h3><ol>
-<li><strong>&#x5148;&#x5F3A;&#x884C;&#x5220;&#x9664;clone&#x6765;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x7684; .git &#x6587;&#x4EF6;&#x5939;</strong></li>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li><strong>先强行删除clone来的目录下的 .git 文件夹</strong></li>
 </ol>
 <blockquote>
-<p> &#x5220;&#x9664;&#x65B9;&#x5F0F;&#xFF1A;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C;&#x6267;&#x884C; <strong>rd/s/q .git</strong>&#x547D;&#x4EE4;</p>
-<p>&#x5220;&#x9664;&#x6210;&#x529F;&#x540E;&#x6267;&#x884C;<strong>ls .git</strong>&#x547D;&#x4EE4;&#x63D0;&#x793A;&#xFF1A;No such file or directory</p>
+<p> 删除方式：在该目录下打开命令行工具，执行 <strong>rd/s/q .git</strong>命令</p>
+<p>删除成功后执行<strong>ls .git</strong>命令提示：No such file or directory</p>
 </blockquote>
 <ol start="2">
-<li><strong>&#x56DE;&#x5230;&#x4ED3;&#x5E93;&#x6839;&#x76EE;&#x5F55;&#x5220;&#x9664;&#x4ED3;&#x5E93;&#x4E2D;&#x7684;&#x7A7A;&#x6587;&#x4EF6;&#x5939;</strong></li>
+<li><strong>回到仓库根目录删除仓库中的空文件夹</strong></li>
 </ol>
 <blockquote>
-<p>&#x200B;    <strong>1&#xFF09;git rm -r &#x2013;cached &#x201C;themes/materail&#x201D;</strong></p>
-<p>&#x200B;    <strong>2&#xFF09;git commit -m &#x201C;remove empty folder&#x201D;</strong></p>
-<p>&#x200B;    <strong>3&#xFF09;git push origin master</strong></p>
+<p>​    <strong>1）git rm -r –cached “themes/materail”</strong></p>
+<p>​    <strong>2）git commit -m “remove empty folder”</strong></p>
+<p>​    <strong>3）git push origin master</strong></p>
 </blockquote>
 <ol start="3">
-<li><strong>&#x5728;&#x4ED3;&#x5E93;&#x6839;&#x76EE;&#x5F55;&#x91CD;&#x65B0;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;</strong></li>
+<li><strong>在仓库根目录重新提交代码</strong></li>
 </ol>
 <blockquote>
-<p>&#x200B;    <strong>1&#xFF09;git add .</strong></p>
-<p>&#x200B;    <strong>2&#xFF09;git commit -m &#x201C;repush&#x201D;</strong></p>
-<p>&#x200B;    <strong>3&#xFF09;git push origin master</strong></p>
+<p>​    <strong>1）git add .</strong></p>
+<p>​    <strong>2）git commit -m “repush”</strong></p>
+<p>​    <strong>3）git push origin master</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x4FDD;&#x8BC1;&#x4E0D;&#x4F1A;&#x62A5;&#x4E0A;&#x9762;&#x7684;&#x9519;&#xFF0C;&#x5E76;&#x4E14;&#x5220;&#x9664;&#x4E86;&#x7A7A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x91CD;&#x65B0;&#x628A;clone&#x4E0B;&#x6765;&#x7684;&#x76EE;&#x5F55;</p>
+<p>这样就能保证不会报上面的错，并且删除了空文件夹，重新把clone下来的目录</p>
 </blockquote>
-<h3 id="&#x539F;&#x56E0;"><a href="#&#x539F;&#x56E0;" class="headerlink" title="&#x539F;&#x56E0;"></a>&#x539F;&#x56E0;</h3><blockquote>
-<p>clone &#x4E0B;&#x6765;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E5F;&#x662F;&#x4E00;&#x4E2A; git &#x4ED3;&#x5E93;&#xFF0C;&#x56E0;&#x6B64;&#x6B63;&#x5E38;&#x7684; <strong>git add .</strong> &#x662F;&#x65E0;&#x6CD5;&#x63D0;&#x4EA4;&#x8BE5;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x5220;&#x9664;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684; .git &#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;  <strong>git add .</strong> &#x547D;&#x4EE4;&#x6765;&#x63D0;&#x4EA4;&#x5185;&#x5BB9;</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><blockquote>
+<p>clone 下来的文件夹也是一个 git 仓库，因此正常的 <strong>git add .</strong> 是无法提交该文件夹下的文件的，所以我们要做的就是删除文件夹下的 .git 文件夹，这样就可以通过  <strong>git add .</strong> 命令来提交内容</p>
 </blockquote>
 
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://yxk17668.github.io/yxk17668/2019/07/10/Git-Mistake/" data-id="clik43hmp0001rcwjqwkp1r2l" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-    
-<ul id="article-nav" class="nav nav-pills nav-justified">
-  
-  <li role="presentation">
-    <a href="/yxk17668/2019/07/10/Git实用篇/" id="article-nav-older" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">Git实用篇</span>
-    </a>
-  </li>
-  
-  
-  <li role="presentation">
-    <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">Apidoc生成Restful web Api文档</span>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </a>
-  </li>
-  
-</ul>
-
-
-  
-</article>
-
-
-
-
-        </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            </div>
           
-  <div class="sidebar-module sidebar-module-inset">
-  <h4>About</h4>
-  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 
-</div>
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/yxk17668/tags/Git/">Git</a>
+		  
+			<a href="/yxk17668/tags/Git-mistake/">Git mistake</a>
+		  
+		</div>
+		
 
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Apidoc生成Restful web Api文档</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/yxk17668/2019/07/10/Git实用篇/">
+        <span class="next-text nav-default">Git实用篇</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
 
-  
-
-
-  
-  <div class="sidebar-module">
-    <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Api文档/">Api文档</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git/">Git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Markdown/">Markdown</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/helper-live2d/">helper-live2d</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/hexo/">hexo</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/session/">session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/spring-session/">spring-session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springMVC/">springMVC</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springboot/">springboot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/yilia/">yilia</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/低代码平台/">低代码平台</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/基础进阶/">基础进阶</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/微服务/">微服务</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/架构设计/">架构设计</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/注解/">注解</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计原则/">设计原则</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计模式/">设计模式</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/领域模型/">领域模型</a><span class="sidebar-module-list-count">2</span></li></ul>
+        
+  <div class="comments" id="comments">
+    
   </div>
 
 
+      </footer>
+    
+  </article>
 
-  
-  <div class="sidebar-module">
-    <h4>Tag Cloud</h4>
-    <p class="tagcloud">
-      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api文档/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/低代码平台/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/基础进阶/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/架构设计/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/注解/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/设计原则/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/领域模型/" style="font-size: 15px;">领域模型</a>
-    </p>
-  </div>
-
-
-  
-  <div class="sidebar-module">
-    <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a><span class="sidebar-module-list-count">1</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Recents</h4>
-    <ul class="sidebar-module-list">
-      
-        <li>
-          <a href="/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/">一种面向后端的微服务低代码平台架构设计</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">Apidoc生成Restful web Api文档</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/10/Git实用篇/">Git实用篇</a>
-        </li>
-      
-    </ul>
-  </div>
-
-
-
-        </div>
     </div>
-  </div>
-  <footer class="blog-footer">
-  <div class="container">
-    <div id="footer-info" class="inner">
-      &copy; 2023 yxk17668<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2023
+    <span class="footer-author">yxk17668.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
     </div>
-  </div>
-</footer>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/yxk17668/lib/jquery/jquery-3.1.1.min.js"></script>
+  
 
   
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/yxk17668/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/yxk17668/js/src/bootstrap.js?v=1.1"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-
-<script src="/yxk17668/js/script.js"></script>
-
-</body>
+  </body>
 </html>

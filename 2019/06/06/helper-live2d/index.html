@@ -1,265 +1,235 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>helper-live2d | yxk17668</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="helper-live2d&amp;#x63D2;&amp;#x4EF6; &amp;#x535A;&amp;#x5BA2;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x9009;&amp;#x62E9;cmd&amp;#x547D;&amp;#x4EE4;&amp;#x7A97;&amp;#x53E3;&amp;#x6216;&amp;#x8005;git bash &amp;#x8F93;&amp;#x5165;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#xFF0">
-<meta name="keywords" content="hexo,yilia,helper-live2d">
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="helper-live2d">
+
+
+
+
+  <meta name="keywords" content="hexo,helper-live2d,yilia,">
+
+
+
+
+
+  <link rel="alternate" href="/yxk17668/default" title="yxk17668">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/yxk17668/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="https://yxk17668.github.io/yxk17668/2019/06/06/helper-live2d/">
+
+
+<meta name="description" content="helper-live2d插件 博客根目录选择cmd命令窗口或者git bash 输入以下代码，安装插件1npm install --save hexo-helper-live2d  下载模型 作者动画展示网站helper-live2d;任选下载  12345678910111213141516171819202122live2d-widget-model-chitoselive2d-widget">
+<meta name="keywords" content="hexo,helper-live2d,yilia">
 <meta property="og:type" content="article">
 <meta property="og:title" content="helper-live2d">
 <meta property="og:url" content="https://yxk17668.github.io/yxk17668/2019/06/06/helper-live2d/index.html">
 <meta property="og:site_name" content="yxk17668">
-<meta property="og:description" content="helper-live2d&amp;#x63D2;&amp;#x4EF6; &amp;#x535A;&amp;#x5BA2;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x9009;&amp;#x62E9;cmd&amp;#x547D;&amp;#x4EE4;&amp;#x7A97;&amp;#x53E3;&amp;#x6216;&amp;#x8005;git bash &amp;#x8F93;&amp;#x5165;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#xFF0">
+<meta property="og:description" content="helper-live2d插件 博客根目录选择cmd命令窗口或者git bash 输入以下代码，安装插件1npm install --save hexo-helper-live2d  下载模型 作者动画展示网站helper-live2d;任选下载  12345678910111213141516171819202122live2d-widget-model-chitoselive2d-widget">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2023-05-24T05:34:38.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="helper-live2d">
-<meta name="twitter:description" content="helper-live2d&amp;#x63D2;&amp;#x4EF6; &amp;#x535A;&amp;#x5BA2;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x9009;&amp;#x62E9;cmd&amp;#x547D;&amp;#x4EE4;&amp;#x7A97;&amp;#x53E3;&amp;#x6216;&amp;#x8005;git bash &amp;#x8F93;&amp;#x5165;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#xFF0">
-  
-    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
-  
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<meta name="twitter:description" content="helper-live2d插件 博客根目录选择cmd命令窗口或者git bash 输入以下代码，安装插件1npm install --save hexo-helper-live2d  下载模型 作者动画展示网站helper-live2d;任选下载  12345678910111213141516171819202122live2d-widget-model-chitoselive2d-widget">
+
+
+<link rel="stylesheet" type="text/css" href="/yxk17668/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
   
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="/yxk17668/css/styles.css">
-  
+    <title> helper-live2d - yxk17668 </title>
+  </head>
 
-</head>
-</html>
-<body>
-  <nav class="navbar navbar-inverse">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="main-menu-navbar">
-      <ul class="nav navbar-nav">
-        
-          <li><a class href="/yxk17668/index.html">Home</a></li>
-        
-          <li><a class href="/yxk17668/archives/">Archives</a></li>
-        
-      </ul>
-
-      <!--
-      <ul class="nav navbar-nav navbar-right">
-        
-          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
-        
-      </ul>
-      -->
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-  <div class="container">
-    <div class="blog-header">
-  <h1 class="blog-title">yxk17668</h1>
-  
-    <p class="lead blog-description">less is more</p>
-  
-</div>
-
-    <div class="row">
-        <div class="col-sm-8 blog-main">
-          <article id="post-helper-live2d" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 class="article-title" itemprop="name">
-      helper-live2d
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/yxk17668/." class="logo">yxk17668</a>
     </h1>
-  
 
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/yxk17668/2019/06/06/helper-live2d/" class="article-date"><time datetime="2019-06-06T15:39:19.000Z" itemprop="datePublished">2019-06-06</time></a>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/yxk17668/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/yxk17668/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
 </div>
 
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          helper-live2d
+        
+      </h1>
+
+      <time class="post-time">
+          6月 06 2019
+      </time>
+    </header>
+
+
+
     
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="helper-live2d&#x63D2;&#x4EF6;"><a href="#helper-live2d&#x63D2;&#x4EF6;" class="headerlink" title="helper-live2d&#x63D2;&#x4EF6;"></a>helper-live2d&#x63D2;&#x4EF6;</h2><blockquote>
-<p>&#x535A;&#x5BA2;&#x6839;&#x76EE;&#x5F55;&#x9009;&#x62E9;cmd&#x547D;&#x4EE4;&#x7A97;&#x53E3;&#x6216;&#x8005;git bash &#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;</p>
+            <div class="post-content">
+            <h2 id="helper-live2d插件"><a href="#helper-live2d插件" class="headerlink" title="helper-live2d插件"></a>helper-live2d插件</h2><blockquote>
+<p>博客根目录选择cmd命令窗口或者git bash 输入以下代码，安装插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
-
-<h2 id="&#x4E0B;&#x8F7D;&#x6A21;&#x578B;"><a href="#&#x4E0B;&#x8F7D;&#x6A21;&#x578B;" class="headerlink" title="&#x4E0B;&#x8F7D;&#x6A21;&#x578B;"></a>&#x4E0B;&#x8F7D;&#x6A21;&#x578B;</h2><blockquote>
-<p>&#x4F5C;&#x8005;&#x52A8;&#x753B;&#x5C55;&#x793A;&#x7F51;&#x7AD9;<a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">helper-live2d</a>;&#x4EFB;&#x9009;&#x4E0B;&#x8F7D;</p>
+<h2 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h2><blockquote>
+<p>作者动画展示网站<a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">helper-live2d</a>;任选下载</p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">live2d-widget-model-chitose</span><br><span class="line">live2d-widget-model-epsilon2_1</span><br><span class="line">live2d-widget-model-gf</span><br><span class="line">live2d-widget-model-haru/01 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haru/02 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haruto</span><br><span class="line">live2d-widget-model-hibiki</span><br><span class="line">live2d-widget-model-hijiki</span><br><span class="line">live2d-widget-model-izumi</span><br><span class="line">live2d-widget-model-koharu</span><br><span class="line">live2d-widget-model-miku</span><br><span class="line">live2d-widget-model-ni-j</span><br><span class="line">live2d-widget-model-nico</span><br><span class="line">live2d-widget-model-nietzsche</span><br><span class="line">live2d-widget-model-nipsilon</span><br><span class="line">live2d-widget-model-nito</span><br><span class="line">live2d-widget-model-shizuku</span><br><span class="line">live2d-widget-model-tororo</span><br><span class="line">live2d-widget-model-tsumiki</span><br><span class="line">live2d-widget-model-unitychan</span><br><span class="line">live2d-widget-model-wanko</span><br><span class="line">live2d-widget-model-z16</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">live2d-widget-model-chitose</span><br><span class="line">live2d-widget-model-epsilon2_1</span><br><span class="line">live2d-widget-model-gf</span><br><span class="line">live2d-widget-model-haru/01 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haru/02 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haruto</span><br><span class="line">live2d-widget-model-hibiki</span><br><span class="line">live2d-widget-model-hijiki</span><br><span class="line">live2d-widget-model-izumi</span><br><span class="line">live2d-widget-model-koharu</span><br><span class="line">live2d-widget-model-miku</span><br><span class="line">live2d-widget-model-ni-j</span><br><span class="line">live2d-widget-model-nico</span><br><span class="line">live2d-widget-model-nietzsche</span><br><span class="line">live2d-widget-model-nipsilon</span><br><span class="line">live2d-widget-model-nito</span><br><span class="line">live2d-widget-model-shizuku</span><br><span class="line">live2d-widget-model-tororo</span><br><span class="line">live2d-widget-model-tsumiki</span><br><span class="line">live2d-widget-model-unitychan</span><br><span class="line">live2d-widget-model-wanko</span><br><span class="line">live2d-widget-model-z16</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x5728;hexo&#x535A;&#x5BA2;&#x6839;&#x76EE;&#x5F55;&#x9009;&#x62E9;cmd&#x547D;&#x4EE4;&#x7A97;&#x53E3;&#x6216;&#x8005;git bash &#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;</p>
+<p>在hexo博客根目录选择cmd命令窗口或者git bash 输入以下代码</p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install live2d-widget-model-hijiki</span><br></pre></td></tr></table></figure>
-
-<h2 id="&#x6DFB;&#x52A0;&#x914D;&#x7F6E;"><a href="#&#x6DFB;&#x52A0;&#x914D;&#x7F6E;" class="headerlink" title="&#x6DFB;&#x52A0;&#x914D;&#x7F6E;"></a>&#x6DFB;&#x52A0;&#x914D;&#x7F6E;</h2><blockquote>
-<p>_config.yml &#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#x914D;&#x7F6E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install live2d-widget-model-hijiki</span><br></pre></td></tr></table></figure>
+<h2 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h2><blockquote>
+<p>_config.yml 文件添加配置</p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw/</span><br><span class="line">  pluginJsPath: lib/</span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-hijiki</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://yxk17668.github.io/yxk17668/2019/06/06/helper-live2d/" data-id="clik43hn00008rcwj83un47hp" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/helper-live2d/">helper-live2d</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/yilia/">yilia</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-    
-<ul id="article-nav" class="nav nav-pills nav-justified">
-  
-  <li role="presentation">
-    <a href="/yxk17668/2019/06/06/yilia/" id="article-nav-older" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">yilia主题</span>
-    </a>
-  </li>
-  
-  
-  <li role="presentation">
-    <a href="/yxk17668/2019/07/10/Git实用篇/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">Git实用篇</span>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </a>
-  </li>
-  
-</ul>
-
-
-  
-</article>
-
-
-
-
-        </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw/</span><br><span class="line">  pluginJsPath: lib/</span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-hijiki</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure>
+            </div>
           
-  <div class="sidebar-module sidebar-module-inset">
-  <h4>About</h4>
-  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 
-</div>
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/yxk17668/tags/hexo/">hexo</a>
+		  
+			<a href="/yxk17668/tags/helper-live2d/">helper-live2d</a>
+		  
+			<a href="/yxk17668/tags/yilia/">yilia</a>
+		  
+		</div>
+		
 
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/yxk17668/2019/07/10/Git实用篇/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Git实用篇</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/yxk17668/2019/06/06/yilia/">
+        <span class="next-text nav-default">yilia主题</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
 
-  
-
-
-  
-  <div class="sidebar-module">
-    <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Api文档/">Api文档</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git/">Git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Markdown/">Markdown</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/helper-live2d/">helper-live2d</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/hexo/">hexo</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/session/">session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/spring-session/">spring-session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springMVC/">springMVC</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springboot/">springboot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/yilia/">yilia</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/低代码平台/">低代码平台</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/基础进阶/">基础进阶</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/微服务/">微服务</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/架构设计/">架构设计</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/注解/">注解</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计原则/">设计原则</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计模式/">设计模式</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/领域模型/">领域模型</a><span class="sidebar-module-list-count">2</span></li></ul>
+        
+  <div class="comments" id="comments">
+    
   </div>
 
 
+      </footer>
+    
+  </article>
 
-  
-  <div class="sidebar-module">
-    <h4>Tag Cloud</h4>
-    <p class="tagcloud">
-      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api文档/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/低代码平台/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/基础进阶/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/架构设计/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/注解/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/设计原则/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/领域模型/" style="font-size: 15px;">领域模型</a>
-    </p>
-  </div>
-
-
-  
-  <div class="sidebar-module">
-    <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a><span class="sidebar-module-list-count">1</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Recents</h4>
-    <ul class="sidebar-module-list">
-      
-        <li>
-          <a href="/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/">一种面向后端的微服务低代码平台架构设计</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">Apidoc生成Restful web Api文档</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/10/Git实用篇/">Git实用篇</a>
-        </li>
-      
-    </ul>
-  </div>
-
-
-
-        </div>
     </div>
-  </div>
-  <footer class="blog-footer">
-  <div class="container">
-    <div id="footer-info" class="inner">
-      &copy; 2023 yxk17668<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2023
+    <span class="footer-author">yxk17668.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
     </div>
-  </div>
-</footer>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/yxk17668/lib/jquery/jquery-3.1.1.min.js"></script>
+  
 
   
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/yxk17668/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/yxk17668/js/src/bootstrap.js?v=1.1"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-
-<script src="/yxk17668/js/script.js"></script>
-
-</body>
+  </body>
 </html>

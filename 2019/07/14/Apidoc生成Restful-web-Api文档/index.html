@@ -1,505 +1,443 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>Apidoc生成Restful web Api文档 | yxk17668</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Apidoc&amp;#x751F;&amp;#x6210;Restful web Api&amp;#x6587;&amp;#x6863; &amp;#x5DE5;&amp;#x5177;&amp;#x540D;&amp;#x79F0;&amp;#xFF1A;apiDocGit&amp;#x5730;&amp;#x5740;&amp;#xFF1A;https://github.com/apidoc/apidoc&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;h">
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="Apidoc生成Restful web Api文档">
+
+
+
+
+  <meta name="keywords" content="Apidoc,Api文档,">
+
+
+
+
+
+  <link rel="alternate" href="/yxk17668/default" title="yxk17668">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/yxk17668/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="https://yxk17668.github.io/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">
+
+
+<meta name="description" content="Apidoc生成Restful web Api文档 工具名称：apiDocGit地址：https://github.com/apidoc/apidoc项目地址：http://apidocjs.com/样例项目：http://apidocjs.com/example_basic/  一、安装apidoc模块 apidoc是nodejs模块，github上有安装和使用说明。  1# npm insta">
 <meta name="keywords" content="Apidoc,Api文档">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apidoc生成Restful web Api文档">
 <meta property="og:url" content="https://yxk17668.github.io/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/index.html">
 <meta property="og:site_name" content="yxk17668">
-<meta property="og:description" content="Apidoc&amp;#x751F;&amp;#x6210;Restful web Api&amp;#x6587;&amp;#x6863; &amp;#x5DE5;&amp;#x5177;&amp;#x540D;&amp;#x79F0;&amp;#xFF1A;apiDocGit&amp;#x5730;&amp;#x5740;&amp;#xFF1A;https://github.com/apidoc/apidoc&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;h">
+<meta property="og:description" content="Apidoc生成Restful web Api文档 工具名称：apiDocGit地址：https://github.com/apidoc/apidoc项目地址：http://apidocjs.com/样例项目：http://apidocjs.com/example_basic/  一、安装apidoc模块 apidoc是nodejs模块，github上有安装和使用说明。  1# npm insta">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2023-05-16T07:48:02.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apidoc生成Restful web Api文档">
-<meta name="twitter:description" content="Apidoc&amp;#x751F;&amp;#x6210;Restful web Api&amp;#x6587;&amp;#x6863; &amp;#x5DE5;&amp;#x5177;&amp;#x540D;&amp;#x79F0;&amp;#xFF1A;apiDocGit&amp;#x5730;&amp;#x5740;&amp;#xFF1A;https://github.com/apidoc/apidoc&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;h">
-  
-    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
-  
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<meta name="twitter:description" content="Apidoc生成Restful web Api文档 工具名称：apiDocGit地址：https://github.com/apidoc/apidoc项目地址：http://apidocjs.com/样例项目：http://apidocjs.com/example_basic/  一、安装apidoc模块 apidoc是nodejs模块，github上有安装和使用说明。  1# npm insta">
+
+
+<link rel="stylesheet" type="text/css" href="/yxk17668/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
   
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="/yxk17668/css/styles.css">
-  
+    <title> Apidoc生成Restful web Api文档 - yxk17668 </title>
+  </head>
 
-</head>
-</html>
-<body>
-  <nav class="navbar navbar-inverse">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="main-menu-navbar">
-      <ul class="nav navbar-nav">
-        
-          <li><a class href="/yxk17668/index.html">Home</a></li>
-        
-          <li><a class href="/yxk17668/archives/">Archives</a></li>
-        
-      </ul>
-
-      <!--
-      <ul class="nav navbar-nav navbar-right">
-        
-          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
-        
-      </ul>
-      -->
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-  <div class="container">
-    <div class="blog-header">
-  <h1 class="blog-title">yxk17668</h1>
-  
-    <p class="lead blog-description">less is more</p>
-  
-</div>
-
-    <div class="row">
-        <div class="col-sm-8 blog-main">
-          <article id="post-Apidoc生成Restful-web-Api文档" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 class="article-title" itemprop="name">
-      Apidoc生成Restful web Api文档
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/yxk17668/." class="logo">yxk17668</a>
     </h1>
-  
 
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/" class="article-date"><time datetime="2019-07-14T07:16:50.000Z" itemprop="datePublished">2019-07-14</time></a>
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/yxk17668/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/yxk17668/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
 </div>
 
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Apidoc生成Restful web Api文档
+        
+      </h1>
+
+      <time class="post-time">
+          7月 14 2019
+      </time>
+    </header>
+
+
+
     
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Apidoc&#x751F;&#x6210;Restful-web-Api&#x6587;&#x6863;"><a href="#Apidoc&#x751F;&#x6210;Restful-web-Api&#x6587;&#x6863;" class="headerlink" title="Apidoc&#x751F;&#x6210;Restful web Api&#x6587;&#x6863;"></a>Apidoc&#x751F;&#x6210;Restful web Api&#x6587;&#x6863;</h2><blockquote>
-<p>&#x5DE5;&#x5177;&#x540D;&#x79F0;&#xFF1A;apiDoc<br>Git&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/apidoc/apidoc" target="_blank" rel="noopener">https://github.com/apidoc/apidoc</a><br>&#x9879;&#x76EE;&#x5730;&#x5740;&#xFF1A;<a href="http://apidocjs.com/" target="_blank" rel="noopener">http://apidocjs.com/</a><br>&#x6837;&#x4F8B;&#x9879;&#x76EE;&#xFF1A;<a href="http://apidocjs.com/example_basic/" target="_blank" rel="noopener">http://apidocjs.com/example_basic/</a></p>
+            <div class="post-content">
+            <h2 id="Apidoc生成Restful-web-Api文档"><a href="#Apidoc生成Restful-web-Api文档" class="headerlink" title="Apidoc生成Restful web Api文档"></a>Apidoc生成Restful web Api文档</h2><blockquote>
+<p>工具名称：apiDoc<br>Git地址：<a href="https://github.com/apidoc/apidoc" target="_blank" rel="noopener">https://github.com/apidoc/apidoc</a><br>项目地址：<a href="http://apidocjs.com/" target="_blank" rel="noopener">http://apidocjs.com/</a><br>样例项目：<a href="http://apidocjs.com/example_basic/" target="_blank" rel="noopener">http://apidocjs.com/example_basic/</a></p>
 </blockquote>
-<h4 id="&#x4E00;&#x3001;&#x5B89;&#x88C5;apidoc&#x6A21;&#x5757;"><a href="#&#x4E00;&#x3001;&#x5B89;&#x88C5;apidoc&#x6A21;&#x5757;" class="headerlink" title="&#x4E00;&#x3001;&#x5B89;&#x88C5;apidoc&#x6A21;&#x5757;"></a>&#x4E00;&#x3001;&#x5B89;&#x88C5;apidoc&#x6A21;&#x5757;</h4><blockquote>
-<p>apidoc&#x662F;nodejs&#x6A21;&#x5757;&#xFF0C;github&#x4E0A;&#x6709;&#x5B89;&#x88C5;&#x548C;&#x4F7F;&#x7528;&#x8BF4;&#x660E;&#x3002;</p>
+<h4 id="一、安装apidoc模块"><a href="#一、安装apidoc模块" class="headerlink" title="一、安装apidoc模块"></a>一、安装apidoc模块</h4><blockquote>
+<p>apidoc是nodejs模块，github上有安装和使用说明。</p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># npm install apidoc -g</span><br></pre></td></tr></table></figure>
-
-<h4 id="&#x4E8C;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;apidoc-json&#x6587;&#x4EF6;"><a href="#&#x4E8C;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;apidoc-json&#x6587;&#x4EF6;" class="headerlink" title="&#x4E8C;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;apidoc.json&#x6587;&#x4EF6;"></a>&#x4E8C;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;apidoc.json&#x6587;&#x4EF6;</h4><figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xx&#x5E73;&#x53F0;&quot;</span>,</span><br><span class="line">  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.1.0&quot;</span>,</span><br><span class="line">  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x4E3A;&#x60A8;&#x63D0;&#x4F9B;&#x4F18;&#x8D28;&#x7684;&#x6570;&#x636E;&#x670D;&#x52A1;&quot;</span>,</span><br><span class="line">  <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;xx&#x5E73;&#x53F0;&quot;</span>,</span><br><span class="line">  <span class="hljs-attr">&quot;url&quot;</span> : <span class="hljs-string">&quot;http://127.0.0.1:8080/demo&quot;</span>,</span><br><span class="line">  <span class="hljs-attr">&quot;template&quot;</span>:{</span><br><span class="line">    <span class="hljs-attr">&quot;forceLanguage&quot;</span>:<span class="hljs-string">&quot;zh-cn&quot;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># npm install apidoc -g</span><br></pre></td></tr></table></figure>
+<h4 id="二、在代码文件夹的根目录下，创建apidoc-json文件"><a href="#二、在代码文件夹的根目录下，创建apidoc-json文件" class="headerlink" title="二、在代码文件夹的根目录下，创建apidoc.json文件"></a>二、在代码文件夹的根目录下，创建apidoc.json文件</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"xx平台"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"为您提供优质的数据服务"</span>,</span><br><span class="line">  <span class="attr">"title"</span>: <span class="string">"xx平台"</span>,</span><br><span class="line">  <span class="attr">"url"</span> : <span class="string">"http://127.0.0.1:8080/demo"</span>,</span><br><span class="line">  <span class="attr">"template"</span>:&#123;</span><br><span class="line">    <span class="attr">"forceLanguage"</span>:<span class="string">"zh-cn"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x914D;&#x7F6E;&#x5C5E;&#x6027;&#x5982;&#x4E0B;:<br>name&#xFF1A;&#x9879;&#x76EE;&#x540D;&#x79F0;<br>version&#xFF1A;&#x9879;&#x76EE;&#x7248;&#x672C;<br>description&#xFF1A;&#x9879;&#x76EE;&#x4ECB;&#x7ECD;<br>title&#xFF1A;&#x6D4F;&#x89C8;&#x5668;&#x663E;&#x793A;&#x7684;&#x6807;&#x9898;&#x5185;&#x5BB9;<br>url&#xFF1A;endpoints&#x7684;&#x524D;&#x7F00;&#xFF0C;&#x4F8B;&#x5982;<a href="https://api.github.com/v1" target="_blank" rel="noopener">https://api.github.com/v1</a><br>sampleUrl&#xFF1A;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#xFF0C;&#x5219;&#x5728;api&#x6587;&#x6863;&#x4E2D;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;from&#x8868;&#x5355; header<br>title&#xFF1A;&#x5BFC;&#x822A;&#x6587;&#x5B57;&#x5305;&#x542B;header.md&#x6587;&#x4EF6;<br>filename&#xFF1A;markdown-file &#x6587;&#x4EF6;&#x540D; footer<br>title&#xFF1A;&#x5BFC;&#x822A;&#x6587;&#x5B57;&#x5305;&#x542B;header.md&#x6587;&#x4EF6;<br>filename&#xFF1A;markdown-file &#x6587;&#x4EF6;&#x540D; </p>
-<p>order&#xFF1A;&#x7528;&#x4E8E;&#x914D;&#x7F6E;&#x8F93;&#x51FA; api-names/group-names &#x6392;&#x5E8F;&#xFF0C;&#x5728;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x5C06;&#x6309;&#x7167;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#xFF0C;&#x4E0D;&#x5728;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x540D;&#x79F0;&#x5C06;&#x81EA;&#x52A8;&#x663E;&#x793A;</p>
+<p>配置属性如下:<br>name：项目名称<br>version：项目版本<br>description：项目介绍<br>title：浏览器显示的标题内容<br>url：endpoints的前缀，例如<a href="https://api.github.com/v1" target="_blank" rel="noopener">https://api.github.com/v1</a><br>sampleUrl：如果设置了，则在api文档中出现一个测试用的from表单 header<br>title：导航文字包含header.md文件<br>filename：markdown-file 文件名 footer<br>title：导航文字包含header.md文件<br>filename：markdown-file 文件名 </p>
+<p>order：用于配置输出 api-names/group-names 排序，在列表中的将按照列表中的顺序排序，不在列表中的名称将自动显示</p>
 </blockquote>
-<h4 id="&#x4E09;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;build-bat"><a href="#&#x4E09;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;build-bat" class="headerlink" title="&#x4E09;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;build.bat"></a>&#x4E09;&#x3001;&#x5728;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;build.bat</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apidoc -i e:/nodejs/myapp/ -o e:/nodejs/myapp/apidoc/</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apidoc -f &quot;.*\\.js$&quot; -f &quot;.*\\.java$&quot; -i myapp/ -o apidoc/ -t mytemplate/</span><br></pre></td></tr></table></figure>
-
+<h4 id="三、在代码文件夹的根目录下，创建build-bat"><a href="#三、在代码文件夹的根目录下，创建build-bat" class="headerlink" title="三、在代码文件夹的根目录下，创建build.bat"></a>三、在代码文件夹的根目录下，创建build.bat</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apidoc -i e:/nodejs/myapp/ -o e:/nodejs/myapp/apidoc/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apidoc -f &quot;.*\\.js$&quot; -f &quot;.*\\.java$&quot; -i myapp/ -o apidoc/ -t mytemplate/</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x53C2;&#x6570;&#x8BF4;&#x660E;</p>
-<p>-f &#x6587;&#x4EF6;&#x8FC7;&#x6EE4;<br>-i &#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5939;<br>-o &#x8F93;&#x51FA;Api&#x6587;&#x6863;&#x7684;&#x8DEF;&#x5F84;<br>-t &#x4F7F;&#x7528;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x7684;&#x6A21;&#x677F;</p>
-<p>tips:<br>&#x53C2;&#x6570;&#x540D;&#x79F0;&#x52A0;[name]&#xFF0C;&#x8868;&#x793A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</p>
+<p>参数说明</p>
+<p>-f 文件过滤<br>-i 代码文件夹<br>-o 输出Api文档的路径<br>-t 使用模板文件的路径，可以自定义输出的模板</p>
+<p>tips:<br>参数名称加[name]，表示可选参数。</p>
 </blockquote>
-<h4 id="&#x56DB;&#x3001;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#x8BF4;&#x660E;"><a href="#&#x56DB;&#x3001;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#x8BF4;&#x660E;" class="headerlink" title="&#x56DB;&#x3001;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#x8BF4;&#x660E;"></a>&#x56DB;&#x3001;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#x8BF4;&#x660E;</h4><h5 id="api"><a href="#api" class="headerlink" title="@api"></a>@api</h5><blockquote>
+<h4 id="四、参数解释说明"><a href="#四、参数解释说明" class="headerlink" title="四、参数解释说明"></a>四、参数解释说明</h4><h5 id="api"><a href="#api" class="headerlink" title="@api"></a>@api</h5><blockquote>
 <p><strong>@api {method} path [title]</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x200B; method&#xFF1A;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF0C;<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" target="_blank" rel="noopener">&#x53C2;&#x89C1;</a><br>&#x200B; path&#xFF1A;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;<br>&#x200B; title(&#x53EF;&#x9009;)&#xFF1A;&#x6807;&#x9898;</p>
+<p>​ method：请求方法，<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" target="_blank" rel="noopener">参见</a><br>​ path：请求路径<br>​ title(可选)：标题</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *@api {get} /user/:id</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *@api &#123;get&#125; /user/:id</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
 <h5 id="apiDefine"><a href="#apiDefine" class="headerlink" title="@apiDefine"></a>@apiDefine</h5><blockquote>
 <p> <strong>@apiDefine name [title] [description]</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x5B9A;&#x4E49;&#x91CD;&#x590D;&#x5185;&#x5BB9;&#xFF0C;&#x4F9B;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x5F15;&#x7528;</p>
-<p>&#x200B; name&#xFF1A;&#x91CD;&#x590D;&#x6A21;&#x5757;&#x540D;<br>&#x200B; title&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x6807;&#x9898;<br>&#x200B; description&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8BF4;&#x660E;</p>
+<p>定义重复内容，供其他模块引用</p>
+<p>​ name：重复模块名<br>​ title（可选）：标题<br>​ description（可选）：说明</p>
 </blockquote>
 <p>Example1:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiDefine MyError</span><br><span class="line">*@apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.</span><br><span class="line">*/</span><br><span class="line">/**</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*@apiUse MyError</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiDefine MyError</span><br><span class="line">*@apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.</span><br><span class="line">*/</span><br><span class="line">/**</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*@apiUse MyError</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <p>Example2:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiDefine admin User access only</span><br><span class="line">*This optional description belong to to the group admin.</span><br><span class="line">*/</span><br><span class="line">/**</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*@apiPermission admin</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiDefine admin User access only</span><br><span class="line">*This optional description belong to to the group admin.</span><br><span class="line">*/</span><br><span class="line">/**</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*@apiPermission admin</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiDescription"><a href="#apiDescription" class="headerlink" title="@apiDescription"></a>@apiDescription</h5><blockquote>
 <p> <strong>@apiDescription text</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x8BBE;&#x7F6E;&#x591A;&#x884C;&#x8BF4;&#x660E;</p>
-<p>&#x200B; text&#xFF1A;&#x591A;&#x884C;&#x8BF4;&#x660E;&#x5185;&#x5BB9;</p>
+<p>设置多行说明</p>
+<p>​ text：多行说明内容</p>
 </blockquote>
 <p>Example</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiDescription This is the Description.</span><br><span class="line">*It is multiline capable.</span><br><span class="line">*</span><br><span class="line">*Last line of Description.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiDescription This is the Description.</span><br><span class="line">*It is multiline capable.</span><br><span class="line">*</span><br><span class="line">*Last line of Description.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiError"><a href="#apiError" class="headerlink" title="@apiError"></a>@apiError</h5><blockquote>
 <p><strong>@apiError [(group)] [{type}] field [description]</strong></p>
 </blockquote>
 <blockquote>
-<p> &#x8BF7;&#x6C42;&#x9519;&#x8BEF;&#x53C2;&#x6570;</p>
-<p>&#x200B; &#xFF08;group&#xFF09;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x53C2;&#x6570;&#x5C06;&#x4EE5;&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x5206;&#x7EC4;&#xFF0C;&#x4E0D;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;Error 4xx<br>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;{Boolean}, {Number}, {String}, {Object}, {String[]}<br>&#x200B; field&#xFF1A;&#x8FD4;&#x56DE;&#x503C;&#x5B57;&#x6BB5;&#x540D;&#x79F0;<br>&#x200B; descriptionoptional&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8FD4;&#x56DE;&#x503C;&#x5B57;&#x6BB5;&#x8BF4;&#x660E;</p>
+<p> 请求错误参数</p>
+<p>​ （group）（可选）：参数将以这个名称分组，不设置的话，默认是Error 4xx<br>​ {type}（可选）：返回值类型，例如：{Boolean}, {Number}, {String}, {Object}, {String[]}<br>​ field：返回值字段名称<br>​ descriptionoptional（可选）：返回值字段说明</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*@apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*@apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiErrorExample"><a href="#apiErrorExample" class="headerlink" title="@apiErrorExample"></a>@apiErrorExample</h5><blockquote>
 <p><strong>@apiErrorExample [{type}] [title] example</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x9519;&#x8BEF;&#x8FD4;&#x56DE;&#x4FE1;&#x606F;&#x6837;&#x4F8B;&#x3002;</p>
-<p>&#x200B; type&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#x7684;&#x683C;&#x5F0F;<br>&#x200B; title&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x6807;&#x9898;<br>&#x200B; example&#xFF1A;&#x6837;&#x4F8B;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x884C;&#x6587;&#x672C;</p>
+<p>错误返回信息样例。</p>
+<p>​ type（可选）：返回内容的格式<br>​ title（可选）：标题<br>​ example：样例，可以是多行文本</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiErrorExample {json} Error-Response:</span><br><span class="line">    *HTTP/1.1 404 Not Found</span><br><span class="line">    *{</span><br><span class="line">        *&quot;error&quot;: &quot;UserNotFound&quot;</span><br><span class="line">    *}</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiErrorExample &#123;json&#125; Error-Response:</span><br><span class="line">    *HTTP/1.1 404 Not Found</span><br><span class="line">    *&#123;</span><br><span class="line">        *"error": "UserNotFound"</span><br><span class="line">    *&#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiExample"><a href="#apiExample" class="headerlink" title="@apiExample"></a>@apiExample</h5><blockquote>
 <p><strong>@apiExample [{type}] title example</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x8BF7;&#x6C42;Api&#x7684;&#x6D4B;&#x8BD5;&#x6837;&#x4F8B;</p>
-<p>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x7C7B;&#x578B;<br>&#x200B; title&#xFF1A;&#x6807;&#x9898;<br>&#x200B; example&#xFF1A;&#x6837;&#x4F8B;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x884C;&#x6587;&#x672C;</p>
+<p>请求Api的测试样例</p>
+<p>​ {type}（可选）：请求方式类型<br>​ title：标题<br>​ example：样例，可以是多行文本</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*@apiExample {curl} Example usage:</span><br><span class="line">*curl -i http://localhost/user/4711</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*@apiExample &#123;curl&#125; Example usage:</span><br><span class="line">*curl -i http://localhost/user/4711</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiGroup"><a href="#apiGroup" class="headerlink" title="@apiGroup"></a>@apiGroup</h5><blockquote>
 <p><strong>@apiGroup name</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x5B9A;&#x4E49;Api&#x7684;&#x5206;&#x7EC4;</p>
-<p>&#x200B; name&#xFF1A;&#x7EC4;&#x540D;&#x79F0;&#xFF0C;&#x4E5F;&#x662F;&#x5BFC;&#x822A;&#x7684;&#x6807;&#x9898;</p>
+<p>定义Api的分组</p>
+<p>​ name：组名称，也是导航的标题</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*@apiGroup User</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*@apiGroup User</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiHeader"><a href="#apiHeader" class="headerlink" title="@apiHeader"></a>@apiHeader</h5><blockquote>
 <p><strong>@apiHeader [(group)] [{type}] [field=defaultValue] [description]</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x5B9A;&#x4E49;head&#x53C2;&#x6570;</p>
-<p>&#x200B; (group)&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x5206;&#x7EC4;<br>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x7C7B;&#x578B;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;{Boolean}, {Number}, {String}, {Object}, {String[]}<br>&#x200B; field&#xFF1A;&#x53D8;&#x91CF;&#x540D;<br>&#x200B; [field]&#xFF1A;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x6807;&#x8BB0;&#x53D8;&#x91CF;&#x662F;&#x53EF;&#x9009;&#x9879;<br>&#x200B; =defaultValue&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x9ED8;&#x8BA4;&#x503C;<br>&#x200B; description&#xFF08;optional&#xFF09;&#xFF1A;&#x53D8;&#x91CF;&#x8BF4;&#x660E;</p>
+<p>定义head参数</p>
+<p>​ (group)（可选）：分组<br>​ {type}（可选）：类型，例如：{Boolean}, {Number}, {String}, {Object}, {String[]}<br>​ field：变量名<br>​ [field]：定义变量，并标记变量是可选项<br>​ =defaultValue（可选）：默认值<br>​ description（optional）：变量说明</p>
 </blockquote>
 <p>Examples:</p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*@apiHeader {String} access-key Users unique access-key.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*@apiHeader &#123;String&#125; access-key Users unique access-key.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiHeaderExample"><a href="#apiHeaderExample" class="headerlink" title="@apiHeaderExample"></a>@apiHeaderExample</h5><blockquote>
 <p><strong>@apiHeaderExample [{type}] [title]  example</strong></p>
 </blockquote>
 <blockquote>
-<p>head&#x53C2;&#x6570;&#x6837;&#x4F8B;</p>
-<p>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x7C7B;&#x578B;<br>&#x200B; title&#xFF1A;&#x6807;&#x9898;<br>&#x200B; example&#xFF1A;&#x6837;&#x4F8B;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x884C;&#x6587;&#x672C;</p>
+<p>head参数样例</p>
+<p>​ {type}（可选）：请求方式类型<br>​ title：标题<br>​ example：样例，可以是多行文本</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*@apiHeaderExample {json} Header-Example:</span><br><span class="line">*{</span><br><span class="line">*&quot;Accept-Encoding&quot;: &quot;Accept-Encoding: gzip, deflate&quot;</span><br><span class="line">*}</span><br><span class="line">*/@apiIgnore</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*@apiHeaderExample &#123;json&#125; Header-Example:</span><br><span class="line">*&#123;</span><br><span class="line">*&quot;Accept-Encoding&quot;: &quot;Accept-Encoding: gzip, deflate&quot;</span><br><span class="line">*&#125;</span><br><span class="line">*/@apiIgnore</span><br></pre></td></tr></table></figure>
 <h5 id="apiIgnore-hint"><a href="#apiIgnore-hint" class="headerlink" title="@apiIgnore [hint]"></a>@apiIgnore [hint]</h5><blockquote>
-<p>&#x5FFD;&#x7565;&#x4E0D;&#x53D1;&#x5E03;&#x5230;&#x6587;&#x6863;</p>
-<p>&#x200B; hint&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x4E0D;&#x53D1;&#x5E03;&#x7684;&#x539F;&#x56E0;</p>
+<p>忽略不发布到文档</p>
+<p>​ hint（可选）：不发布的原因</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiIgnore Not finished Method</span><br><span class="line">*@api {get} /user/:id</span><br><span class="line">*/@apiName</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@apiIgnore Not finished Method</span><br><span class="line">*@api &#123;get&#125; /user/:id</span><br><span class="line">*/@apiName</span><br></pre></td></tr></table></figure>
 <h5 id="apiName-name"><a href="#apiName-name" class="headerlink" title="@apiName name"></a>@apiName name</h5><blockquote>
-<p>&#x5B9A;&#x4E49;api&#x540D;&#x79F0;</p>
-<p>&#x200B; name&#xFF1A;api&#x540D;&#x79F0;</p>
+<p>定义api名称</p>
+<p>​ name：api名称</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiName GetUser</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiName GetUser</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiParam"><a href="#apiParam" class="headerlink" title="@apiParam"></a>@apiParam</h5><blockquote>
 <p><strong>@apiParam [(group)] [{type}] [field=defaultValue] [description]</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x5B9A;&#x4E49;&#x8BF7;&#x6C42;Api&#x7684;&#x53C2;&#x6570;</p>
-<p>&#x200B; (group)&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x5206;&#x7EC4;<br>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x7C7B;&#x578B;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;{Boolean}, {Number}, {String}, {Object}, {String[]}<br>&#x200B; {type{size}}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x7C7B;&#x578B;&#x9650;&#x5B9A;&#x957F;&#x5EA6;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;{string{..5}} &#x9650;&#x5B9A;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x4E3A;5&#x4E2A;&#x5B57;&#x7B26;<br>&#x200B; {string{2..5}} &#x9650;&#x5B9A;&#x6700;&#x77ED;2&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x6700;&#x957F;5&#x4E2A;&#x5B57;&#x7B26;<br>&#x200B; {number{100-999}} &#x9650;&#x5B9A;&#x6570;&#x5B57;&#x5728;100-999&#x4E4B;&#x95F4;<br>&#x200B; {type=allowedValues}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x7C7B;&#x578B;&#x9650;&#x5B9A;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;{string=&#x201D;small&#x201D;}&#x9650;&#x5B9A;&#x53EA;&#x5141;&#x8BB8;&#x4F20;&#x9012;small&#x5B57;&#x7B26;&#xFF0C;<br>&#x200B; {string=&#x201D;small&#x201D;,&#x201D;huge&#x201D;} &#x9650;&#x5B9A;&#x53EA;&#x5141;&#x8BB8;&#x4F20;&#x9012;small&#x6216;huge&#x5B57;&#x7B26;&#xFF0C;<br>&#x200B; {number=1,2,3,99} &#x9650;&#x5B9A;&#x53EA;&#x5141;&#x8BB8;&#x4F20;1&#xFF0C;2&#xFF0C;3&#xFF0C;99&#x8FD9;&#x56DB;&#x4E2A;&#x6570;&#x5B57;<br>&#x200B; field&#xFF1A;&#x53D8;&#x91CF;&#x540D;<br>&#x200B; [field]&#xFF1A;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x6807;&#x8BB0;&#x53D8;&#x91CF;&#x662F;&#x53EF;&#x9009;&#x9879; =defaultValue&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x9ED8;&#x8BA4;&#x503C;<br>&#x200B; description&#xFF08;optional&#xFF09;&#xFF1A;&#x53D8;&#x91CF;&#x8BF4;&#x660E;</p>
+<p>定义请求Api的参数</p>
+<p>​ (group)（可选）：分组<br>​ {type}（可选）：类型，例如：{Boolean}, {Number}, {String}, {Object}, {String[]}<br>​ {type{size}}（可选）：类型限定长度，例如：{string{..5}} 限定最大长度为5个字符<br>​ {string{2..5}} 限定最短2个字符，最长5个字符<br>​ {number{100-999}} 限定数字在100-999之间<br>​ {type=allowedValues}（可选）：类型限定值，例如：{string=”small”}限定只允许传递small字符，<br>​ {string=”small”,”huge”} 限定只允许传递small或huge字符，<br>​ {number=1,2,3,99} 限定只允许传1，2，3，99这四个数字<br>​ field：变量名<br>​ [field]：定义变量，并标记变量是可选项 =defaultValue（可选）：默认值<br>​ description（optional）：变量说明</p>
 </blockquote>
 <p>Examples:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiParam {Number} id Users unique ID.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api {post} /user/</span><br><span class="line">*@apiParam {String} [firstname]  Optional Firstname of the User.</span><br><span class="line">*@apiParam {String} lastname     Mandatory Lastname.</span><br><span class="line">*@apiParam {String} country=&quot;DE&quot; Mandatory with default value &quot;DE&quot;.</span><br><span class="line">*@apiParam {Number} [age=18]     Optional Age with default 18.</span><br><span class="line">*@apiParam (Login) {String} pass Only logged in users can post this.</span><br><span class="line">*In generated documentation a separate</span><br><span class="line">*&quot;Login&quot; Block will be generated.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiParam &#123;Number&#125; id Users unique ID.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@api &#123;post&#125; /user/</span><br><span class="line">*@apiParam &#123;String&#125; [firstname]  Optional Firstname of the User.</span><br><span class="line">*@apiParam &#123;String&#125; lastname     Mandatory Lastname.</span><br><span class="line">*@apiParam &#123;String&#125; country=&quot;DE&quot; Mandatory with default value &quot;DE&quot;.</span><br><span class="line">*@apiParam &#123;Number&#125; [age=18]     Optional Age with default 18.</span><br><span class="line">*@apiParam (Login) &#123;String&#125; pass Only logged in users can post this.</span><br><span class="line">*In generated documentation a separate</span><br><span class="line">*&quot;Login&quot; Block will be generated.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiParamExample"><a href="#apiParamExample" class="headerlink" title="@apiParamExample"></a>@apiParamExample</h5><blockquote>
 <p> @apiParamExample [{type}] [title] example</p>
 </blockquote>
 <blockquote>
-<p>&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x6837;&#x4F8B;</p>
-<p>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x7C7B;&#x578B;<br>&#x200B; title&#xFF1A;&#x6807;&#x9898;<br>&#x200B; example&#xFF1A;&#x6837;&#x4F8B;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x884C;&#x6587;&#x672C;</p>
+<p>请求参数样例</p>
+<p>​ {type}（可选）：请求方式类型<br>​ title：标题<br>​ example：样例，可以是多行文本</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiParamExample {json} Request-Example:</span><br><span class="line">    *{</span><br><span class="line">        *&quot;id&quot;: 4711</span><br><span class="line">    *}</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiParamExample &#123;json&#125; Request-Example:</span><br><span class="line">    *&#123;</span><br><span class="line">        *&quot;id&quot;: 4711</span><br><span class="line">    *&#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiPermission"><a href="#apiPermission" class="headerlink" title="@apiPermission"></a>@apiPermission</h5><blockquote>
 <p><strong>@apiPermission name</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x5B9A;&#x4E49;&#x63A5;&#x53E3;&#x6743;&#x9650;</p>
-<p>&#x200B; name&#xFF1A;&#x6743;&#x9650;&#x540D;&#x79F0;</p>
+<p>定义接口权限</p>
+<p>​ name：权限名称</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiPermission none</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiPermission none</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiSampleRequest"><a href="#apiSampleRequest" class="headerlink" title="@apiSampleRequest"></a>@apiSampleRequest</h5><blockquote>
 <p><strong>@apiSampleRequest url</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x8BBE;&#x7F6E;&#x6D4B;&#x8BD5;&#x8BF7;&#x6C42;form&#xFF0C;&#x5982;&#x679C;&#x5728;apidoc.json&#x6216;package.json&#x4E2D;&#x8BBE;&#x7F6E;&#x8FC7;&#x4E86;sampleUrl&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x8BF7;&#x6C42;&#x5730;&#x5740;&#x4E3A;&#xFF0C;sampleUrl+apipath&#xFF0C;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x6807;&#x7B7E;&#x5219;&#x91CD;&#x5199;&#x6D4B;&#x8BD5;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;</p>
-<p>&#x200B; url&#xFF1A;&#x6D4B;&#x8BD5;&#x5730;&#x5740;&#xFF0C;<br>&#x200B; &#x6837;&#x4F8B;<br>&#x200B; @apiSampleRequest <a href="http://www.example.com" target="_blank" rel="noopener">http://www.example.com</a> &#x6539;&#x53D8;&#x6D4B;&#x8BD5;&#x5730;&#x5740;<br>&#x200B; @apiSampleRequest /my_test_path &#x5728;apipath&#x4E2D;&#x52A0;&#x524D;&#x7F00;<br>&#x200B; @apiSampleRequest off &#x4E0D;&#x663E;&#x793A;&#x6D4B;&#x8BD5;&#x8BF7;&#x6C42;from</p>
+<p>设置测试请求form，如果在apidoc.json或package.json中设置过了sampleUrl，则默认请求地址为，sampleUrl+apipath，设置这个标签则重写测试请求路径</p>
+<p>​ url：测试地址，<br>​ 样例<br>​ @apiSampleRequest <a href="http://www.example.com" target="_blank" rel="noopener">http://www.example.com</a> 改变测试地址<br>​ @apiSampleRequest /my_test_path 在apipath中加前缀<br>​ @apiSampleRequest off 不显示测试请求from</p>
 </blockquote>
 <p>Examples: </p>
 <blockquote>
-<p>&#x9ED8;&#x8BA4;&#x8BF7;&#x6C42;&#x7684;&#x5730;&#x5740;&#x662F;<a href="http://api.github.com/user/:id" target="_blank" rel="noopener">http://api.github.com/user/:id</a></p>
+<p>默认请求的地址是<a href="http://api.github.com/user/:id" target="_blank" rel="noopener">http://api.github.com/user/:id</a></p>
 </blockquote>
 <blockquote>
-<p>Configuration parameter sampleUrl: &#x201C;<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
+<p>Configuration parameter sampleUrl: “<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x9700;&#x8981;&#x5C06;&#x6D4B;&#x8BD5;&#x5730;&#x5740;&#x4FEE;&#x6539;&#x4E3A;<a href="http://test.github.com/some_path/user/:id&#xFF0C;&#x5219;" target="_blank" rel="noopener">http://test.github.com/some_path/user/:id&#xFF0C;&#x5219;</a></p>
-<p>Configuration parameter sampleUrl: &#x201C;<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
+<p>需要将测试地址修改为<a href="http://test.github.com/some_path/user/:id，则" target="_blank" rel="noopener">http://test.github.com/some_path/user/:id，则</a></p>
+<p>Configuration parameter sampleUrl: “<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiSampleRequest http://test.github.com/some_path/</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiSampleRequest http://test.github.com/some_path/</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x5F53;&#x5730;&#x5740;&#x9700;&#x8981;&#x8BF7;&#x6C42;<a href="http://api.github.com/test/user/:id" target="_blank" rel="noopener">http://api.github.com/test/user/:id</a> &#x5219;</p>
-<p>Configuration parameter sampleUrl: &#x201C;<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
+<p>当地址需要请求<a href="http://api.github.com/test/user/:id" target="_blank" rel="noopener">http://api.github.com/test/user/:id</a> 则</p>
+<p>Configuration parameter sampleUrl: “<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiSampleRequest /test</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiSampleRequest /test</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x4E0D;&#x9700;&#x8981;&#x6D4B;&#x8BD5;&#x8BF7;&#x6C42;from Configuration parameter sampleUrl: &#x201C;<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
+<p>不需要测试请求from Configuration parameter sampleUrl: “<a href="http://api.github.com&quot;" target="_blank" rel="noopener">http://api.github.com&quot;</a></p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiSampleRequest off</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiSampleRequest off</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;sampleUrl&#x65F6;&#x9700;&#x8981;&#x663E;&#x793A;&#x6D4B;&#x8BD5;&#x8BF7;&#x6C42;from&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;<a href="http://api.github.com/some_path/user/:id" target="_blank" rel="noopener">http://api.github.com/some_path/user/:id</a></p>
+<p>没有设置sampleUrl时需要显示测试请求from，并设置请求<a href="http://api.github.com/some_path/user/:id" target="_blank" rel="noopener">http://api.github.com/some_path/user/:id</a></p>
 </blockquote>
 <blockquote>
 <p>Configuration parameter sampleUrl is not set</p>
 </blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiSampleRequest http://api.github.com/some_path/</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiSampleRequest http://api.github.com/some_path/</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiSuccess"><a href="#apiSuccess" class="headerlink" title="@apiSuccess"></a>@apiSuccess</h5><blockquote>
 <p><strong>@apiSuccess [(group)] [{type}] field [description]</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x8BF7;&#x6C42;&#x6210;&#x529F;&#x8FD4;&#x56DE;&#x7684;&#x53C2;&#x6570;</p>
-<p>&#x200B; (group&#xFF09;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x53C2;&#x6570;&#x5C06;&#x4EE5;&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x5206;&#x7EC4;&#xFF0C;&#x4E0D;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;Error 4xx<br>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;{Boolean}, {Number}, {String}, {Object}, {String[]}<br>&#x200B; field&#xFF1A;&#x8FD4;&#x56DE;&#x503C;&#x5B57;&#x6BB5;&#x540D;&#x79F0;<br>&#x200B; descriptionoptional&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8FD4;&#x56DE;&#x503C;&#x5B57;&#x6BB5;&#x8BF4;&#x660E;</p>
+<p>请求成功返回的参数</p>
+<p>​ (group）（可选）：参数将以这个名称分组，不设置的话，默认是Error 4xx<br>​ {type}（可选）：返回值类型，例如：{Boolean}, {Number}, {String}, {Object}, {String[]}<br>​ field：返回值字段名称<br>​ descriptionoptional（可选）：返回值字段说明</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiSuccess (200) {String} firstname Firstname of the User.</span><br><span class="line">    *@apiSuccess (200) {String} lastname  Lastname of the User.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiSuccess (200) &#123;String&#125; firstname Firstname of the User.</span><br><span class="line">    *@apiSuccess (200) &#123;String&#125; lastname  Lastname of the User.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiSuccessExample"><a href="#apiSuccessExample" class="headerlink" title="@apiSuccessExample"></a>@apiSuccessExample</h5><blockquote>
 <p><strong>@apiSuccessExample [{type}] [title] example</strong></p>
 </blockquote>
 <blockquote>
-<p> &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x6837;&#x4F8B;</p>
-<p>&#x200B; {type}&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1A;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x7C7B;&#x578B;<br>&#x200B; title&#xFF1A;&#x6807;&#x9898;<br>&#x200B; example&#xFF1A;&#x6837;&#x4F8B;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x884C;&#x6587;&#x672C;</p>
+<p> 请求成功返回数据样例</p>
+<p>​ {type}（可选）：请求方式类型<br>​ title：标题<br>​ example：样例，可以是多行文本</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiSuccessExample {json} Success-Response:</span><br><span class="line">    *HTTP/1.1 200 OK</span><br><span class="line">    *{</span><br><span class="line">        *&quot;firstname&quot;: &quot;John&quot;,</span><br><span class="line">        *&quot;lastname&quot;: &quot;Doe&quot;</span><br><span class="line">    *}</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiSuccessExample &#123;json&#125; Success-Response:</span><br><span class="line">    *HTTP/1.1 200 OK</span><br><span class="line">    *&#123;</span><br><span class="line">        *&quot;firstname&quot;: &quot;John&quot;,</span><br><span class="line">        *&quot;lastname&quot;: &quot;Doe&quot;</span><br><span class="line">    *&#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiUse"><a href="#apiUse" class="headerlink" title="@apiUse"></a>@apiUse</h5><blockquote>
 <p><strong>@apiUse name</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x4F7F;&#x7528;&#x5728;@apiDefine&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5185;&#x5BB9;</p>
-<p>&#x200B; name&#xFF1A;&#x5728;@apiDefine&#x5B9A;&#x4E49;&#x7684;name</p>
+<p>使用在@apiDefine中定义的内容</p>
+<p>​ name：在@apiDefine定义的name</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@apiDefine MySuccess</span><br><span class="line">    *@apiSuccess {string} firstname The users firstname.</span><br><span class="line">    *@apiSuccess {number} age The users age.</span><br><span class="line">*/</span><br><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiUse MySuccess</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@apiDefine MySuccess</span><br><span class="line">    *@apiSuccess &#123;string&#125; firstname The users firstname.</span><br><span class="line">    *@apiSuccess &#123;number&#125; age The users age.</span><br><span class="line">*/</span><br><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiUse MySuccess</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h5 id="apiVersion"><a href="#apiVersion" class="headerlink" title="@apiVersion"></a>@apiVersion</h5><blockquote>
 <p><strong>@apiVersion version</strong></p>
 </blockquote>
 <blockquote>
-<p>&#x8BBE;&#x5B9A;Api&#x7684;&#x7248;&#x672C;&#x53F7;</p>
-<p>&#x200B; version&#xFF1A;&#x7248;&#x672C;&#x53F7;&#xFF0C;&#x683C;&#x5F0F;(major.minor.patch)</p>
+<p>设定Api的版本号</p>
+<p>​ version：版本号，格式(major.minor.patch)</p>
 </blockquote>
 <p>Example:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api {get} /user/:id</span><br><span class="line">    *@apiVersion 1.6.2</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
-<h4 id="&#x4E94;&#x3001;&#x53C2;&#x8003;&#x793A;&#x4F8B;"><a href="#&#x4E94;&#x3001;&#x53C2;&#x8003;&#x793A;&#x4F8B;" class="headerlink" title="&#x4E94;&#x3001;&#x53C2;&#x8003;&#x793A;&#x4F8B;"></a>&#x4E94;&#x3001;&#x53C2;&#x8003;&#x793A;&#x4F8B;</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiDefine</span> name &#x540D;&#x79F0;&#x5339;&#x914D;</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiDefine</span> pub_params </span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {string} accesskey &#x6388;&#x6743;&#x51ED;&#x8BC1;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {string} timestamp &#x65F6;&#x95F4;&#x6233;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {string} random &#x968F;&#x673A;&#x6570;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {string} digest &#x7B7E;&#x540D;</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@api</span> {POST} /bank/api/basicQuery.json &#x6839;&#x636E;&#x5730;&#x5740;&#x67E5;&#x8BE2;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiGroup</span> name</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiName</span> &#x6839;&#x636E;&#x5730;&#x5740;&#x67E5;&#x8BE2;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiHeader</span> {String} ContentType=application/json;charset=UTF-8 ContentType</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiHeader</span> {String} Accept=application/json;charset=UTF-8 Accept</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> pub_params</span></span><br><span class="line"><span class="hljs-comment">     * </span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {string} name &#x540D;&#x79F0;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {string} [province] &#x7701;&#x4EFD;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {string} [city] &#x57CE;&#x5E02;</span></span><br><span class="line"><span class="hljs-comment">     * </span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParamExample</span> {json} paramExample:</span></span><br><span class="line"><span class="hljs-comment">     * {</span></span><br><span class="line"><span class="hljs-comment">            * &quot;accesskey&quot;:&quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">            * &quot;timestamp&quot;:&quot;1552302151&quot;,</span></span><br><span class="line"><span class="hljs-comment">            * &quot;random&quot;:&quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">            * &quot;digest&quot;:&quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">            * &quot;message&quot;:&quot;{\&quot;name\&quot;:\&quot;&#x5317;&#x90E8;&#x5DE5;&#x4E1A;&#x533A;\&quot;,\&quot;province\&quot;:\&quot;&#x6CB3;&#x5317;\&quot;,\&quot;city\&quot;:\&quot;&#x5C9B;&#x5E02;\&quot;,\&quot;pageNumber\&quot;:1,\&quot;pageSize\&quot;:10}&quot;</span></span><br><span class="line"><span class="hljs-comment">        * }</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> {string} responseCode &#x72B6;&#x6001;&#x7801;&#xFF1A;0.&#x6210;&#x529F;&#x3001;-1.&#x975E;&#x6CD5;&#x8BF7;&#x6C42;&#x3001;-2.&#x7B7E;&#x540D;&#x9519;&#x8BEF;&#x3001;-51.&#x672A;&#x77E5;&#x9519;&#x8BEF;&#x3001;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> {string} responseMessage &#x54CD;&#x5E94;&#x63D0;&#x793A;&#x4FE1;&#x606F;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> {string} bank_type x&#x884C;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> {string} city &#x57CE;&#x5E02;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> {string} code &#x53F7;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> {string} name &#x540D;&#x79F0;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> {string} province &#x7701;&#x4EFD;</span></span><br><span class="line"><span class="hljs-comment">     * </span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccessExample</span>  {json} Response (success):</span></span><br><span class="line"><span class="hljs-comment">     * {</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;accesskey&quot;: &quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;secretKey&quot;: null,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;timestamp&quot;: &quot;20190307062545&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;random&quot;: &quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;digest&quot;: &quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;responseCode&quot;: 0,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;responseMessage&quot;: &quot;&#x6210;&#x529F;&quot;</span></span><br><span class="line"><span class="hljs-comment">     * }</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiErrorExample</span> Error-Response:</span></span><br><span class="line"><span class="hljs-comment">     * {</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;accesskey&quot;: &quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;secretKey&quot;: null,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;timestamp&quot;: &quot;20190307062545&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;random&quot;: &quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;digest&quot;: &quot;xxxxxxxxxxxxxxxxxxxxxx&quot;,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;responseCode&quot;: -1,</span></span><br><span class="line"><span class="hljs-comment">     *     &quot;responseMessage&quot;: &quot;&#x975E;&#x6CD5;&#x8BF7;&#x6C42;&quot;</span></span><br><span class="line"><span class="hljs-comment">     * }</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @api {POST} /register &#x6CE8;&#x518C;&#x7528;&#x6237;</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription &#x7528;&#x4E8E;&#x6CE8;&#x518C;&#x7528;&#x6237;</span><br><span class="line"> * @apiParam {String} account &#x7528;&#x6237;&#x8D26;&#x6237;&#x540D; </span><br><span class="line"> * @apiParam {String} password &#x5BC6;&#x7801;</span><br><span class="line"> * @apiParam {String} mobile &#x624B;&#x673A;&#x53F7;</span><br><span class="line"> * @apiParam {int} vip = 0  &#x662F;&#x5426;&#x6CE8;&#x518C;Vip&#x8EAB;&#x4EFD; 0 &#x666E;&#x901A;&#x7528;&#x6237; 1 Vip&#x7528;&#x6237;</span><br><span class="line"> * @apiParam {String} [recommend] &#x9080;&#x8BF7;&#x7801;</span><br><span class="line"> * @apiParamExample {json} &#x8BF7;&#x6C42;&#x6837;&#x4F8B;&#xFF1A;</span><br><span class="line"> *                ?account=sodlinken&amp;password=11223344&amp;mobile=13739554137&amp;vip=0&amp;recommend=</span><br><span class="line"> * @apiSuccess (200) {String} msg &#x4FE1;&#x606F;</span><br><span class="line"> * @apiSuccess (200) {int} code 0 &#x4EE3;&#x8868;&#x65E0;&#x9519;&#x8BEF; 1&#x4EE3;&#x8868;&#x6709;&#x9519;&#x8BEF;</span><br><span class="line"> * @apiSuccessExample {json} &#x8FD4;&#x56DE;&#x6837;&#x4F8B;:</span><br><span class="line"> *                {&quot;code&quot;:&quot;0&quot;,&quot;msg&quot;:&quot;&#x6CE8;&#x518C;&#x6210;&#x529F;&quot;}</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line"> * @api {POST} /login &#x7528;&#x6237;&#x767B;&#x5F55;</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription &#x7528;&#x4E8E;&#x7528;&#x6237;&#x767B;&#x5F55;</span><br><span class="line"> * @apiParam {String} userName &#x7528;&#x6237;&#x540D;</span><br><span class="line"> * @apiParam {String} password &#x5BC6;&#x7801;</span><br><span class="line"> * @apiParamExample {json} &#x8BF7;&#x6C42;&#x6837;&#x4F8B;&#xFF1A;</span><br><span class="line"> *                ?userName=&#x5F20;&#x4E09;&amp;password=11223344</span><br><span class="line"> * @apiSuccess (200) {String} msg &#x4FE1;&#x606F;</span><br><span class="line"> * @apiSuccess (200) {String} code 0 &#x4EE3;&#x8868;&#x65E0;&#x9519;&#x8BEF; 1&#x4EE3;&#x8868;&#x6709;&#x9519;&#x8BEF;</span><br><span class="line"> * @apiSuccess (200) {String} user &#x7528;&#x6237;&#x4FE1;&#x606F;</span><br><span class="line"> * @apiSuccess (200) {String} userId &#x7528;&#x6237;id</span><br><span class="line"> * @apiSuccessExample {json} &#x8FD4;&#x56DE;&#x6837;&#x4F8B;:</span><br><span class="line"> *                {&quot;code&quot;:&quot;0&quot;,&quot;msg&quot;:&quot;&#x767B;&#x5F55;&#x6210;&#x529F;&quot;,&quot;userId&quot;:&quot;fe6386d550bd434b8cd994b58c3f8075&quot;}</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line"> * @api {GET} /users/:id &#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription &#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;</span><br><span class="line"> * @apiSuccess (200) {String} msg &#x4FE1;&#x606F;</span><br><span class="line"> * @apiSuccess (200) {int} code 0 &#x4EE3;&#x8868;&#x65E0;&#x9519;&#x8BEF; 1&#x4EE3;&#x8868;&#x6709;&#x9519;&#x8BEF;</span><br><span class="line"> * @apiSuccess (200) {String} name &#x771F;&#x5B9E;&#x59D3;&#x540D;</span><br><span class="line"> * @apiSuccess (200) {String} mobile &#x624B;&#x673A;&#x53F7;</span><br><span class="line"> * @apiSuccess (200) {String} birthday &#x751F;&#x65E5;</span><br><span class="line"> * @apiSuccess (200) {String} email &#x90AE;&#x7BB1;</span><br><span class="line"> * @apiSuccess (200) {String} summary &#x7B80;&#x4ECB;</span><br><span class="line"> * @apiSuccess (200) {String} recommendCode &#x6211;&#x7684;&#x63A8;&#x8350;&#x7801;</span><br><span class="line"> * @apiSuccess (200) {String} idCardNo &#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;</span><br><span class="line"> * @apiSuccess (200) {String} memberState &#x4F1A;&#x5458;&#x72B6;&#x6001; 0&#x666E;&#x901A;&#x7528;&#x6237; 1VIP 2&#x8D26;&#x6237;&#x51BB;&#x7ED3;</span><br><span class="line"> * @apiSuccess (200) {String} address &#x5BB6;&#x5EAD;&#x4F4F;&#x5740; </span><br><span class="line"> * @apiSuccess (200) {String} money &#x8D26;&#x6237;&#x73B0;&#x91D1;</span><br><span class="line"> * @apiSuccessExample {json} &#x8FD4;&#x56DE;&#x6837;&#x4F8B;:</span><br><span class="line"> * {</span><br><span class="line"> *   &quot;code&quot;: 0,</span><br><span class="line"> *   &quot;msg&quot;: &quot;&quot;,</span><br><span class="line"> *   &quot;name&quot;: &quot;&#x771F;&#x5B9E;&#x59D3;&#x540D;&quot;,</span><br><span class="line"> *   &quot;mobile&quot;: 15808544477,</span><br><span class="line"> *   &quot;birthday&quot;: &quot;1990-03-05&quot;,</span><br><span class="line"> *   &quot;email&quot;: &quot;slocn@gamil.com&quot;,</span><br><span class="line"> *   &quot;summary&quot;: &quot;&#x7B80;&#x4ECB;&quot;,</span><br><span class="line"> *   &quot;recommendCode&quot;: &quot;&#x6211;&#x7684;&#x63A8;&#x8350;&#x7801;&quot;,</span><br><span class="line"> *   &quot;idCardNo&quot;: &quot;&#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;&quot;,</span><br><span class="line"> *   &quot;memberState&quot;: 1,</span><br><span class="line"> *   &quot;address&quot;: &quot;&#x5BB6;&#x5EAD;&#x4F4F;&#x5740;&quot;,</span><br><span class="line"> *   &quot;money&quot;: &quot;30.65&quot;</span><br><span class="line"> * }</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line"> * @api {POST} /users/:id &#x4FEE;&#x6539;(&#x5B8C;&#x5584;)&#x7528;&#x6237;&#x4FE1;&#x606F;</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription &#x4FEE;&#x6539;(&#x5B8C;&#x5584;)&#x7528;&#x6237;&#x4FE1;&#x606F;</span><br><span class="line"> * @apiParam (200) {String} [name] &#x771F;&#x5B9E;&#x59D3;&#x540D;</span><br><span class="line"> * @apiParam (200) {String} [mobile] &#x624B;&#x673A;&#x53F7;</span><br><span class="line"> * @apiParam (200) {String} [birthday] &#x751F;&#x65E5;</span><br><span class="line"> * @apiParam (200) {String} [email] &#x90AE;&#x7BB1;</span><br><span class="line"> * @apiParam (200) {String} [summary] &#x7B80;&#x4ECB;</span><br><span class="line"> * @apiParam (200) {String} [idCardNo] &#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;</span><br><span class="line"> * @apiParam (200) {String} [address] &#x5BB6;&#x5EAD;&#x4F4F;&#x5740;</span><br><span class="line"> * @apiSuccess (200) {String} msg &#x4FE1;&#x606F;</span><br><span class="line"> * @apiSuccess (200) {int} code 0 &#x4EE3;&#x8868;&#x65E0;&#x9519;&#x8BEF; 1&#x4EE3;&#x8868;&#x6709;&#x9519;&#x8BEF;</span><br><span class="line"> * @apiSuccessExample {json} &#x8FD4;&#x56DE;&#x6837;&#x4F8B;:</span><br><span class="line"> *                {&quot;code&quot;:&quot;0&quot;,&quot;msg&quot;:&quot;&#x4FEE;&#x6539;&#x6210;&#x529F;&quot;}</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    *@api &#123;get&#125; /user/:id</span><br><span class="line">    *@apiVersion 1.6.2</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h4 id="五、参考示例"><a href="#五、参考示例" class="headerlink" title="五、参考示例"></a>五、参考示例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiDefine</span> name 名称匹配</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiDefine</span> pub_params </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;string&#125; accesskey 授权凭证</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;string&#125; timestamp 时间戳</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;string&#125; random 随机数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;string&#125; digest 签名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@api</span> &#123;POST&#125; /bank/api/basicQuery.json 根据地址查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiGroup</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiName</span> 根据地址查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiHeader</span> &#123;String&#125; ContentType=application/json;charset=UTF-8 ContentType</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiHeader</span> &#123;String&#125; Accept=application/json;charset=UTF-8 Accept</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> pub_params</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;string&#125; name 名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;string&#125; [province] 省份</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;string&#125; [city] 城市</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParamExample</span> &#123;json&#125; paramExample:</span></span><br><span class="line"><span class="comment">     * &#123;</span></span><br><span class="line"><span class="comment">            * "accesskey":"xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">            * "timestamp":"1552302151",</span></span><br><span class="line"><span class="comment">            * "random":"xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">            * "digest":"xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">            * "message":"&#123;\"name\":\"北部工业区\",\"province\":\"河北\",\"city\":\"岛市\",\"pageNumber\":1,\"pageSize\":10&#125;"</span></span><br><span class="line"><span class="comment">        * &#125;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> &#123;string&#125; responseCode 状态码：0.成功、-1.非法请求、-2.签名错误、-51.未知错误、</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> &#123;string&#125; responseMessage 响应提示信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> &#123;string&#125; bank_type x行</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> &#123;string&#125; city 城市</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> &#123;string&#125; code 号</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> &#123;string&#125; name 名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> &#123;string&#125; province 省份</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccessExample</span>  &#123;json&#125; Response (success):</span></span><br><span class="line"><span class="comment">     * &#123;</span></span><br><span class="line"><span class="comment">     *     "accesskey": "xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">     *     "secretKey": null,</span></span><br><span class="line"><span class="comment">     *     "timestamp": "20190307062545",</span></span><br><span class="line"><span class="comment">     *     "random": "xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">     *     "digest": "xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">     *     "responseCode": 0,</span></span><br><span class="line"><span class="comment">     *     "responseMessage": "成功"</span></span><br><span class="line"><span class="comment">     * &#125;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiErrorExample</span> Error-Response:</span></span><br><span class="line"><span class="comment">     * &#123;</span></span><br><span class="line"><span class="comment">     *     "accesskey": "xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">     *     "secretKey": null,</span></span><br><span class="line"><span class="comment">     *     "timestamp": "20190307062545",</span></span><br><span class="line"><span class="comment">     *     "random": "xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">     *     "digest": "xxxxxxxxxxxxxxxxxxxxxx",</span></span><br><span class="line"><span class="comment">     *     "responseCode": -1,</span></span><br><span class="line"><span class="comment">     *     "responseMessage": "非法请求"</span></span><br><span class="line"><span class="comment">     * &#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @api &#123;POST&#125; /register 注册用户</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription 用于注册用户</span><br><span class="line"> * @apiParam &#123;String&#125; account 用户账户名 </span><br><span class="line"> * @apiParam &#123;String&#125; password 密码</span><br><span class="line"> * @apiParam &#123;String&#125; mobile 手机号</span><br><span class="line"> * @apiParam &#123;int&#125; vip = 0  是否注册Vip身份 0 普通用户 1 Vip用户</span><br><span class="line"> * @apiParam &#123;String&#125; [recommend] 邀请码</span><br><span class="line"> * @apiParamExample &#123;json&#125; 请求样例：</span><br><span class="line"> *                ?account=sodlinken&amp;password=11223344&amp;mobile=13739554137&amp;vip=0&amp;recommend=</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; msg 信息</span><br><span class="line"> * @apiSuccess (200) &#123;int&#125; code 0 代表无错误 1代表有错误</span><br><span class="line"> * @apiSuccessExample &#123;json&#125; 返回样例:</span><br><span class="line"> *                &#123;&quot;code&quot;:&quot;0&quot;,&quot;msg&quot;:&quot;注册成功&quot;&#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line"> * @api &#123;POST&#125; /login 用户登录</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription 用于用户登录</span><br><span class="line"> * @apiParam &#123;String&#125; userName 用户名</span><br><span class="line"> * @apiParam &#123;String&#125; password 密码</span><br><span class="line"> * @apiParamExample &#123;json&#125; 请求样例：</span><br><span class="line"> *                ?userName=张三&amp;password=11223344</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; msg 信息</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; code 0 代表无错误 1代表有错误</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; user 用户信息</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; userId 用户id</span><br><span class="line"> * @apiSuccessExample &#123;json&#125; 返回样例:</span><br><span class="line"> *                &#123;&quot;code&quot;:&quot;0&quot;,&quot;msg&quot;:&quot;登录成功&quot;,&quot;userId&quot;:&quot;fe6386d550bd434b8cd994b58c3f8075&quot;&#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line"> * @api &#123;GET&#125; /users/:id 获取用户信息</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription 获取用户信息</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; msg 信息</span><br><span class="line"> * @apiSuccess (200) &#123;int&#125; code 0 代表无错误 1代表有错误</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; name 真实姓名</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; mobile 手机号</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; birthday 生日</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; email 邮箱</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; summary 简介</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; recommendCode 我的推荐码</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; idCardNo 身份证号</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; memberState 会员状态 0普通用户 1VIP 2账户冻结</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; address 家庭住址 </span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; money 账户现金</span><br><span class="line"> * @apiSuccessExample &#123;json&#125; 返回样例:</span><br><span class="line"> * &#123;</span><br><span class="line"> *   &quot;code&quot;: 0,</span><br><span class="line"> *   &quot;msg&quot;: &quot;&quot;,</span><br><span class="line"> *   &quot;name&quot;: &quot;真实姓名&quot;,</span><br><span class="line"> *   &quot;mobile&quot;: 15808544477,</span><br><span class="line"> *   &quot;birthday&quot;: &quot;1990-03-05&quot;,</span><br><span class="line"> *   &quot;email&quot;: &quot;slocn@gamil.com&quot;,</span><br><span class="line"> *   &quot;summary&quot;: &quot;简介&quot;,</span><br><span class="line"> *   &quot;recommendCode&quot;: &quot;我的推荐码&quot;,</span><br><span class="line"> *   &quot;idCardNo&quot;: &quot;身份证号&quot;,</span><br><span class="line"> *   &quot;memberState&quot;: 1,</span><br><span class="line"> *   &quot;address&quot;: &quot;家庭住址&quot;,</span><br><span class="line"> *   &quot;money&quot;: &quot;30.65&quot;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line"> * @api &#123;POST&#125; /users/:id 修改(完善)用户信息</span><br><span class="line"> * @apiGroup Users</span><br><span class="line"> * @apiVersion 0.0.1</span><br><span class="line"> * @apiDescription 修改(完善)用户信息</span><br><span class="line"> * @apiParam (200) &#123;String&#125; [name] 真实姓名</span><br><span class="line"> * @apiParam (200) &#123;String&#125; [mobile] 手机号</span><br><span class="line"> * @apiParam (200) &#123;String&#125; [birthday] 生日</span><br><span class="line"> * @apiParam (200) &#123;String&#125; [email] 邮箱</span><br><span class="line"> * @apiParam (200) &#123;String&#125; [summary] 简介</span><br><span class="line"> * @apiParam (200) &#123;String&#125; [idCardNo] 身份证号</span><br><span class="line"> * @apiParam (200) &#123;String&#125; [address] 家庭住址</span><br><span class="line"> * @apiSuccess (200) &#123;String&#125; msg 信息</span><br><span class="line"> * @apiSuccess (200) &#123;int&#125; code 0 代表无错误 1代表有错误</span><br><span class="line"> * @apiSuccessExample &#123;json&#125; 返回样例:</span><br><span class="line"> *                &#123;&quot;code&quot;:&quot;0&quot;,&quot;msg&quot;:&quot;修改成功&quot;&#125;</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong><em>@apiParam</em>  <em>@apiSuccess</em></strong>&#x5E26;&#x6709;&#x5C42;&#x7EA7;&#x5173;&#x7CFB;&#x7684;&#x6837;&#x5F0F; &#x5982;&#xFF1A;res.*</p>
+<p><strong><em>@apiParam</em>  <em>@apiSuccess</em></strong>带有层级关系的样式 如：res.*</p>
 </blockquote>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@api</span> {get} /rest/area/getAreasByCode &#x884C;&#x653F;&#x533A;&#x57DF;&#x67E5;&#x8BE2;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiDescription</span> &#x6839;&#x636E;&#x884C;&#x653F;&#x7F16;&#x7801;&#x83B7;&#x53D6;&#x884C;&#x653F;&#x533A;&#x57DF;,0&#x83B7;&#x53D6;&#x7701;&#x7EA7;&#x884C;&#x653F;&#x533A;&#x57DF;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiName</span> getAreasByCode</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiGroup</span> area</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String} code &#x884C;&#x653F;&#x7F16;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSampleRequest</span> /rest/area/getAreasByCode</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> token_msg</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> success_msg</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}   res.id    &#x6807;&#x8BC6;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}   res.name    &#x884C;&#x653F;&#x5730;&#x533A;&#x540D;&#x79F0;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}   res.code    &#x884C;&#x653F;&#x7F16;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}   res.prevCode    &#x4E0A;&#x7EA7;&#x884C;&#x653F;&#x7F16;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}   res.allName    &#x5168;&#x79F0;</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/getAreasByCode&quot;</span>)</span><br><span class="line">    <span class="hljs-meta">@ResponseBody</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> RestResponse <span class="hljs-title">getAreasByCode</span><span class="hljs-params">(String code)</span></span>{</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RestResponse(areaService.findAreaByPrevCode(code));</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@api</span> {get} /rest/role/find &#x89D2;&#x8272;&#x5217;&#x8868;&#x67E5;&#x8BE2;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiDescription</span>  &#x7EFC;&#x5408;&#x89D2;&#x8272;&#x67E5;&#x8BE2;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiName</span> find</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiGroup</span> role</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> token_msg</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [page]     &#x5F53;&#x524D;&#x7B2C;&#x51E0;&#x9875;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [pageSize]    &#x6BCF;&#x9875;&#x663E;&#x793A;&#x591A;&#x5C11;&#x6761;&#x6570;&#x636E;,&#x5F53;&#x8BE5;&#x53C2;&#x6570;&#x4E3A;0&#x65F6;&#x8868;&#x793A;&#x4E0D;&#x5206;&#x9875;&#xFF0C;&#x67E5;&#x8BE2;&#x5168;&#x90E8;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [name]    &#x89D2;&#x8272;&#x540D;&#x79F0;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [code]       &#x89D2;&#x8272;&#x4EE3;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSampleRequest</span> /rest/role/find</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> success_msg</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {Long}      res.total    &#x603B;&#x6761;&#x6570;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {Array}    res.results    &#x7ED3;&#x679C;&#x96C6;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.id    &#x89D2;&#x8272;id</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.name    &#x89D2;&#x8272;&#x540D;&#x79F0;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.code        &#x89D2;&#x8272;&#x4EE3;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.remark        &#x89D2;&#x8272;&#x63CF;&#x8FF0;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.createTime        &#x521B;&#x5EFA;&#x65F6;&#x95F4;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.updateTime        &#x66F4;&#x65B0;&#x65F6;&#x95F4;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.sort        &#x6392;&#x5E8F;&#x7F16;&#x53F7;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSuccess</span> (success 2000) {String}    res.results.isSuper        &#x662F;&#x5426;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x5458;</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/find&quot;</span>)</span><br><span class="line">    <span class="hljs-meta">@ResponseBody</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> RestResponse <span class="hljs-title">find</span><span class="hljs-params">(String name,String code,String page,String pageSize)</span></span>{</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RestResponse(rsp);</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@api</span> &#123;get&#125; /rest/area/getAreasByCode 行政区域查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiDescription</span> 根据行政编码获取行政区域,0获取省级行政区域</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiName</span> getAreasByCode</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiGroup</span> area</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125; code 行政编码</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSampleRequest</span> /rest/area/getAreasByCode</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> token_msg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> success_msg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;   res.id    标识码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;   res.name    行政地区名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;   res.code    行政编码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;   res.prevCode    上级行政编码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;   res.allName    全称</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/getAreasByCode"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestResponse <span class="title">getAreasByCode</span><span class="params">(String code)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> RestResponse(areaService.findAreaByPrevCode(code));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@api</span> &#123;get&#125; /rest/role/find 角色列表查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiDescription</span>  综合角色查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiName</span> find</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiGroup</span> role</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> token_msg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [page]     当前第几页</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [pageSize]    每页显示多少条数据,当该参数为0时表示不分页，查询全部</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [name]    角色名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [code]       角色代码</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSampleRequest</span> /rest/role/find</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> success_msg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;Long&#125;      res.total    总条数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;Array&#125;    res.results    结果集</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.id    角色id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.name    角色名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.code        角色代码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.remark        角色描述</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.createTime        创建时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.updateTime        更新时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.sort        排序编号</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSuccess</span> (success 2000) &#123;String&#125;    res.results.isSuper        是否超级管理员</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/find"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestResponse <span class="title">find</span><span class="params">(String name,String code,String page,String pageSize)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> RestResponse(rsp);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>&#x8868;&#x5355;&#x4E0A;&#x4F20;&#x793A;&#x4F8B;</p>
+<p>表单上传示例</p>
 </blockquote>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@api</span> {post} /rest/user/create &#x65B0;&#x5EFA;&#x7528;&#x6237;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiDescription</span>  &#x65B0;&#x5EFA;&#x7528;&#x6237;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiName</span> create</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiGroup</span> user</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> token_msg</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {formData}  [iconFile]     &#x5934;&#x50CF;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  loginName     &#x767B;&#x5F55;&#x540D;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  pwd     &#x5BC6;&#x7801;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  orgId     &#x673A;&#x6784;id</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [roleId]     &#x89D2;&#x8272;id</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  name    &#x7528;&#x6237;&#x540D;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [jobCode]    &#x804C;&#x52A1; 1:&#x79D1;&#x957F; 2&#xFF1A;&#x4E3B;&#x4EFB; 3&#xFF1A;&#x79D1;&#x5458; 4&#xFF1A;&#x3002;&#x3002;&#x3002;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [jobType]    &#x804C;&#x4E1A;&#x6027;&#x8D28; 1&#xFF1A;&#x5168;&#x804C; 2&#xFF1A;&#x517C;&#x804C;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [sex]    &#x6027;&#x522B; 1&#xFF1A;&#x7537; 2&#xFF1A;&#x5973;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  phone    &#x624B;&#x673A;&#x53F7;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}   idCard   &#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  birthday  &#x51FA;&#x751F;&#x65E5;&#x671F;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [address]    &#x4F4F;&#x5740;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span>  {String} [contactUser] &#x7D27;&#x6025;&#x8054;&#x7CFB;&#x4EBA;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span> {String}  [contactPhone] &#x7D27;&#x6025;&#x8054;&#x7CFB;&#x7535;&#x8BDD;</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiParam</span>  {String} [sex]    &#x6027;&#x522B;  1:&#x7537;  2&#xFF1A;&#x5973;</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiSampleRequest</span> /rest/user/create</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> success_msg</span></span><br><span class="line"><span class="hljs-comment">     *</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_NAME</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_LOGIN_NAME</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_PWD</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_ORG</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_EMPTY_ROLE</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> REGISTER_PHONE_EXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> REGISTER_USERNAME_EXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> USER_IDCARD_EXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> REGISTER_ORG_UNEXIST</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> BASE_UPLOAD_FAIL</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@apiUse</span> BASE_SAVE_FAIL</span></span><br><span class="line"><span class="hljs-comment">     * */</span></span><br><span class="line">    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/create&quot;</span>)</span><br><span class="line">    <span class="hljs-meta">@ResponseBody</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> RestResponse <span class="hljs-title">create</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">&quot;iconFile&quot;</span>)</span> CommonsMultipartFile[] files</span></span><br><span class="line"><span class="hljs-function">                                ,String loginName,String pwd,String orgId,String roleId,String name,</span></span><br><span class="line"><span class="hljs-function">                               String jobCode,String jobType,String sex,String phone,String idCard,String birthday,String address,String contactUser,String contactPhone)</span>{</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RestResponse(rest);</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@api</span> &#123;post&#125; /rest/user/create 新建用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiDescription</span>  新建用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiName</span> create</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiGroup</span> user</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiVersion</span> 1.0.0</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> token_msg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;formData&#125;  [iconFile]     头像</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  loginName     登录名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  pwd     密码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  orgId     机构id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [roleId]     角色id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  name    用户名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [jobCode]    职务 1:科长 2：主任 3：科员 4：。。。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [jobType]    职业性质 1：全职 2：兼职</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [sex]    性别 1：男 2：女</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  phone    手机号</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;   idCard   身份证号</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  birthday  出生日期</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [address]    住址</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span>  &#123;String&#125; [contactUser] 紧急联系人</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span> &#123;String&#125;  [contactPhone] 紧急联系电话</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiParam</span>  &#123;String&#125; [sex]    性别  1:男  2：女</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiSampleRequest</span> /rest/user/create</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> success_msg</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> USER_EMPTY_NAME</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> USER_EMPTY_LOGIN_NAME</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> USER_EMPTY_PWD</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> USER_EMPTY_ORG</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> USER_EMPTY_ROLE</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> REGISTER_PHONE_EXIST</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> REGISTER_USERNAME_EXIST</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> USER_IDCARD_EXIST</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> REGISTER_ORG_UNEXIST</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> BASE_UPLOAD_FAIL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@apiUse</span> BASE_SAVE_FAIL</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/create"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestResponse <span class="title">create</span><span class="params">(@RequestParam(<span class="string">"iconFile"</span>)</span> CommonsMultipartFile[] files</span></span><br><span class="line"><span class="function">                                ,String loginName,String pwd,String orgId,String roleId,String name,</span></span><br><span class="line"><span class="function">                               String jobCode,String jobType,String sex,String phone,String idCard,String birthday,String address,String contactUser,String contactPhone)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> RestResponse(rest);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://yxk17668.github.io/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/" data-id="clik43hml0000rcwjhr9kcji6" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Api文档/">Api文档</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-    
-<ul id="article-nav" class="nav nav-pills nav-justified">
-  
-  <li role="presentation">
-    <a href="/yxk17668/2019/07/10/Git-Mistake/" id="article-nav-older" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">Git --changes not staged for commit</span>
-    </a>
-  </li>
-  
-  
-  <li role="presentation">
-    <a href="/yxk17668/2019/08/09/nginx-解决session一致性/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">nginx 解决session一致性</span>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </a>
-  </li>
-  
-</ul>
-
-
-  
-</article>
-
-
-
-
-        </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            </div>
           
-  <div class="sidebar-module sidebar-module-inset">
-  <h4>About</h4>
-  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 
-</div>
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/yxk17668/tags/Apidoc/">Apidoc</a>
+		  
+			<a href="/yxk17668/tags/Api文档/">Api文档</a>
+		  
+		</div>
+		
 
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/yxk17668/2019/08/09/nginx-解决session一致性/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">nginx 解决session一致性</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/yxk17668/2019/07/10/Git-Mistake/">
+        <span class="next-text nav-default">Git --changes not staged for commit</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
 
-  
-
-
-  
-  <div class="sidebar-module">
-    <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Apidoc/">Apidoc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Api文档/">Api文档</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git/">Git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Git-mistake/">Git mistake</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/Markdown/">Markdown</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/helper-live2d/">helper-live2d</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/hexo/">hexo</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/session/">session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/spring-session/">spring-session</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springMVC/">springMVC</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/springboot/">springboot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/yilia/">yilia</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/低代码平台/">低代码平台</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/基础进阶/">基础进阶</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/微服务/">微服务</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/架构设计/">架构设计</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/注解/">注解</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计原则/">设计原则</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/设计模式/">设计模式</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/tags/领域模型/">领域模型</a><span class="sidebar-module-list-count">2</span></li></ul>
+        
+  <div class="comments" id="comments">
+    
   </div>
 
 
+      </footer>
+    
+  </article>
 
-  
-  <div class="sidebar-module">
-    <h4>Tag Cloud</h4>
-    <p class="tagcloud">
-      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api文档/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/低代码平台/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/基础进阶/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/架构设计/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/注解/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/设计原则/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/领域模型/" style="font-size: 15px;">领域模型</a>
-    </p>
-  </div>
-
-
-  
-  <div class="sidebar-module">
-    <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a><span class="sidebar-module-list-count">1</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Recents</h4>
-    <ul class="sidebar-module-list">
-      
-        <li>
-          <a href="/yxk17668/2023/05/16/一种面向后端的微服务低代码平台架构设计/">一种面向后端的微服务低代码平台架构设计</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/08/09/nginx-解决session一致性/">nginx 解决session一致性</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/14/Apidoc生成Restful-web-Api文档/">Apidoc生成Restful web Api文档</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
-        </li>
-      
-        <li>
-          <a href="/yxk17668/2019/07/10/Git实用篇/">Git实用篇</a>
-        </li>
-      
-    </ul>
-  </div>
-
-
-
-        </div>
     </div>
-  </div>
-  <footer class="blog-footer">
-  <div class="container">
-    <div id="footer-info" class="inner">
-      &copy; 2023 yxk17668<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2023
+    <span class="footer-author">yxk17668.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
     </div>
-  </div>
-</footer>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/yxk17668/lib/jquery/jquery-3.1.1.min.js"></script>
+  
 
   
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/yxk17668/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/yxk17668/js/src/bootstrap.js?v=1.1"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-
-<script src="/yxk17668/js/script.js"></script>
-
-</body>
+  </body>
 </html>
