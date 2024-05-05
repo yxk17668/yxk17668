@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>Git实用篇</title>
+<meta name="keywords" content="Git实用篇, yxk17668">
+<meta name="description" content="简单的代码提交流程
+
+
+git status 查看工作区代码相对于暂存区的差别
+git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录
+git commit -m ‘注释’ 将缓存区内容添加到本地仓库
+git ">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Git实用篇">
+<meta property="og:description" content="简单的代码提交流程
+
+
+git status 查看工作区代码相对于暂存区的差别
+git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录
+git commit -m ‘注释’ 将缓存区内容添加到本地仓库
+git ">
+
+<link rel="shortcut icon" href="/yxk17668/favicon.ico">
+<link rel="stylesheet" href="/yxk17668/style/main.css">
+
+  <meta name="generator" content="Hexo 7.2.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://yxk17668.github.io/yxk17668">
+        <img class="avatar" src="/yxk17668/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://yxk17668.github.io/yxk17668">
+        <h1 class="site-title">yxk17668</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/yxk17668/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/yxk17668/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/yxk17668/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/yxk17668/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">Git实用篇</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-07-10</span>
+        
+          <span>
+          <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="/yxk17668/tags/Git/">
+              Git
+                
+              </a>
+            
+          </span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h2 id="简单的代码提交流程"><a href="#简单的代码提交流程" class="headerlink" title="简单的代码提交流程"></a>简单的代码提交流程</h2><blockquote>
+</blockquote>
+<ol>
+<li>git status 查看工作区代码相对于暂存区的差别</li>
+<li>git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录</li>
+<li>git commit -m ‘注释’ 将缓存区内容添加到本地仓库</li>
+<li>git push origin master 将本地版本库推送到远程服务器， </li>
+<li>origin是远程主机，master表示是远程服务器上的master分支，分支名是可以修改的</li>
+</ol>
+<h3 id="Git-add"><a href="#Git-add" class="headerlink" title="Git add"></a>Git add</h3><blockquote>
+<p>​		git add [参数] &lt;路径&gt;　作用就是将我们需要提交的代码从工作区添加到暂存区，就是告诉git系统，我们要提交哪些文件，之后就可以使用git commit命令进行提交了。<br>下面都用 . 来标识路径， . 表示当前目录，路径可以修改，下列操作的作用范围都在版本库之内。</p>
+<ol>
+<li><p><strong>git add .</strong></p>
+<p> 不加参数默认为将修改操作的文件和未跟踪新添加的文件添加到git系统的暂存区，注意不包括删除。</p>
+</li>
+<li><p>**git add -u . **<br>-u 表示将已跟踪文件中的修改和删除的文件添加到暂存区，不包括新增加的文件，注意这些被删除的文件被加入到暂存区再被提交并推送到服务器的版本库之后这个文件就会从git系统中消失了。</p>
+</li>
+<li><p>**git add -A . **<br>-A 表示将所有的已跟踪的文件的修改与删除和新增的未跟踪的文件都添加到暂存区。</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="Git-commit"><a href="#Git-commit" class="headerlink" title="Git commit"></a>Git commit</h3><blockquote>
+<p>​		git commit 主要是将暂存区里的改动给提交到本地的版本库。每次使用git commit 命令我们都会在本地版本库生成一个40位的哈希值，这个哈希值也叫commit-id<br>commit-id 在版本回退的时候是非常有用的，它相当于一个快照,可以在未来的任何时候通过与git reset的组合命令回到这里。</p>
+<ol>
+<li><p>**git commit -m ‘message’ **</p>
+<p>​	-m 参数表示可以直接输入后面的“message”，如果不加 -m参数，那么是不能直接输入message的，而是会调用一个编辑器一般是vim来让你输入这个message<br>message即是我们用来简要说明这次提交的语句</p>
+</li>
+<li><p>**git commit -am ‘message’ -am等同于-a -m **</p>
+<p>​	-a参数可以将所有已跟踪文件中的执行修改或删除操作的文件都提交到本地仓库，即使它们没有经过git add添加到暂存区，<br><del>注意: 新加的文件（即没有被git系统管理的文件）是不能被提交到本地仓库的</del></p>
+</li>
+</ol>
+</blockquote>
+<h3 id="Git-push"><a href="#Git-push" class="headerlink" title="Git push"></a>Git push</h3><blockquote>
+<p>​		在使用git commit命令将修改从暂存区提交到本地版本库后，只剩下最后一步将本地版本库的分支推送到远程服务器上对应的分支了，如果不清楚版本库的构成，可以查看git 仓库的基本结构<br>git push的一般形式为 git push &lt;远程主机名&gt; &lt;本地分支名&gt; &lt;远程分支名&gt; ，例如 git push origin master：refs&#x2F;for&#x2F;master ，即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名。第一个master是本地分支名，第二个master是远程分支名</p>
+<ol>
+<li><p><strong>git push origin master</strong></p>
+<p>​		如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建</p>
+</li>
+<li><p><strong>git push origin ：refs&#x2F;for&#x2F;master</strong><br>    如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin –delete master</p>
+</li>
+<li><p><strong>git push origin</strong><br>    如果当前分支与远程分支存在追踪关系，则本地分支和远程分支都可以省略，将当前分支推送到origin主机的对应分支</p>
+</li>
+<li><p><strong>git push</strong><br>    如果当前分支只有一个远程分支，那么主机名都可以省略，形如 git push，可以使用git branch -r ，查看远程的分支名</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="refs-for"><a href="#refs-for" class="headerlink" title="refs&#x2F;for"></a>refs&#x2F;for</h3><blockquote>
+<p>refs&#x2F;for 的意义在于我们提交代码到服务器之后是需要经过code review 之后才能进行merge的，而refs&#x2F;heads 不需要</p>
+</blockquote>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E6%B5%81%E7%A8%8B"><span class="top-box-text">简单的代码提交流程</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#Git-add"><span class="top-box-text">Git add</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#Git-commit"><span class="top-box-text">Git commit</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#Git-push"><span class="top-box-text">Git push</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#refs-for"><span class="top-box-text">refs&#x2F;for</span></a></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/yxk17668/2019/06/06/helper-live2d/">
+          <h3 class="post-title">
+            下一篇：helper-live2d
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+        <a aria-label="跳转至github" href="https://yxk17668.github.io/" target="_blank">
+          <i class="icon icon-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <a href="https://github.com/f-dong/hexo-theme-minimalism" target="_blank">Theme</a>
+  
+  
+  
+  
+  
+  
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"photo_zoom":"simple-lightbox"}}; window.is_post = true; </script>
+
+<script src="/yxk17668/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

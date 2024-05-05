@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>Git --changes not staged for commit</title>
+<meta name="keywords" content="Git --changes not staged for commit, yxk17668">
+<meta name="description" content="出现的操作
+正常 git add . ，然后git commit
+
+
+后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的
+
+解决方案
+先强行删除clone来的目录下的 .git 文件夹
+">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Git --changes not staged for commit">
+<meta property="og:description" content="出现的操作
+正常 git add . ，然后git commit
+
+
+后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的
+
+解决方案
+先强行删除clone来的目录下的 .git 文件夹
+">
+
+<link rel="shortcut icon" href="/yxk17668/favicon.ico">
+<link rel="stylesheet" href="/yxk17668/style/main.css">
+
+  <meta name="generator" content="Hexo 7.2.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://yxk17668.github.io/yxk17668">
+        <img class="avatar" src="/yxk17668/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://yxk17668.github.io/yxk17668">
+        <h1 class="site-title">yxk17668</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/yxk17668/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/yxk17668/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/yxk17668/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/yxk17668/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">Git --changes not staged for commit</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-07-10</span>
+        
+          <span>
+          <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="/yxk17668/tags/Git/">
+              Git
+                
+                  ，
+                
+              </a>
+            
+              <a href="/yxk17668/tags/Git-mistake/">
+              Git mistake
+                
+              </a>
+            
+          </span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h3 id="出现的操作"><a href="#出现的操作" class="headerlink" title="出现的操作"></a>出现的操作</h3><blockquote>
+<p>正常 <strong>git add .</strong> ，然后<strong>git commit</strong></p>
+</blockquote>
+<blockquote>
+<p>后仍然报 changes not staged for commit 错误，并且上传到仓库的文件夹是空的</p>
+</blockquote>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li><strong>先强行删除clone来的目录下的 .git 文件夹</strong></li>
+</ol>
+<blockquote>
+<p> 删除方式：在该目录下打开命令行工具，执行 <strong>rd&#x2F;s&#x2F;q .git</strong>命令</p>
+<p>删除成功后执行<strong>ls .git</strong>命令提示：No such file or directory</p>
+</blockquote>
+<ol start="2">
+<li><strong>回到仓库根目录删除仓库中的空文件夹</strong></li>
+</ol>
+<blockquote>
+<p>​    <strong>1）git rm -r –cached “themes&#x2F;materail”</strong></p>
+<p>​    <strong>2）git commit -m “remove empty folder”</strong></p>
+<p>​    <strong>3）git push origin master</strong></p>
+</blockquote>
+<ol start="3">
+<li><strong>在仓库根目录重新提交代码</strong></li>
+</ol>
+<blockquote>
+<p>​    <strong>1）git add .</strong></p>
+<p>​    <strong>2）git commit -m “repush”</strong></p>
+<p>​    <strong>3）git push origin master</strong></p>
+</blockquote>
+<blockquote>
+<p>这样就能保证不会报上面的错，并且删除了空文件夹，重新把clone下来的目录</p>
+</blockquote>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><blockquote>
+<p>clone 下来的文件夹也是一个 git 仓库，因此正常的 <strong>git add .</strong> 是无法提交该文件夹下的文件的，所以我们要做的就是删除文件夹下的 .git 文件夹，这样就可以通过  <strong>git add .</strong> 命令来提交内容</p>
+</blockquote>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%87%BA%E7%8E%B0%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="top-box-text">出现的操作</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="top-box-text">解决方案</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%8E%9F%E5%9B%A0"><span class="top-box-text">原因</span></a></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/">
+          <h3 class="post-title">
+            下一篇：Git实用篇
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+        <a aria-label="跳转至github" href="https://yxk17668.github.io/" target="_blank">
+          <i class="icon icon-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <a href="https://github.com/f-dong/hexo-theme-minimalism" target="_blank">Theme</a>
+  
+  
+  
+  
+  
+  
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"photo_zoom":"simple-lightbox"}}; window.is_post = true; </script>
+
+<script src="/yxk17668/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
