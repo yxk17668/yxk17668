@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>nginx 解决session一致性 | yxk17668</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1. session 粘滞性 每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题  backserver &#123;1234ip_hash;server 192.168.0.14:88;server 192.168.0.15:80;&#125;   但是有缺点，这存在单点风险，倘若我已经在192.168.0.14:88端口登录后，过段时间发现1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx 解决session一致性">
+<meta property="og:url" content="https://yxk17668.github.io/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/index.html">
+<meta property="og:site_name" content="yxk17668">
+<meta property="og:description" content="1. session 粘滞性 每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题  backserver &#123;1234ip_hash;server 192.168.0.14:88;server 192.168.0.15:80;&#125;   但是有缺点，这存在单点风险，倘若我已经在192.168.0.14:88端口登录后，过段时间发现1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-09T09:13:54.000Z">
+<meta property="article:modified_time" content="2024-05-05T04:26:15.129Z">
+<meta property="article:author" content="yxk17668">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="session">
+<meta property="article:tag" content="spring-session">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="springMVC">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/yxk17668/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/yxk17668/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/yxk17668/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/yxk17668/" id="logo">yxk17668</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/yxk17668/" id="subtitle">less is more</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/yxk17668/">Home</a>
+        
+          <a class="main-nav-link" href="/yxk17668/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/yxk17668/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yxk17668.github.io/yxk17668"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-nginx-解决session一致性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2019-08-09T09:13:54.000Z" itemprop="datePublished">2019-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      nginx 解决session一致性
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-session-粘滞性"><a href="#1-session-粘滞性" class="headerlink" title="1. session 粘滞性"></a>1. session 粘滞性</h5><blockquote>
+<p>每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题</p>
+</blockquote>
+<figure class="highlight plaintext"><figcaption><span>backserver &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip_hash;</span><br><span class="line">server 192.168.0.14:88;</span><br><span class="line">server 192.168.0.15:80;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>但是有缺点，这存在单点风险，倘若我已经在192.168.0.14:88端口登录后，过段时间发现14服务器挂了（session时间未过期），那么这时候会访问到15服务器，那这时候需要重新登录，因为在拿14服务器上的JsessionId去15服务器请求发现不存在</p>
+</blockquote>
+<h5 id="2-session-粘滞性"><a href="#2-session-粘滞性" class="headerlink" title="2. session 粘滞性"></a>2. session 粘滞性</h5><blockquote>
+<p>可以通过tomcat的server.xml文件进行配置，这样每个tomcat都会同步对应的session，那么此时即使某个tomcat被宕机了，也不影响服务</p>
+<p>具体的tomcat可以参见如下： <a href="http://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html">tomcat官网对应集群配置</a></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Cluster</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot;</span></span></span><br><span class="line"><span class="tag">                 <span class="attr">channelSendOptions</span>=<span class="string">&quot;8&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">Manager</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.ha.session.DeltaManager&quot;</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">expireSessionsOnShutdown</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">notifyListenersOnReplication</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">Channel</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.tribes.group.GroupChannel&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Membership</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.tribes.membership.McastService&quot;</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">address</span>=<span class="string">&quot;228.0.0.4&quot;</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">port</span>=<span class="string">&quot;45564&quot;</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">frequency</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">dropTime</span>=<span class="string">&quot;3000&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Receiver</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.tribes.transport.nio.NioReceiver&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">address</span>=<span class="string">&quot;auto&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">port</span>=<span class="string">&quot;4000&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">autoBind</span>=<span class="string">&quot;100&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">selectorTimeout</span>=<span class="string">&quot;5000&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">maxThreads</span>=<span class="string">&quot;6&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">Sender</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.tribes.transport.ReplicationTransmitter&quot;</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">Transport</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.tribes.transport.nio.PooledParallelSender&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Sender</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Interceptor</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.tribes.group.interceptors.TcpFailureDetector&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Interceptor</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.tribes.group.interceptors.MessageDispatchInterceptor&quot;</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">Channel</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.ha.tcp.ReplicationValve&quot;</span></span></span><br><span class="line"><span class="tag">                 <span class="attr">filter</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.ha.session.JvmRouteBinderValve&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">Deployer</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.ha.deploy.FarmWarDeployer&quot;</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">tempDir</span>=<span class="string">&quot;/tmp/war-temp/&quot;</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">deployDir</span>=<span class="string">&quot;/tmp/war-deploy/&quot;</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">watchDir</span>=<span class="string">&quot;/tmp/war-listen/&quot;</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">watchEnabled</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">ClusterListener</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.ha.session.ClusterSessionListener&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Cluster</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3-session-共享"><a href="#3-session-共享" class="headerlink" title="3. session 共享"></a>3. session 共享</h5><h6 id="1-springboot版本"><a href="#1-springboot版本" class="headerlink" title="1. springboot版本"></a>1. springboot版本</h6><ul>
+<li><p>对应的项目中pom文件添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.session<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-session-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在对应的application.properties中配置redis信息</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.redis.host=localhost  </span><br><span class="line">spring.redis.port=6379 </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加开启spring session支持的注解@EnableRedisHttpSession</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span>  </span><br><span class="line"><span class="meta">@EnableRedisHttpSession</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisSessionConfig</span> &#123;  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加验证的接口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;server.port&#125;&quot;)</span></span><br><span class="line">    String port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/session&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">getSession</span><span class="params">(HttpServletRequest request)</span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, Object&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;SessionId&quot;</span>, request.getSession().getId());</span><br><span class="line">        map.put(<span class="string">&quot;ServerPort&quot;</span>, <span class="string">&quot;服务端口号为 &quot;</span>+port);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>访问 <a href="http://localhost:8080/session">http://localhost:8080/session</a></p>
+</li>
+<li><p>访问 <a href="http://localhost:8888/session">http://localhost:8888/session</a></p>
+</li>
+<li><p>结果中的SessionId是一致的，却是由两个不同项目工程来提供服务。这样子，SpringSession 利用拦截器 Filter 帮我们在每个请求前进行了同步设置，达到了分布式系统中 session 共享</p>
+<h6 id="2-springmvc-版本"><a href="#2-springmvc-版本" class="headerlink" title="2. springmvc 版本"></a>2. springmvc 版本</h6></li>
+<li><p>首先在pom.xml文件中添加对应的jar</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.session<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-session-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在对应springmvc-context.xml文件中配置</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;redisHttpSessionConfiguration&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">&quot;org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInactiveIntervalInSeconds&quot;</span> <span class="attr">value</span>=<span class="string">&quot;600&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;jedisPoolConfig&quot;</span> <span class="attr">class</span>=<span class="string">&quot;redis.clients.jedis.JedisPoolConfig&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxTotal&quot;</span> <span class="attr">value</span>=<span class="string">&quot;100&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxIdle&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;testOnBorrow&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;connectionFactory&quot;</span>  <span class="attr">class</span>=<span class="string">&quot;org.springframework.data.redis.connection.jedis.JedisConnectionFactory&quot;</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;poolConfig&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;jedisPoolConfig&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;port&quot;</span> <span class="attr">value</span>=<span class="string">&quot;6379&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;hostName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;192.168.1.11&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xxx&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;timeout&quot;</span> <span class="attr">value</span>=<span class="string">&quot;30000&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    &lt;/bean &gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;redisTemplate&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.data.redis.core.RedisTemplate&quot;</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;connectionFactory&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;connectionFactory&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;keySerializer&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span>  <span class="attr">class</span>=<span class="string">&quot;org.springframework.data.redis.serializer.StringRedisSerializer&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;valueSerializer&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.data.redis.serializer.StringRedisSerializer&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    &lt;/bean &gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;redisUtil&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.isea533.mybatis.service.RedisUtil&quot;</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;redisTemplate&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;redisTemplate&quot;</span> /&gt;</span></span><br><span class="line">    &lt;/bean &gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其次在web.xml中配置（非常重要，filter的名字必须是springSessionRepositoryFilter）</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>springSessionRepositoryFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>springSessionRepositoryFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>访问项目路径结果相同</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yxk17668.github.io/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/" data-id="clvtdw9240007thik0eap72kt" data-title="nginx 解决session一致性" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/nginx/" rel="tag">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/session/" rel="tag">session</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/spring-session/" rel="tag">spring-session</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/springMVC/" rel="tag">springMVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          一种面向后端的微服务低代码平台架构设计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/yxk17668/2019/07/14/Apidoc%E7%94%9F%E6%88%90Restful-web-Api%E6%96%87%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Apidoc生成Restful web Api文档</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Apidoc/" rel="tag">Apidoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" rel="tag">Api文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git-mistake/" rel="tag">Git mistake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/helper-live2d/" rel="tag">helper-live2d</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/spring-session/" rel="tag">spring-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springMVC/" rel="tag">springMVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/yilia/" rel="tag">yilia</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" rel="tag">低代码平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" rel="tag">基础进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">领域模型</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">一种面向后端的微服务低代码平台架构设计</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/">nginx 解决session一致性</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/14/Apidoc%E7%94%9F%E6%88%90Restful-web-Api%E6%96%87%E6%A1%A3/">Apidoc生成Restful web Api文档</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/">Git实用篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 yxk17668<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/yxk17668/" class="mobile-nav-link">Home</a>
+  
+    <a href="/yxk17668/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/yxk17668/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/yxk17668/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/yxk17668/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>一种面向后端的微服务低代码平台架构设计 | yxk17668</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="作者：京东科技 常姜洲 一、背景近期参加公司组织的极客中餐厅训练营，我们所在的小组接到的课题是微服务的低代码平台架构设计。目标是：结合京东业务研发实际情况，针对后端研发人员，设计一个微服务低代码平台，助力更高效低交付业务需求。现已结业，将我在本次项目中沉淀设计出的设计文档整理成文，期待与大家有进一步的碰撞沟通 二、低代码平台整体技术架构设计1、低代码开发三阶段平台为开发者的三个阶段提供的核心功能：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一种面向后端的微服务低代码平台架构设计">
+<meta property="og:url" content="https://yxk17668.github.io/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="yxk17668">
+<meta property="og:description" content="作者：京东科技 常姜洲 一、背景近期参加公司组织的极客中餐厅训练营，我们所在的小组接到的课题是微服务的低代码平台架构设计。目标是：结合京东业务研发实际情况，针对后端研发人员，设计一个微服务低代码平台，助力更高效低交付业务需求。现已结业，将我在本次项目中沉淀设计出的设计文档整理成文，期待与大家有进一步的碰撞沟通 二、低代码平台整体技术架构设计1、低代码开发三阶段平台为开发者的三个阶段提供的核心功能：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-519u9hq9yqpDwkkRd.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-27dQ7JnPzkYRIonSr.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-29RLGNfAIPsHF26UmE.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-37AE9TzPRJ10bYiKIB.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-39aHSxwxYDMFlLU26C.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-4226fMc7EPqQZ2tTAD.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-44Jq106z8Xti7voZyQ.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-44lPCoWXUeeZcgvVZ.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-5377zSW8An7SQCjRy.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-54779rUHbsYBOZpsW.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-59wV6dDLSHIoUsYJa.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-20-007ejtW7378Lb9oiUK.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-20-01ZsjoO7J50j8HOVhZ.png">
+<meta property="og:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-20-03BYnO7rtds26t6bZd.png">
+<meta property="article:published_time" content="2023-05-16T09:16:50.000Z">
+<meta property="article:modified_time" content="2024-05-05T04:26:15.129Z">
+<meta property="article:author" content="yxk17668">
+<meta property="article:tag" content="低代码平台">
+<meta property="article:tag" content="架构设计">
+<meta property="article:tag" content="微服务">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-519u9hq9yqpDwkkRd.png">
+  
+    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/yxk17668/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/yxk17668/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/yxk17668/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/yxk17668/" id="logo">yxk17668</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/yxk17668/" id="subtitle">less is more</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/yxk17668/">Home</a>
+        
+          <a class="main-nav-link" href="/yxk17668/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/yxk17668/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yxk17668.github.io/yxk17668"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-一种面向后端的微服务低代码平台架构设计" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="article-date">
+  <time class="dt-published" datetime="2023-05-16T09:16:50.000Z" itemprop="datePublished">2023-05-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      一种面向后端的微服务低代码平台架构设计
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>作者：京东科技 常姜洲</strong></p>
+<h1 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h1><p>近期参加公司组织的极客中餐厅训练营，我们所在的小组接到的课题是微服务的低代码平台架构设计。目标是：结合京东业务研发实际情况，针对后端研发人员，设计一个微服务低代码平台，助力更高效低交付业务需求。现已结业，将我在本次项目中沉淀设计出的设计文档整理成文，期待与大家有进一步的碰撞沟通</p>
+<h1 id="二、低代码平台整体技术架构设计"><a href="#二、低代码平台整体技术架构设计" class="headerlink" title="二、低代码平台整体技术架构设计"></a>二、低代码平台整体技术架构设计</h1><h2 id="1、低代码开发三阶段"><a href="#1、低代码开发三阶段" class="headerlink" title="1、低代码开发三阶段"></a>1、低代码开发三阶段</h2><p><strong>平台为开发者的三个阶段提供的核心功能：</strong></p>
+<ol>
+<li><p><strong>开发阶段：服务编排能力，</strong>提供可组合的方式绑定事件源和事件消费者（函数、API、数据源管理等基础能力）</p>
+</li>
+<li><p><strong>部署阶段：生成、托管、</strong>获取、构建和打包代码。</p>
+</li>
+<li><p><strong>运维阶段：为</strong> Serverless 应用提供部署和服务支持。提供友好的日志系统，能够帮助平台工具使用者快速定位问题，提供对各种使用中间件状态监控，避免工具平台成为一个黑盒子</p>
+</li>
+</ol>
+<p>整个3阶段如下图所示：</p>
+<p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-519u9hq9yqpDwkkRd.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<h2 id="2、低代码平台功能架构设计"><a href="#2、低代码平台功能架构设计" class="headerlink" title="2、低代码平台功能架构设计"></a>2、低代码平台功能架构设计</h2><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-27dQ7JnPzkYRIonSr.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<p><strong>角色与主功能说明：</strong></p>
+<p>本低代码开发平台的服务对象为开发者，旨在使用低代码开发平台，进行快速的微服务应用开发与部署，相对于传统的开发与部署方式减少研发时间，降低成本</p>
+<p><strong>Low Code 开发面板：</strong></p>
+<p>提供整个低代码应用开发生命周期的全功能的运营后台面板，可以在此面板完成开发阶段的各项配置、流程编排、脚本编写与调试、部署等功能。</p>
+<p><strong>Low Code 控制面板：</strong></p>
+<p>提供各种服务治理，告警配置管理，配置管理等服务控制功能模块</p>
+<p><strong>基础功能说明：</strong></p>
+<p>• 提供触发器、脚本函数、可视化函数的、连接器的开发与管理</p>
+<p>• 提供多环境配置文件隔离</p>
+<p>• 提供应用维度、函数维度监控相关配置</p>
+<p>• 提供应用工程所有源文件、各环境配置数据的的版本管理</p>
+<p><strong>部署功能说明：</strong></p>
+<p>提供在线构建应用工程，在线调试函数、触发器、连接器等功能，调试完毕后可一键进行发布</p>
+<p><strong>特色功能：</strong></p>
+<p>为进一步提升业务域功能复用度，进一步减少重复功能开发的成本，同样提供基于模板，函数扩展点等功能的快速复用湖开发</p>
+<p><strong>依赖：</strong></p>
+<p>• 方便与JSF体系内的服务更好的融合，接入JSF注册中心API,进行JSF注册服务的信息获取</p>
+<p>• 与统一配置平台打通进行在线配置变更的存储与变更，平台基础配置的存储与变更</p>
+<p>• 存储层，元数据使用关系型数据库存储，流程文件、资源文件使用对象存储，源代码等文件使用git管理或者对象存储</p>
+<p>• 监控功能依赖贡献现有的监控平台 UMP 、SGM的 的OPEN API 实现</p>
+<p>• 日志平台，公司的日志平台暂无OPEN API 可以共建、或者私有化部署一套实现</p>
+<h2 id="3、低代码应用开发流程"><a href="#3、低代码应用开发流程" class="headerlink" title="3、低代码应用开发流程"></a>3、低代码应用开发流程</h2><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-29RLGNfAIPsHF26UmE.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<h3 id="应用生命周期4阶段"><a href="#应用生命周期4阶段" class="headerlink" title="应用生命周期4阶段"></a><strong>应用生命周期4阶段</strong></h3><p><strong>开发与测试、构建保存、发布、运行</strong></p>
+<ol>
+<li><p>用户在编辑器中完成触发器、连接器、函数等主要低代码构件，可能复用已有模板和业务域能力进一步为开发提速</p>
+</li>
+<li><p>开发完成后可以根据属性配置、语言环境构建打包函数镜像，同时生成版本号。</p>
+</li>
+<li><p>发布版本，完成部署。</p>
+</li>
+<li><p>应用实例在运行时提供服务</p>
+</li>
+</ol>
+<h3 id="广义流程编排"><a href="#广义流程编排" class="headerlink" title="广义流程编排"></a><strong>广义流程编排</strong></h3><p>• 可视化创建连接器</p>
+<p>• 可视化创建触发器</p>
+<p>• 支持可视化创建函数流程，BPMN, 流程节点可以是函数实体或者连接器实体，流程关系支持表达式编辑</p>
+<p>• 支持脚本编写创建函数，支持多语言：Groovy,Java</p>
+<p>• 支持多环境配置信息配置</p>
+<p>• 支持配置通用函数、触发器、连接器等监控，健康度指标收集配置</p>
+<h2 id="4、低代码平台技术架构"><a href="#4、低代码平台技术架构" class="headerlink" title="4、低代码平台技术架构"></a>4、低代码平台技术架构</h2><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-37AE9TzPRJ10bYiKIB.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<ol>
+<li><p>蓝色部分是我们平台重点建设的应用</p>
+</li>
+<li><p>流量入口主要分为京东内外部两种流量入口</p>
+</li>
+<li><p>对于HTTP接口上层可以对接成熟的网关转换为对低代码应用的JSF调用即可，此部分本身已经实现 0代码，无需重复建设</p>
+</li>
+<li><p>对于JSF接口可以使用低代码应用的JSF接口触发器调用</p>
+</li>
+<li><p>监控与告警主要还是以复用公司内部组件为主，基于OPEN API 封装</p>
+</li>
+<li><p>下层主要依赖其他业务部门提供的JSF接口、各大中间件、存储层以及外部的一些HTTP接口、特殊协议的接口，消息等</p>
+</li>
+</ol>
+<h2 id="5、低代码平台应用部署架构"><a href="#5、低代码平台应用部署架构" class="headerlink" title="5、低代码平台应用部署架构"></a>5、低代码平台应用部署架构</h2><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-39aHSxwxYDMFlLU26C.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<ol>
+<li><p>每个低代码平台的应用都有一个代理服务（LC proxy）负责和平台通信，指令下发，数据上报等</p>
+</li>
+<li><p>低代码应用不改变现有应用的通信方式和现有的JSF接口、数据库、缓存等中间件使用原有方式通信</p>
+</li>
+<li><p>控制中心：负责给 proxy 发控制指令，配置指令、服务治理指令等</p>
+</li>
+<li><p>数据收集中心：负责收集低代码运行时配置的健康度指标源数据、流量等其他运行数据收集</p>
+</li>
+</ol>
+<h2 id="6、低代码平台各角色系统工作机制"><a href="#6、低代码平台各角色系统工作机制" class="headerlink" title="6、低代码平台各角色系统工作机制"></a>6、低代码平台各角色系统工作机制</h2><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-4226fMc7EPqQZ2tTAD.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<h2 id="7、低代码平台单机应用架构"><a href="#7、低代码平台单机应用架构" class="headerlink" title="7、低代码平台单机应用架构"></a>7、低代码平台单机应用架构</h2><h3 id="单机运行环境简介"><a href="#单机运行环境简介" class="headerlink" title="单机运行环境简介"></a>单机运行环境简介</h3><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-44Jq106z8Xti7voZyQ.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<h3 id="单机应用架构"><a href="#单机应用架构" class="headerlink" title="单机应用架构"></a>单机应用架构</h3><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-44lPCoWXUeeZcgvVZ.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<ol>
+<li><p>低代码平台单机应用为1个JVM 进程，和监控agent 、日志 agent 等agent进程一同部署在容器、或者KVM、物理机等OS 环境中</p>
+</li>
+<li><p>平台应用本身核心</p>
+</li>
+<li><p>low code proxy ,提供平台api接口，接受平台的指令，如：发布指令，接受到发布指令后去相关的存储服务拉取元配置信息和函数脚本、触发器、连接器配置、配置文件等低代码应用的源文件</p>
+</li>
+<li><p>执行引擎，负责对低代码应用连接器的加载、函数加载、触发器配加载，加载完成后对外提供服务，等待各种触发器的流量触发、</p>
+</li>
+<li><p>低代码应用核心构件</p>
+</li>
+<li><p>触发器为应用的流量入口：如接口、MQ消费者，定时任务回调等等，平台支持自定义触发器开发</p>
+</li>
+<li><p>函数为业务逻辑的编排，可以是特定语言的函数脚本，可以是bpmn组合的流程文件，</p>
+</li>
+<li><p>连接器负责和下游RPC接口，存储数据源、中间件平台的消息通信</p>
+</li>
+<li><p>多环境配置信息提供不同环境的参数配置</p>
+</li>
+<li><p>以上几个核心构件的有机组合共同在应用层基础能力至之上提供了</p>
+</li>
+<li><p>低代码应用作为一个运行单元被发布到平台应用中</p>
+</li>
+</ol>
+<h1 id="三、低代码平台详细设计"><a href="#三、低代码平台详细设计" class="headerlink" title="三、低代码平台详细设计"></a>三、低代码平台详细设计</h1><p>由于是小组共创设计，我在详细设计中主要负责了连接器与触发器的设计部分，其他如函数、配置部分的设计与此详细设计这里不再赘述。大概思路如下</p>
+<p>函数：支持各种语言的表达式函数、支持BPMN可视化流程编排</p>
+<p>多环境配置：需要支持测试、生产、预发等环境配置文件</p>
+<p>日志： 支持平台开发者自定义日志是否打印，打印格式，是否有掩码等</p>
+<h2 id="1、连接器的设计"><a href="#1、连接器的设计" class="headerlink" title="1、连接器的设计"></a>1、连接器的设计</h2><h3 id="连接器定义"><a href="#连接器定义" class="headerlink" title="连接器定义"></a>连接器定义</h3><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-5377zSW8An7SQCjRy.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<ol>
+<li><p>在一个低代码应用中连接器主要负责和其他业务方提供的RPC服务、中间件、存储等实体进行通信的组件</p>
+</li>
+<li><p>可以在脚本函数中直接调用连接器，也可以在流程函数中直接调用连接器</p>
+</li>
+<li><p>连接器支持其他未知新协议的制定</p>
+</li>
+</ol>
+<h3 id="连接器的0代码开发与部署流程"><a href="#连接器的0代码开发与部署流程" class="headerlink" title="连接器的0代码开发与部署流程"></a>连接器的0代码开发与部署流程</h3><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-54779rUHbsYBOZpsW.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<h2 id="2、自定义连接器"><a href="#2、自定义连接器" class="headerlink" title="2、自定义连接器"></a>2、自定义连接器</h2><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-19-59wV6dDLSHIoUsYJa.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<p>1、为了适应内外部不同的连接器诉求，平台提供自定义触发器的能力</p>
+<p>2、预留使用连接器使用的配置信息，为引入的通信中间件预留未来使用该触发器的使用方需要0代码配置的配置信息，如数据库的地址，账号密码等信息</p>
+<p>3、连接器需要实现平台提供的API,这样以便函数或者触发器可以直接调用该连接器</p>
+<p>4、调试无误后保存触发器，提交平台审核，审核通过后平台可上架该触发器</p>
+<h2 id="3、自定义触发器"><a href="#3、自定义触发器" class="headerlink" title="3、自定义触发器"></a>3、自定义触发器</h2><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-20-007ejtW7378Lb9oiUK.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<p>1、为了适应内外部不同的触发器诉求，平台提供自定义触发器的能力</p>
+<p>2、预留使用触发器使用的配置信息，为引入的通信中间件预留未来使用该触发器的使用方需要0代码配置的配置信息，如JSF的接口地址，别名等</p>
+<p>3、使用纯代码写出该触发器的源代码，并预留调用低代码函数的入口，以便将来使用该触发器的使用者可以0代码配置触发器所调用的函数</p>
+<p>4、调试无误后保存触发器，提交平台审核，审核通过后平台可上架该触发器</p>
+<h1 id="四、低代码应用源文件"><a href="#四、低代码应用源文件" class="headerlink" title="四、低代码应用源文件"></a>四、低代码应用源文件</h1><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-20-01ZsjoO7J50j8HOVhZ.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<p>a、元信息，0代码，包含低代码应用的0代码开发部分的触发器元信息、连接器元信息</p>
+<p>1、触发器配置信息：</p>
+<p>▪ 通信中间件所需要的各个参数，接口名等等</p>
+<p>▪ 调用函数的函数名称</p>
+<p>▪ 是否打印日志，日志是否脱敏</p>
+<p>2、连接器配置信息</p>
+<p>▪ 通信中间件所需要的各个参数，密码，用户名等等</p>
+<p>▪ 是否打印日志，日志是否脱敏</p>
+<p>b、源文件，0代码，包含：流程文件、脚本文件</p>
+<p>◦ 可视化流程编排产生的源文件，如bpmn流程文件</p>
+<p>◦ 脚本编码产生的脚本文件，如自定义java函数</p>
+<p>c、多环境配置，0代码，包含各个环境的配置文件</p>
+<p>◦ 开发环境、生成环境的各个配置信息等，配置信息可以在触发器、函数、连接器中使用引入使用</p>
+<p>d、日志组件配置</p>
+<p>◦ 日志打印输出格式</p>
+<p>◦ 日志输出路径</p>
+<p>◦ 全局脱敏字段，脱敏正则</p>
+<p>e、监控组件配置</p>
+<p>◦ 监控埋点打印路径</p>
+<p>◦ 监控埋点打印格式</p>
+<p>d、低代码平台应用底座：</p>
+<p>执行引擎、LC Proxy、中间件依赖的jar、应用框架springboot的jar等，这部分跟随不同的构建部署方式为可选项</p>
+<h1 id="五、低代码应用的构建部署方式"><a href="#五、低代码应用的构建部署方式" class="headerlink" title="五、低代码应用的构建部署方式"></a>五、低代码应用的构建部署方式</h1><p><img src="https://s3.cn-north-1.jdcloud-oss.com/shendengbucket1/2022-10-26-20-03BYnO7rtds26t6bZd.png" alt="一种面向后端的微服务低代码平台架构设计"></p>
+<p>1、源文件热部署</p>
+<p>这种方式应对于低代码平台的租户使用低代码平台所有集群的共享资源，选取一部分可用资源以后在控制面板进行选择发布，可以使用指定ip的模式应对相关权限问题，也可以不指定ip使用平台自定义分配。</p>
+<p>▪ 受平台资源调度管控，参考上周控制面板的功能</p>
+<p>▪ 日志与监控埋点由 LC Proxy 采集到平台提供的日志平台和监控平台</p>
+<p>2、构建jar包、war包</p>
+<p>这种方式应对于有自己的主机用户，拿到成品后即可部署无状态应用，打的包中不包含LC Proxy部分，执行引擎在应用启动的时候自动加载包中特定路径的流程文件、脚本文件等。</p>
+<p>▪ 日志打印到特定目录，供用户自己的日志采集器采集</p>
+<p>▪ 埋点文件按照特定格式打印到特定目录，供自己的日志采集器采集</p>
+<p>3、构建镜像</p>
+<p>这种方式应对于有自己的容器用户，拿到成品后即可部署无状态应用，打的包中不包含LC Proxy部分，执行引擎在应用启动的时候自动加载包中特定路径的流程文件、脚本文件等。</p>
+<p>▪ 日志打印到特定目录，供用户自己的日志采集器采集</p>
+<p>▪ 埋点文件按照特定格式打印到特定目录，供自己的日志采集器采集</p>
+<p>4、低代码平台和部署平台的关系</p>
+<p>◦ 内部</p>
+<p>▪ 内部部署的低代码平台为了方便各业务方灵活使用，平台提供两种能力</p>
+<p>▪ 1、共享资源模式：平台租户共享平台资源池，适用于消耗资源不大并发量不高的应用， 使用低代码平台本身提供的日志平台、监控平台结合做到各个维度的立体监控</p>
+<p>▪ 2、自定义资源模式：平台对接体系内的JDOS平台，可以将低代码应用与JDOS应用进行关联，使用在JDOS平台申请的应用进行部署。这种方式提供单独的镜像文件进行部署，可结合体系内的日志中间件、监控平台， 与低代码平台本身提供的日志平台、监控平台结合做到各个维度的立体监控</p>
+<p>◦ 外部</p>
+<p>▪ 外部需求为成品包的时候，只需要构建出 如上所述的 jar、war供其下载即可</p>
+<p>▪ <strong>外部需求为低代码平台私有化部署的时候，需要将方案设计中的几大应用为用户做私有化部署</strong></p>
+<h1 id="六、一些问题的思考与收获"><a href="#六、一些问题的思考与收获" class="headerlink" title="六、一些问题的思考与收获"></a>六、一些问题的思考与收获</h1><p>1、扩展性不仅仅是在某一项功能上的扩展，站在全局视角看在架构设计中所有产品功能理论上都要尽可能考虑模块化，可插拔，进而搭积木成平台化，真正做到全场景和全链路可扩展</p>
+<p>2、团队小伙伴对HTTP 触发器的设计输出，让我联想到 JSF注册中心等通用类注册中心都要解决的高可用问题，举一反三，同场景的同类解决方案的核心问题是相通的</p>
+<p>3、对于未来业务发展生命周期没那么长，数据要求没有强隔离诉求的场景，能否基于数据模型做一层数据层的0代码开发？</p>
+<p>4、流程驱动的低代码可以和数据驱动的低代码很好地结合起来</p>
+<p>5、低代码平台产出物的多样化，为之后交付项目的产出物打开了思路，很多时候要站在客户角度考虑，客户的应用场景是什么，需要什么，那么我们就提供什么，张宇轩单元可跑，也可圈定某一部分功能集合，打包输出</p>
+<p>低代码平台适合的场景的一些思考</p>
+<p>1、可以应用在上层营销系统的开发中</p>
+<p>2、可以用在流程较为通用的场景如：消息转化、数据统计、接口转发</p>
+<p>3、可以应用在已有成熟的业务线进行外围的业务开发，如支付、结算等稳定系统上层要做一些简单业务编排的场景用</p>
+<p>4、 面对同样一个业务需求是使用低代码开发还是使用纯代码开发，没有明确的可量化的分水岭，但是建议尝试，从中获到提效之后下一次面临需求的时候就会有较为明确的答案</p>
+<p>案例1：我们曾在一个上层营销活动系统重尝试基于表达式引擎做了一个半配置化的活动配置系统（那个时候还没听过低代码这个词），现在想来算是比较原始的支持低代码系统，上新一个活动原本需要3个人日的开发量，基于对以往流程的复用，使用脚本语言，使用表达式进行编排和发布，0.5人日就搞定了，且系统无需重新发布。不得不说在合适的场景，低代码还是非常有空的。</p>
+<p>案例2：大促的时的业务数据大屏的制作相信很多人都经历过，我们最近两次大促采取的方案都是使用星链对已有的数据接口和新的数据指标进行简单编排加工，提供JSF服务，再结合我们内部的网关系统将接口协议转化为HTTP, 直接在展示平台（如莫奈大屏）上直接使用，大促过后资源也可随之释放，非常方便与高效，同时也降低了研发成本</p>
+<h1 id="七、结语"><a href="#七、结语" class="headerlink" title="七、结语"></a>七、结语</h1><p>流程驱动的低代码平台可以和数据驱动的低代码以及部分0代码开发组件可以很好地有机整合成统一的低代码平台，进一步提升研发效率</p>
+<!-- 本文转自 [https://www.helloworld.net/p/2315185449](https://www.helloworld.net/p/2315185449)，如有侵权，请联系删除。 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yxk17668.github.io/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" data-id="clvtdw925000athik6vb8aqqj" data-title="一种面向后端的微服务低代码平台架构设计" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" rel="tag">低代码平台</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">nginx 解决session一致性</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Apidoc/" rel="tag">Apidoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" rel="tag">Api文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git-mistake/" rel="tag">Git mistake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/helper-live2d/" rel="tag">helper-live2d</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/spring-session/" rel="tag">spring-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springMVC/" rel="tag">springMVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/yilia/" rel="tag">yilia</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" rel="tag">低代码平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" rel="tag">基础进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">领域模型</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">一种面向后端的微服务低代码平台架构设计</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/">nginx 解决session一致性</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/14/Apidoc%E7%94%9F%E6%88%90Restful-web-Api%E6%96%87%E6%A1%A3/">Apidoc生成Restful web Api文档</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/">Git实用篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 yxk17668<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/yxk17668/" class="mobile-nav-link">Home</a>
+  
+    <a href="/yxk17668/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/yxk17668/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/yxk17668/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/yxk17668/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

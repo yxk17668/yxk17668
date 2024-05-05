@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Git实用篇 | yxk17668</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="简单的代码提交流程   git status 查看工作区代码相对于暂存区的差别 git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录 git commit -m ‘注释’ 将缓存区内容添加到本地仓库 git push origin master 将本地版本库推送到远程服务器，  origin是远程主机，master表示是远程服务器上的master分支，分支名是可以修">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git实用篇">
+<meta property="og:url" content="https://yxk17668.github.io/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/index.html">
+<meta property="og:site_name" content="yxk17668">
+<meta property="og:description" content="简单的代码提交流程   git status 查看工作区代码相对于暂存区的差别 git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录 git commit -m ‘注释’ 将缓存区内容添加到本地仓库 git push origin master 将本地版本库推送到远程服务器，  origin是远程主机，master表示是远程服务器上的master分支，分支名是可以修">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-09T16:21:48.000Z">
+<meta property="article:modified_time" content="2024-05-05T04:26:15.129Z">
+<meta property="article:author" content="yxk17668">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/yxk17668/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/yxk17668/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/yxk17668/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/yxk17668/" id="logo">yxk17668</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/yxk17668/" id="subtitle">less is more</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/yxk17668/">Home</a>
+        
+          <a class="main-nav-link" href="/yxk17668/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/yxk17668/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yxk17668.github.io/yxk17668"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Git实用篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/" class="article-date">
+  <time class="dt-published" datetime="2019-07-09T16:21:48.000Z" itemprop="datePublished">2019-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Git实用篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="简单的代码提交流程"><a href="#简单的代码提交流程" class="headerlink" title="简单的代码提交流程"></a>简单的代码提交流程</h2><blockquote>
+</blockquote>
+<ol>
+<li>git status 查看工作区代码相对于暂存区的差别</li>
+<li>git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录</li>
+<li>git commit -m ‘注释’ 将缓存区内容添加到本地仓库</li>
+<li>git push origin master 将本地版本库推送到远程服务器， </li>
+<li>origin是远程主机，master表示是远程服务器上的master分支，分支名是可以修改的</li>
+</ol>
+<h3 id="Git-add"><a href="#Git-add" class="headerlink" title="Git add"></a>Git add</h3><blockquote>
+<p>​		git add [参数] &lt;路径&gt;　作用就是将我们需要提交的代码从工作区添加到暂存区，就是告诉git系统，我们要提交哪些文件，之后就可以使用git commit命令进行提交了。<br>下面都用 . 来标识路径， . 表示当前目录，路径可以修改，下列操作的作用范围都在版本库之内。</p>
+<ol>
+<li><p><strong>git add .</strong></p>
+<p> 不加参数默认为将修改操作的文件和未跟踪新添加的文件添加到git系统的暂存区，注意不包括删除。</p>
+</li>
+<li><p>**git add -u . **<br>-u 表示将已跟踪文件中的修改和删除的文件添加到暂存区，不包括新增加的文件，注意这些被删除的文件被加入到暂存区再被提交并推送到服务器的版本库之后这个文件就会从git系统中消失了。</p>
+</li>
+<li><p>**git add -A . **<br>-A 表示将所有的已跟踪的文件的修改与删除和新增的未跟踪的文件都添加到暂存区。</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="Git-commit"><a href="#Git-commit" class="headerlink" title="Git commit"></a>Git commit</h3><blockquote>
+<p>​		git commit 主要是将暂存区里的改动给提交到本地的版本库。每次使用git commit 命令我们都会在本地版本库生成一个40位的哈希值，这个哈希值也叫commit-id<br>commit-id 在版本回退的时候是非常有用的，它相当于一个快照,可以在未来的任何时候通过与git reset的组合命令回到这里。</p>
+<ol>
+<li><p>**git commit -m ‘message’ **</p>
+<p>​	-m 参数表示可以直接输入后面的“message”，如果不加 -m参数，那么是不能直接输入message的，而是会调用一个编辑器一般是vim来让你输入这个message<br>message即是我们用来简要说明这次提交的语句</p>
+</li>
+<li><p>**git commit -am ‘message’ -am等同于-a -m **</p>
+<p>​	-a参数可以将所有已跟踪文件中的执行修改或删除操作的文件都提交到本地仓库，即使它们没有经过git add添加到暂存区，<br><del>注意: 新加的文件（即没有被git系统管理的文件）是不能被提交到本地仓库的</del></p>
+</li>
+</ol>
+</blockquote>
+<h3 id="Git-push"><a href="#Git-push" class="headerlink" title="Git push"></a>Git push</h3><blockquote>
+<p>​		在使用git commit命令将修改从暂存区提交到本地版本库后，只剩下最后一步将本地版本库的分支推送到远程服务器上对应的分支了，如果不清楚版本库的构成，可以查看git 仓库的基本结构<br>git push的一般形式为 git push &lt;远程主机名&gt; &lt;本地分支名&gt; &lt;远程分支名&gt; ，例如 git push origin master：refs&#x2F;for&#x2F;master ，即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名。第一个master是本地分支名，第二个master是远程分支名</p>
+<ol>
+<li><p><strong>git push origin master</strong></p>
+<p>​		如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建</p>
+</li>
+<li><p><strong>git push origin ：refs&#x2F;for&#x2F;master</strong><br>    如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin –delete master</p>
+</li>
+<li><p><strong>git push origin</strong><br>    如果当前分支与远程分支存在追踪关系，则本地分支和远程分支都可以省略，将当前分支推送到origin主机的对应分支</p>
+</li>
+<li><p><strong>git push</strong><br>    如果当前分支只有一个远程分支，那么主机名都可以省略，形如 git push，可以使用git branch -r ，查看远程的分支名</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="refs-for"><a href="#refs-for" class="headerlink" title="refs&#x2F;for"></a>refs&#x2F;for</h3><blockquote>
+<p>refs&#x2F;for 的意义在于我们提交代码到服务器之后是需要经过code review 之后才能进行merge的，而refs&#x2F;heads 不需要</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yxk17668.github.io/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/" data-id="clvtdw9220003thikbwl93827" data-title="Git实用篇" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/Git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/yxk17668/2019/07/10/Git-Mistake/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Git --changes not staged for commit
+        
+      </div>
+    </a>
+  
+  
+    <a href="/yxk17668/2019/06/06/helper-live2d/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">helper-live2d</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Apidoc/" rel="tag">Apidoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" rel="tag">Api文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git-mistake/" rel="tag">Git mistake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/helper-live2d/" rel="tag">helper-live2d</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/spring-session/" rel="tag">spring-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springMVC/" rel="tag">springMVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/yilia/" rel="tag">yilia</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" rel="tag">低代码平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" rel="tag">基础进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">领域模型</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">一种面向后端的微服务低代码平台架构设计</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/">nginx 解决session一致性</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/14/Apidoc%E7%94%9F%E6%88%90Restful-web-Api%E6%96%87%E6%A1%A3/">Apidoc生成Restful web Api文档</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/">Git实用篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 yxk17668<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/yxk17668/" class="mobile-nav-link">Home</a>
+  
+    <a href="/yxk17668/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/yxk17668/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/yxk17668/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/yxk17668/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

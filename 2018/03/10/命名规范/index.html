@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Java中的命名规范 | yxk17668</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Java中的命名规范     简洁清爽的代码风格应该是大多数工程师所期待的。在工作中笔者常常因为起名字而纠结，命名已经成为我工作中的拦路虎，夸张点可以说是编程5分钟，命名两小时！     每个公司都有不同的标准，目的是为了保持统一，减少沟通成本，提升团队研发效能。所以本文中是笔者结合阿里巴巴开发规范，以及工作中的见闻针对Java领域相关命名进行整理和总结，仅供参考。  Java中的命名规范   好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的命名规范">
+<meta property="og:url" content="https://yxk17668.github.io/yxk17668/2018/03/10/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/index.html">
+<meta property="og:site_name" content="yxk17668">
+<meta property="og:description" content="Java中的命名规范     简洁清爽的代码风格应该是大多数工程师所期待的。在工作中笔者常常因为起名字而纠结，命名已经成为我工作中的拦路虎，夸张点可以说是编程5分钟，命名两小时！     每个公司都有不同的标准，目的是为了保持统一，减少沟通成本，提升团队研发效能。所以本文中是笔者结合阿里巴巴开发规范，以及工作中的见闻针对Java领域相关命名进行整理和总结，仅供参考。  Java中的命名规范   好">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213048603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050220.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050311.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050676.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213049942.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050176.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050672.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020021821305079.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213817463.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213941659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050215.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213049986.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050128.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213049989.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200218213050127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2018-03-10T02:16:50.000Z">
+<meta property="article:modified_time" content="2024-05-05T04:26:15.129Z">
+<meta property="article:author" content="yxk17668">
+<meta property="article:tag" content="基础进阶">
+<meta property="article:tag" content="注解">
+<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="领域模型">
+<meta property="article:tag" content="设计原则">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200218213048603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/yxk17668/atom.xml" title="yxk17668" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/yxk17668/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/yxk17668/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/yxk17668/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/yxk17668/" id="logo">yxk17668</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/yxk17668/" id="subtitle">less is more</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/yxk17668/">Home</a>
+        
+          <a class="main-nav-link" href="/yxk17668/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/yxk17668/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yxk17668.github.io/yxk17668"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-命名规范" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/yxk17668/2018/03/10/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" class="article-date">
+  <time class="dt-published" datetime="2018-03-10T02:16:50.000Z" itemprop="datePublished">2018-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Java中的命名规范
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Java中的命名规范</p>
+<hr>
+<pre><code>   简洁清爽的代码风格应该是大多数工程师所期待的。在工作中笔者常常因为起名字而纠结，命名已经成为我工作中的拦路虎，夸张点可以说是编程5分钟，命名两小时！
+
+   每个公司都有不同的标准，目的是为了保持统一，减少沟通成本，提升团队研发效能。所以本文中是笔者结合阿里巴巴开发规范，以及工作中的见闻针对Java领域相关命名进行整理和总结，仅供参考。
+</code></pre>
+<h1 id="Java中的命名规范"><a href="#Java中的命名规范" class="headerlink" title="Java中的命名规范"></a>Java中的命名规范</h1><pre><code>   好的命名能体现出代码的特征，含义或者是用途，让阅读者可以根据名称的含义快速厘清程序的脉络。不同语言中采用的命名形式大相径庭，Java中常用到的命名形式共有三种，既首字母大写的UpperCamelCase，首字母小写的lowerCamelCase以及全部大写的并用下划线分割单词的UPPERCAMELUNSER\_SCORE。通常约定，类一般采用大驼峰命名，方法和局部变量使用小驼峰命名，而大写下划线命名通常是常量和枚举中使用。
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213048603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h1 id="包命名"><a href="#包命名" class="headerlink" title="包命名"></a>包命名</h1><pre><code>   包名统一使用小写“.”点分隔符之间有且仅有一个自然语义的英文单词或者多个单词自然连接到一块（如 springframework，deepspace不需要使用任何分割）。包名统一使用单数形式，如果类命有复数含义，则可以使用复数形式。
+
+   包名的构成可以分为以下几四部分【前缀】 【发起者名】【项目名】【模块名】。常见的前缀可以分为以下几种：
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h1 id="类命名"><a href="#类命名" class="headerlink" title="类命名"></a>类命名</h1><pre><code>   类名使用大驼峰命名形式，类命通常是名词或名词短语，接口名除了用名词和名词短语以外，还可以使用形容词或形容词短语，如Cloneable，Callable等，表示实现该接口的类有某种功能或能力。对于测试类则以它要测试的类开头，以Test结尾，如HashMapTest。
+
+   对于一些特殊特有名词缩写也可以使用全大写命名，比如XMLHttpRequest，不过笔者认为缩写三个字母以内都大写，超过三个字母则按照要给单词算。这个没有标准如阿里巴巴中fastjson用JSONObject作为类命，而google则使用JsonObjectRequest命名，对于这种特殊的缩写，原则是统一就好。
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050220.png"></p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><pre><code>   方法命名采用小驼峰的形式，首字小写，往后的每个单词首字母都要大写。和类名不同的是，方法命名一般为动词或动词短语，与参数或参数名共同组成动宾短语，即动词 + 名词。一个好的函数名一般能通过名字直接获知该函数实现什么样的功能。
+</code></pre>
+<h2 id="返回真伪值的方法"><a href="#返回真伪值的方法" class="headerlink" title="返回真伪值的方法"></a>返回真伪值的方法</h2><p>注：pre- prefix前缀，suf- suffix后缀，alo-alone 单独使用</p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h2 id="用来检查的方法"><a href="#用来检查的方法" class="headerlink" title="用来检查的方法"></a>用来检查的方法</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050311.png"></p>
+<h2 id="按需求才执行的方法"><a href="#按需求才执行的方法" class="headerlink" title="按需求才执行的方法"></a>按需求才执行的方法</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h2 id="异步相关方法"><a href="#异步相关方法" class="headerlink" title="异步相关方法"></a>异步相关方法</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050676.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213049942.png"></p>
+<h2 id="回调方法"><a href="#回调方法" class="headerlink" title="回调方法"></a>回调方法</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h2 id="操作对象生命周期的方法"><a href="#操作对象生命周期的方法" class="headerlink" title="操作对象生命周期的方法"></a>操作对象生命周期的方法</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h2 id="与集合操作相关的方法"><a href="#与集合操作相关的方法" class="headerlink" title="与集合操作相关的方法"></a>与集合操作相关的方法</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h2 id="与数据相关的方法"><a href="#与数据相关的方法" class="headerlink" title="与数据相关的方法"></a>与数据相关的方法</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050176.png"></p>
+<h2 id="成对出现的动词"><a href="#成对出现的动词" class="headerlink" title="成对出现的动词"></a>成对出现的动词</h2><p><img src="https://img-blog.csdnimg.cn/20200218213050672.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/2020021821305079.png"></p>
+<h1 id="变量-常量命名"><a href="#变量-常量命名" class="headerlink" title="变量&amp;常量命名"></a>变量&amp;常量命名</h1><h2 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h2><pre><code>   变量是指在程序运行中可以改变其值的量，包括成员变量和局部变量。变量名由多单词组成时，第一个单词的首字母小写，其后单词的首字母大写，俗称骆驼式命名法（也称驼峰命名法），如 computedValues，index、变量命名时，尽量简短且能清楚的表达变量的作用，命名体现具体的业务含义即可。
+
+   变量名不应以下划线或美元符号开头，尽管这在语法上是允许的。变量名应简短且富于描述。变量名的选用应该易于记忆，即，能够指出其用途。尽量避免单个字符的变量名，除非是一次性的临时变量。pojo中的布尔变量，都不要加is(数据库中的布尔字段全都要加 is\_ 前缀)。
+</code></pre>
+<h2 id="常量命名"><a href="#常量命名" class="headerlink" title="常量命名"></a>常量命名</h2><pre><code>   常量命名CONSTANT\_CASE，一般采用全部大写（作为方法参数时除外），单词间用下划线分割。那么什么是常量呢？
+
+   常量是在作用域内保持不变的值，一般使用final进行修饰。一般分为三种，全局常量（public static final修饰），类内常量（private static final 修饰）以及局部常量（方法内，或者参数中的常量），局部常量比较特殊，通常采用小驼峰命名即可。
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<pre><code>   常量一般都有自己的业务含义,不要害怕长度过长而进行省略或者缩写。如，用户消息缓存过期时间的表示，那种方式更佳清晰，交给你来评判。
+</code></pre>
+<h2 id="通用命名规则"><a href="#通用命名规则" class="headerlink" title="通用命名规则"></a>通用命名规则</h2><ol>
+<li>尽量不要使用拼音；杜绝拼音和英文混用。对于一些通用的表示或者难以用英文描述的可以采用拼音，一旦采用拼音就坚决不能和英文混用。正例：BeiJing， HangZhou 反例：validateCanShu</li>
+<li>命名过程中尽量不要出现特殊的字符，常量除外。</li>
+<li>尽量不要和jdk或者框架中已存在的类重名，也不能使用java中的关键字命名。</li>
+<li>妙用介词，如for(可以用同音的4代替), to(可用同音的2代替), from, with，of等。如类名采用User4RedisDO，方法名getUserInfoFromRedis，convertJson2Map等。</li>
+</ol>
+<h1 id="代码注解"><a href="#代码注解" class="headerlink" title="代码注解"></a>代码注解</h1><h2 id="注解的原则"><a href="#注解的原则" class="headerlink" title="注解的原则"></a>注解的原则</h2><pre><code>   好的命名增加代码阅读性，代码的命名往往有严格的限制。而注解不同，程序员往往可以自由发挥，单并不意味着可以为所欲为之胡作非为。优雅的注解通常要满足三要素。
+</code></pre>
+<ol>
+<li>Nothing is strange 没有注解的代码对于阅读者非常不友好，哪怕代码写的在清除，阅读者至少从心理上会有抵触，更何况代码中往往有许多复杂的逻辑，所以一定要写注解，不仅要记录代码的逻辑，还有说清楚修改的逻辑。</li>
+<li>Less is more 从代码维护角度来讲，代码中的注解一定是精华中的精华。合理清晰的命名能让代码易于理解，对于逻辑简单且命名规范，能够清楚表达代码功能的代码不需要注解。滥用注解会增加额外的负担，更何况大部分都是废话。<img src="https://img-blog.csdnimg.cn/20200218213817463.png"></li>
+<li>Advance with the time 注解应该随着代码的变动而改变，注解表达的信息要与代码中完全一致。通常情况下修改代码后一定要修改注解</li>
+</ol>
+<h2 id="注解格式"><a href="#注解格式" class="headerlink" title="注解格式"></a>注解格式</h2><pre><code>   注解大体上可以分为两种，一种是javadoc注解，另一种是简单注解。javadoc注解可以生成JavaAPI为外部用户提供有效的支持，javadoc注解通常在使用IDEA或者Eclipse等开发工具时都可以自动生成，也支持自定义的注解模板，仅需要对对应的字段进行解释。参与同一项目开发的同学，尽量设置成相同的注解模板。
+</code></pre>
+<h3 id="包注解"><a href="#包注解" class="headerlink" title="包注解"></a>包注解</h3><pre><code>   包注解在工作中往往比较特殊，通过包注解可以快速知悉当前包下代码是用来实现哪些功能，强烈建议工作中加上，尤其是对于一些比较复杂的包，包注解一般在包的根目录下，名称统一为package-info.java。
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213941659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h3 id="类注接"><a href="#类注接" class="headerlink" title="类注接"></a>类注接</h3><p>javadoc注解中，每个类都必须有注解。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050215.png"></p>
+<h3 id="属性注解"><a href="#属性注解" class="headerlink" title="属性注解"></a>属性注解</h3><pre><code>   在每个属性前面必须加上属性注释，通常有一下两种形式，至于怎么选择，你高兴就好，不过一个项目中要保持统一。
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213049986.png"></p>
+<h3 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h3><pre><code>   在每个方法前面必须加上方法注释，对于方法中的每个参数，以及返回值都要有说明。
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050128.png"></p>
+<h3 id="构造方法注释"><a href="#构造方法注释" class="headerlink" title="构造方法注释"></a>构造方法注释</h3><pre><code>   在每个构造方法前面必须加上注释，注释模板如下：
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200218213049989.png"></p>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><pre><code>   而简单注解往往是需要工程师自己定义，在使用注解时应该注意一下几点：
+</code></pre>
+<ol>
+<li>枚举类的各个属性值都要使用注解，枚举可以理解为是常量，通常不会发生改变，通常会被在多个地方引用，对枚举的修改和添加属性通常会带来很大的影响。</li>
+<li>保持排版整洁，不要使用行尾注释；双斜杠和星号之后要用1个空格分隔。</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20200218213050127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21pbmtleXRv,size_16,color_FFFFFF,t_70"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><pre><code>   无论是命名和注解，他们的目的都是为了让代码和工程师进行对话，增强代码的可读性，可维护性。优秀的代码往往能够见名知意，注解往往是对命名的补充和完善。
+</code></pre>
+<!-- 本文转自 [https://blog.csdn.net/minkeyto/article/details/104383244](https://blog.csdn.net/minkeyto/article/details/104383244)，如有侵权，请联系删除。 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yxk17668.github.io/yxk17668/2018/03/10/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" data-id="clvtdw925000cthik70ac7zzf" data-title="Java中的命名规范" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" rel="tag">基础进阶</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/yxk17668/2019/05/16/%E6%8F%90%E5%8D%87%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%EF%BC%9A%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B%E3%80%81%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          提升代码质量：领域模型、设计原则、设计模式
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Apidoc/" rel="tag">Apidoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" rel="tag">Api文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Git-mistake/" rel="tag">Git mistake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/helper-live2d/" rel="tag">helper-live2d</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/spring-session/" rel="tag">spring-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springMVC/" rel="tag">springMVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/yilia/" rel="tag">yilia</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" rel="tag">低代码平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" rel="tag">基础进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" rel="tag">领域模型</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/yxk17668/tags/Apidoc/" style="font-size: 10px;">Apidoc</a> <a href="/yxk17668/tags/Api%E6%96%87%E6%A1%A3/" style="font-size: 10px;">Api文档</a> <a href="/yxk17668/tags/Git/" style="font-size: 15px;">Git</a> <a href="/yxk17668/tags/Git-mistake/" style="font-size: 10px;">Git mistake</a> <a href="/yxk17668/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/yxk17668/tags/helper-live2d/" style="font-size: 10px;">helper-live2d</a> <a href="/yxk17668/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/yxk17668/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/yxk17668/tags/session/" style="font-size: 10px;">session</a> <a href="/yxk17668/tags/spring-session/" style="font-size: 10px;">spring-session</a> <a href="/yxk17668/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/yxk17668/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/yxk17668/tags/yilia/" style="font-size: 15px;">yilia</a> <a href="/yxk17668/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">低代码平台</a> <a href="/yxk17668/tags/%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6/" style="font-size: 15px;">基础进阶</a> <a href="/yxk17668/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/yxk17668/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">架构设计</a> <a href="/yxk17668/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">注解</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 15px;">设计原则</a> <a href="/yxk17668/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 15px;">设计模式</a> <a href="/yxk17668/tags/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">领域模型</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/yxk17668/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/yxk17668/2023/05/16/%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%90%8E%E7%AB%AF%E7%9A%84%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">一种面向后端的微服务低代码平台架构设计</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/08/09/nginx-%E8%A7%A3%E5%86%B3session%E4%B8%80%E8%87%B4%E6%80%A7/">nginx 解决session一致性</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/14/Apidoc%E7%94%9F%E6%88%90Restful-web-Api%E6%96%87%E6%A1%A3/">Apidoc生成Restful web Api文档</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git-Mistake/">Git --changes not staged for commit</a>
+          </li>
+        
+          <li>
+            <a href="/yxk17668/2019/07/10/Git%E5%AE%9E%E7%94%A8%E7%AF%87/">Git实用篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 yxk17668<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/yxk17668/" class="mobile-nav-link">Home</a>
+  
+    <a href="/yxk17668/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/yxk17668/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/yxk17668/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/yxk17668/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
